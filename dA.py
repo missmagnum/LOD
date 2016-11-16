@@ -73,10 +73,10 @@ class dA(object):
                                         dtype=theano.config.floatX) * input
 
     def get_hidden_values(self, input):
-        return T.tanh(T.dot(input, self.W) + self.b)
+        return (T.dot(input, self.W) + self.b)
 
     def get_reconstructed_input(self, hidden):
-        return T.tanh(T.dot(hidden, self.W_prime) + self.b_prime)
+        return (T.dot(hidden, self.W_prime) + self.b_prime)
 
     def get_cost_updates(self, corruption_level, learning_rate):
         tilde_x = self.get_corrupted_input(self.x, corruption_level)
