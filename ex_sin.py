@@ -166,9 +166,9 @@ for mis in missing_percent:
     b_error.append(sum((1-dd_mask)*((dd-gather.gather_out())**2), axis=1).mean())
     mean_error.append(sum((1-available_mask)*((dataset-dataset.mean(axis=0))**2), axis=1).mean())
     knn_error.append(sum((1-available_mask)*((dataset-knn_result)**2), axis=1).mean())
-    plot(mis,b_error[-1],'ro')
-    plot(mis,mean_error[-1],'bo')
-    plot(mis,knn_error[-1],'g*')
+    #plot(mis,b_error[-1],'ro')
+    #plot(mis,mean_error[-1],'bo')
+    #plot(mis,knn_error[-1],'g*')
 
     #### SDA with corruption in training
  
@@ -191,13 +191,13 @@ for mis in missing_percent:
     gather.finetuning()
 
     sdaw.append(sum((1-dd_mask)*((dd-gather.gather_out())**2), axis=1).mean())
-    plot(mis,sdaw[-1],'m+')
+    #plot(mis,sdaw[-1],'m+')
 
 
 tim=time.strftime("%d/%m/%Y")
 result=open('result_{}.dat'.format(tim),'w')
 result.write("mean_error %s\nsda_error %s\nknn_error %s\n2sda %s" % (str(mean_error), str(b_error),str(knn_error),str(sdaw)))
-    
+"""    
 plot(missing_percent,mean_error,'b',label='mean_row')
 plot(missing_percent,knn_error,'g',label='knn' )
 plot(missing_percent,b_error,'r',label='sda[100,20,2]')
@@ -206,8 +206,10 @@ xlabel('corruption percentage')
 ylabel('MSE')
 title('dataset: shifted sin + noise')
 legend(loc=4,prop={'size':9})
+show()
+"""
 print(b_error)
 print(knn_error)
 print(mean_error)
-show()
+
     
