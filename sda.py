@@ -61,7 +61,7 @@ class Sda(object):
             else:
                 layer_input=self.encoder_layers[-1].output
                 
-            act_func=None  #T.arctan
+            act_func=T.tanh  #T.arctan
                 
             self.encoder_layer=perceptron(rng = numpy_rng,
                                           theano_rng=theano_rng,
@@ -120,7 +120,7 @@ class Sda(object):
                 else:
                     act_func = T.nnet.sigmoid
             else:
-                act_func=None
+            act_func=T.tanh
             
             self.decoder_layer=perceptron(rng=numpy_rng,
                                         input=layer_input,
