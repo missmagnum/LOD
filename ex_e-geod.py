@@ -35,7 +35,7 @@ for i in range(dat.shape[1]):
 
 percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
 train, test_set = dataset[:percent] ,dataset[percent:]
-percent_valid = int(train.shape[0] * 0.9)
+percent_valid = int(train.shape[0] * 0.8)
 train_set, valid_set = train[:percent_valid] , train[percent_valid:]
 
 
@@ -68,64 +68,39 @@ for mis in missing_percent:
                       problem = 'regression',
                       available_mask = mask,
                       method = 'adam',
-                      pretraining_epochs = 200,
-                      pretrain_lr = 0.00001,
-                      training_epochs = 200,
-                      finetune_lr = 0.00001,
-                      batch_size = 2,
-                      hidden_size = [780,400,100,50,10,2],
-                      corruption_da = [0.1,0.1,0.2,0.1, 0.1,0.1],
+                      pretraining_epochs = 00,
+                      pretrain_lr = 0.0001,
+                      training_epochs = 100,
+                      finetune_lr = 0.0001,
+                      batch_size = 500,
+                      hidden_size = [25600,100,10],
+                      corruption_da = [0.1,0.1,0.1],
                       dA_initiall = True ,
                       error_known = True )
     
     gather.finetuning()
       
     knn_result = knn(dataset,available_mask)
+
     #########run the result for test
     dd_mask=test_mask
     dd = test_set
+
     
     sda_error.append(sum((1-dd_mask)*(np.abs(dd-gather.gather_out())), axis=1).mean())
     mean_error.append(sum((1-available_mask)*(np.abs(dataset-dataset.mean(axis=0))), axis=1).mean())
     knn_error.append(sum((1-available_mask)*(np.abs(dataset-knn_result)), axis=1).mean())
-    #plot(mis,b_error[-1],'ro')
-    #plot(mis,mean_error[-1],'bo')
-    #plot(mis,knn_error[-1],'g*')
-
-    #### SDA with corruption in training
- 
-   
-    gather=Gather_sda(dataset = test_set*test_mask,
-                      portion_data = data,
-                      problem = 'regression',
-                      available_mask = mask,
-                      method = 'adam',
-                      pretraining_epochs = 100,
-                      pretrain_lr = 0.00001,
-                      training_epochs = 100,
-                      finetune_lr = 0.00001,
-                      batch_size = 10,
-                      hidden_size = [780,400,100,50,2],
-                      corruption_da = [0.1,0.1,0.2,0.1, 0.1],
-                      dA_initiall = True ,
-                      error_known = True )
-    
-    gather.finetuning()
-
-    sdaw.append(sum((1-dd_mask)*(np.abs(dd-gather.gather_out())), axis=1).mean())
-    #plt.plot(mis,sdaw[-1],'m+')
-
+  
 
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result_{}_{}.dat'.format(day,tim),'w')
-result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s\n\n2sda %s" % (str(mean_error), str(sda_error),str(knn_error),str(sdaw)))
+result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()    
 
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )
 plt.plot(missing_percent,sda_error,'--ro',label='sda[800,200,8]')
-plt.plot(missing_percent,sdaw,'--mo',label='sda[1000,200,8]')
 plt.xlabel('corruption percentage')
 plt.ylabel('Mean absolute error')
 plt.title('dataset: diabetes')
@@ -137,4 +112,3 @@ plt.show()
 print(sda_error)
 print(knn_error)
 print(mean_error)
-print(sdaw)

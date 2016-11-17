@@ -122,12 +122,9 @@ class Sda(object):
                 else:
                     act_func = T.nnet.sigmoid
             else:
-<<<<<<< HEAD
-            act_func=activation_function
-=======
-                act_func=T.tanh
->>>>>>> 753b149e6a8195386f1e2f5cd0975a4a379e4a0e
-            
+
+                act_func=activation_function
+
             self.decoder_layer=perceptron(rng=numpy_rng,
                                         input=layer_input,
                                         n_in=input_size,
