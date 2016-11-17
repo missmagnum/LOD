@@ -194,9 +194,11 @@ for mis in missing_percent:
     #plot(mis,sdaw[-1],'m+')
 
 
-tim=time.strftime("%d/%m/%Y")
-result=open('result_{}.dat'.format(tim),'w')
-result.write("mean_error %s\nsda_error %s\nknn_error %s\n2sda %s" % (str(mean_error), str(b_error),str(knn_error),str(sdaw)))
+day=time.strftime("%d-%m-%Y")
+tim=time.strftime("%H-%M")
+result=open('result_{}_{}.dat'.format(day,tim),'w')
+result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s\n\n2sda %s" % (str(mean_error), str(b_error),str(knn_error),str(sdaw)))
+result.close()    
 """    
 plot(missing_percent,mean_error,'b',label='mean_row')
 plot(missing_percent,knn_error,'g',label='knn' )
