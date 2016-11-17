@@ -146,9 +146,9 @@ for mis in missing_percent:
                       problem = 'regression',
                       available_mask = mask,
                       method = 'nes_mom',
-                      pretraining_epochs = 10,
+                      pretraining_epochs = 100,
                       pretrain_lr = 0.0001,
-                      training_epochs = 100,
+                      training_epochs = 200,
                       finetune_lr = 0.0001,
                       batch_size = 100,
                       hidden_size = [100,20,2],
@@ -178,9 +178,9 @@ for mis in missing_percent:
                       problem = 'regression',
                       available_mask = mask,
                       method = 'nes_mom',
-                      pretraining_epochs = 10,
+                      pretraining_epochs = 100,
                       pretrain_lr = 0.0001,
-                      training_epochs = 100,
+                      training_epochs = 200,
                       finetune_lr = 0.0001,
                       batch_size = 100,
                       hidden_size = [100,2],
@@ -197,7 +197,7 @@ for mis in missing_percent:
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result_{}_{}.dat'.format(day,tim),'w')
-result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s\n\n2sda %s" % (str(mean_error), str(b_error),str(knn_error),str(sdaw)))
+result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s\n\n2sda= %s" % (str(mean_error), str(b_error),str(knn_error),str(sdaw)))
 result.close()    
 """    
 plot(missing_percent,mean_error,'b',label='mean_row')
