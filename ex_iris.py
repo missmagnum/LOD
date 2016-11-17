@@ -10,7 +10,7 @@ from knn import knn
 import time
 
  
-dat=np.loadtxt('Iris.csv',skiprows=1,delimiter=',',usecols=(1,2,3,4,5))
+dat=np.loadtxt('Iris.csv',skiprows=1,delimiter=',',usecols=(1,2,3,4))
 
 np.random.shuffle(dat)
 print(dat.shape)
@@ -70,7 +70,7 @@ for mis in missing_percent:
                       pretrain_lr = 0.0001,
                       training_epochs = 100,
                       finetune_lr = 0.0001,
-                      batch_size = 100,
+                      batch_size = 20,
                       hidden_size = [160,50,2],
                       corruption_da = [0.1,0.2,  0.1],
                       dA_initiall = True ,
@@ -86,9 +86,6 @@ for mis in missing_percent:
     sda_error.append(sum((1-dd_mask)*(np.abs(dd-gather.gather_out())), axis=1).mean())
     mean_error.append(sum((1-available_mask)*(np.abs(dataset-dataset.mean(axis=0))), axis=1).mean())
     knn_error.append(sum((1-available_mask)*(np.abs(dataset-knn_result)), axis=1).mean())
-    #plot(mis,b_error[-1],'ro')
-    #plot(mis,mean_error[-1],'bo')
-    #plot(mis,knn_error[-1],'g*')
 
     #### SDA with corruption in training
  
@@ -102,7 +99,7 @@ for mis in missing_percent:
                       pretrain_lr = 0.0001,
                       training_epochs = 100,
                       finetune_lr = 0.0001,
-                      batch_size = 100,
+                      batch_size = 20,
                       hidden_size = [160,50,1],
                       corruption_da = [0.1, 0.1,0.1],
                       dA_initiall = True ,
@@ -111,15 +108,15 @@ for mis in missing_percent:
     gather.finetuning()
 
     sdaw.append(sum((1-dd_mask)*(np.abs(dd-gather.gather_out())), axis=1).mean())
-    #plt.plot(mis,sdaw[-1],'m+')
+
 
 
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result_{}_{}.dat'.format(day,tim),'w')
-result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s\n\n2sda %s" % (str(mean_error), str(sda_error),str(knn_error),str(sdaw)))
+result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s\n\nsdaw= %s" % (str(mean_error), str(sda_error),str(knn_error),str(sdaw)))
 result.close()    
-
+"""
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )
 plt.plot(missing_percent,sda_error,'--ro',label='sda[800,200,8]')
@@ -129,6 +126,7 @@ plt.ylabel('Mean absolute error')
 plt.title('dataset: shifted sin + noise')
 plt.legend(loc=4,prop={'size':9})
 plt.show()
+"""
 
 
 

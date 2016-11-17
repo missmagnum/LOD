@@ -120,7 +120,7 @@ class Sda(object):
                 else:
                     act_func = T.nnet.sigmoid
             else:
-            act_func=T.tanh
+                act_func=T.tanh
             
             self.decoder_layer=perceptron(rng=numpy_rng,
                                         input=layer_input,
