@@ -1,0 +1,1389 @@
+Sample_ID	Fib72 cit	Fib74 cit  	Fib573 cit	Fib591 cit	Fib573 arg	Fib72, 74 arg 	Fib573 arg	Fib591 arg	Complete anti-CCP data
+Sample 1	2790	0	0	567	0	0	0	480	anti-CCP negative
+Sample 2	203	113	0	6771	0	0	0	8487	anti-CCP negative
+Sample 3	941	0	0	306	0	0	0	0	anti-CCP positive
+Sample 4	1392	537	827	509	374	1359	374	501	anti-CCP positive
+Sample 5	2841	0	0	144	251	0	251	219	anti-CCP negative
+Sample 6	0	533	0	0	0	0	0	0	anti-CCP negative
+Sample 7	0	0	0	0	0	343	0	0	anti-CCP negative
+Sample 8	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 9	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 10	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 11	701	9537	523	0	0	0	0	0	anti-CCP positive
+Sample 12	358	1117	19208	2167	0	0	0	0	anti-CCP positive
+Sample 13	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 14	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 15	4713	53681	2123	0	0	0	0	0	anti-CCP positive
+Sample 16	0	0	0	263	0	0	0	277	anti-CCP negative
+Sample 17	1679	1387	0	0	0	1905	0	1583	anti-CCP negative
+Sample 18	1624	976	1514	0	0	0	0	0	anti-CCP positive
+Sample 19	0	15969	19702	1482	0	0	0	522	anti-CCP positive
+Sample 20	2045	940	3776	324	0	2147	0	873	anti-CCP positive
+Sample 21	3912	1651	2443	0	0	0	0	0	anti-CCP positive
+Sample 22	0	1455	3502	1051	313	183	313	306	anti-CCP positive
+Sample 23	0	0	18300	2035	1952	0	1952	0	anti-CCP positive
+Sample 24	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 25	0	0	0	351	0	0	0	380	control
+Sample 26	0	0	0	0	0	0	0	0	control
+Sample 27	184	170	0	1198	0	0	0	846	control
+Sample 28	0	0	539	795	751	0	751	725	control
+Sample 29	0	0	0	0	0	0	0	300	control
+Sample 30	0	0	0	863	0	369	0	397	control
+Sample 31	0	0	0	0	0	0	0	0	control
+Sample 32	0	0	0	0	0	0	0	0	control
+Sample 33	0	0	0	644	0	0	0	521	control
+Sample 34	0	0	0	328	0	0	0	479	control
+Sample 35	0	0	0	593	0	0	0	578	anti-CCP negative
+Sample 36	600	19159	4416	5817	0	241	0	577	anti-CCP positive
+Sample 37	0	0	0	579	0	386	0	367	anti-CCP negative
+Sample 38	0	0	0	499	0	0	0	0	anti-CCP negative
+Sample 39	17903	19712	7233	619	0	722	0	535	anti-CCP positive
+Sample 40	867	4019	3927	3467	0	0	0	0	anti-CCP positive
+Sample 41	0	49978	11078	0	0	0	0	0	anti-CCP positive
+Sample 42	1398	1355	0	766	0	1259	0	565	anti-CCP negative
+Sample 43	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 44	2559	32039	0	1059	0	2707	0	993	anti-CCP positive
+Sample 45	0	0	0	581	0	393	0	660	anti-CCP negative
+Sample 46	0	0	0	432	0	0	0	454	anti-CCP negative
+Sample 47	0	1247	0	0	0	0	0	0	anti-CCP negative
+Sample 48	458	381	647	545	847	673	847	544	anti-CCP negative
+Sample 49	2280	17032	718	1580	1030	224	1030	383	anti-CCP positive
+Sample 50	0	0	0	939	0	0	0	0	anti-CCP negative
+Sample 51	0	0	0	4634	0	0	0	2126	anti-CCP negative
+Sample 52	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 53	88	0	0	333	716	228	716	419	anti-CCP negative
+Sample 54	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 55	0	0	0	512	0	0	0	993	anti-CCP negative
+Sample 56	5135	4368	0	544	0	4798	0	0	anti-CCP negative
+Sample 57	0	0	0	1845	0	0	0	2035	anti-CCP negative
+Sample 58	0	5557	4995	0	0	0	0	0	anti-CCP positive
+Sample 59	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 60	0	0	0	877	0	0	0	0	anti-CCP negative
+Sample 61	0	2626	0	0	0	0	0	0	anti-CCP positive
+Sample 62	0	0	0	289	0	0	0	463	anti-CCP negative
+Sample 63	0	0	0	262	224	0	224	358	anti-CCP negative
+Sample 64	0	0	0	2673	0	0	0	791	anti-CCP negative
+Sample 65	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 66	0	0	0	0	0	0	0	328	anti-CCP negative
+Sample 67	535	265	0	0	0	370	0	0	anti-CCP negative
+Sample 68	0	0	954	0	0	690	0	0	anti-CCP positive
+Sample 69	1371	472	654	0	0	0	0	0	anti-CCP positive
+Sample 70	0	0	13060	3904	0	0	0	0	anti-CCP negative
+Sample 71	413	232	570	505	0	0	0	444	anti-CCP negative
+Sample 72	0	0	1524	0	0	0	0	0	anti-CCP negative
+Sample 73	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 74	4454	3344	0	2405	0	4633	0	4025	anti-CCP negative
+Sample 75	861	0	0	0	0	760	0	0	anti-CCP negative
+Sample 76	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 77	0	0	3637	3484	687	0	687	438	anti-CCP positive
+Sample 78	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 79	1420	1650	5691	2764	0	0	0	0	anti-CCP positive
+Sample 80	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 81	628	0	239	768	552	693	552	795	anti-CCP negative
+Sample 82	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 83	2615	2115	3362	885	1415	2113	1415	1094	anti-CCP positive
+Sample 84	855	562	544	417	801	947	801	607	anti-CCP negative
+Sample 85	800	739	797	704	795	1028	795	776	anti-CCP positive
+Sample 86	0	0	1013	536	0	0	0	0	anti-CCP positive
+Sample 87	439	0	378	607	475	383	475	363	anti-CCP positive
+Sample 88	0	0	0	723	0	0	0	0	anti-CCP negative
+Sample 89	0	0	755	710	0	0	0	0	anti-CCP positive
+Sample 90	0	0	0	1515	0	0	0	0	anti-CCP negative
+Sample 91	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 92	0	0	0	662	0	0	0	455	anti-CCP negative
+Sample 93	0	0	0	615	0	0	0	581	anti-CCP negative
+Sample 94	1791	0	0	0	0	0	0	0	anti-CCP positive
+Sample 95	1897	0	1691	0	0	0	0	0	anti-CCP positive
+Sample 96	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 97	0	3159	399	1210	0	0	0	534	anti-CCP positive
+Sample 98	33053	0	2324	0	4962	0	4962	0	anti-CCP positive
+Sample 99	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 100	899	32544	26864	10704	0	0	0	526	anti-CCP positive
+Sample 101	253	0	803	1989	0	0	0	706	anti-CCP positive
+Sample 102	0	885	7491	1063	0	0	0	293	anti-CCP positive
+Sample 103	0	57992	16818	948	0	496	0	411	anti-CCP positive
+Sample 104	0	0	0	922	0	0	0	0	control
+Sample 105	0	0	0	0	0	0	0	0	control
+Sample 106	0	0	0	864	0	0	0	0	control
+Sample 107	0	0	296	325	252	0	252	0	control
+Sample 108	0	0	0	0	0	0	0	360	control
+Sample 109	0	0	0	0	0	0	0	0	control
+Sample 110	0	0	0	0	0	0	0	0	control
+Sample 111	0	0	0	295	0	0	0	335	control
+Sample 112	0	0	0	382	0	0	0	0	control
+Sample 113	0	0	0	0	0	0	0	0	control
+Sample 114	0	0	0	0	0	0	0	0	control
+Sample 115	0	0	0	0	0	0	0	0	control
+Sample 116	633	638	0	5118	0	673	0	5665	control
+Sample 117	0	0	0	0	0	0	0	0	control
+Sample 118	0	0	0	0	0	0	0	0	control
+Sample 119	0	0	0	0	0	0	0	0	control
+Sample 120	0	0	0	976	0	0	0	0	control
+Sample 121	384	0	0	258	0	0	0	0	control
+Sample 122	0	0	0	0	0	0	0	0	control
+Sample 123	0	0	0	384	0	0	0	449	control
+Sample 124	0	0	0	5488	0	0	0	1073	control
+Sample 125	0	0	0	0	0	0	0	0	control
+Sample 126	0	0	0	989	0	0	0	1415	control
+Sample 127	0	0	532	455	469	0	469	436	control
+Sample 128	0	0	0	478	0	0	0	543	control
+Sample 129	0	0	0	588	0	0	0	309	control
+Sample 130	0	0	0	728	0	0	0	562	control
+Sample 131	0	0	0	1199	0	0	0	355	control
+Sample 132	0	0	0	4383	0	0	0	1161	control
+Sample 133	0	0	0	0	0	0	0	0	control
+Sample 134	0	0	0	891	0	0	0	996	control
+Sample 135	0	0	0	0	0	0	0	0	control
+Sample 136	0	2019	0	2520	0	0	0	605	control
+Sample 137	0	0	0	461	0	0	0	533	control
+Sample 138	0	0	215	256	211	192	211	228	control
+Sample 139	0	0	0	394	0	0	0	0	control
+Sample 140	0	0	0	1183	0	0	0	558	control
+Sample 141	0	0	0	341	0	0	0	0	control
+Sample 142	0	0	0	436	0	0	0	405	control
+Sample 143	0	0	0	405	0	0	0	443	control
+Sample 144	0	0	0	420	0	0	0	518	control
+Sample 145	630	0	0	0	0	831	0	0	control
+Sample 146	0	0	0	421	0	0	0	606	control
+Sample 147	0	0	0	562	0	0	0	609	control
+Sample 148	0	0	0	0	0	0	0	0	control
+Sample 149	0	0	0	483	0	0	0	394	control
+Sample 150	0	0	0	0	0	0	0	0	control
+Sample 151	0	0	0	0	0	0	0	0	control
+Sample 152	281	375	0	1959	888	387	888	685	control
+Sample 153	0	0	0	0	0	0	0	0	control
+Sample 154	0	0	0	680	0	0	0	467	control
+Sample 155	0	0	0	0	0	0	0	0	control
+Sample 156	531	0	661	543	768	593	768	442	anti-CCP negative
+Sample 157	10127	7402	1092	566	562	7576	562	854	anti-CCP positive
+Sample 158	0	57439	39599	57885	0	0	0	0	anti-CCP positive
+Sample 159	1650	2032	2160	1445	1582	1738	1582	856	anti-CCP positive
+Sample 160	683	2957	54993	2060	4030	670	4030	1025	anti-CCP positive
+Sample 161	9761	7631	1739	809	1904	8318	1904	574	anti-CCP negative
+Sample 162	349	0	1166	1110	1242	447	1242	532	anti-CCP negative
+Sample 163	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 164	400	0	0	1003	461	0	461	0	anti-CCP negative
+Sample 165	749	36988	13284	1843	2894	892	2894	0	anti-CCP positive
+Sample 166	807	0	2346	541	2537	0	2537	841	anti-CCP negative
+Sample 167	0	0	0	1504	288	492	288	1097	anti-CCP negative
+Sample 168	0	5561	14946	6083	0	0	0	852	anti-CCP positive
+Sample 169	0	0	0	432	0	0	0	0	anti-CCP negative
+Sample 170	9614	599	1986	699	953	423	953	751	anti-CCP positive
+Sample 171	0	0	0	0	0	0	0	865	anti-CCP positive
+Sample 172	0	0	1233	0	1356	0	1356	0	anti-CCP negative
+Sample 173	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 174	0	0	0	7336	0	0	0	0	anti-CCP positive
+Sample 175	1702	0	0	0	0	0	0	0	anti-CCP negative
+Sample 176	2508	2471	647	1149	0	0	0	0	anti-CCP positive
+Sample 177	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 178	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 179	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 180	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 181	0	6226	0	1397	0	605	0	589	anti-CCP positive
+Sample 182	494	0	3365	4535	0	0	0	848	anti-CCP positive
+Sample 183	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 184	1593	1707	664	0	838	1776	838	619	anti-CCP negative
+Sample 185	0	0	9118	0	2003	0	2003	0	anti-CCP positive
+Sample 186	27307	7889	0	0	0	694	0	0	anti-CCP positive
+Sample 187	334	260	2603	442	0	0	0	470	anti-CCP positive
+Sample 188	542	19615	0	1064	0	466	0	731	anti-CCP positive
+Sample 189	0	0	1566	2132	0	0	0	0	anti-CCP positive
+Sample 190	0	0	695	2430	0	0	0	2782	anti-CCP positive
+Sample 191	0	0	0	422	0	0	0	370	anti-CCP negative
+Sample 192	0	654	0	1053	0	0	0	1306	anti-CCP positive
+Sample 193	0	0	559	2250	566	0	566	456	anti-CCP negative
+Sample 194	0	0	0	2452	0	0	0	372	anti-CCP negative
+Sample 195	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 196	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 197	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 198	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 199	0	1345	929	1279	1020	909	1020	990	anti-CCP negative
+Sample 200	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 201	0	0	0	2052	2639	0	2639	0	anti-CCP negative
+Sample 202	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 203	0	0	543	0	568	0	568	0	anti-CCP negative
+Sample 204	0	0	0	941	0	0	0	550	anti-CCP negative
+Sample 205	12272	50309	0	12442	0	0	0	9061	anti-CCP positive
+Sample 206	0	0	0	1345	0	0	0	3084	anti-CCP negative
+Sample 207	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 208	363	278	550	1330	826	484	826	1052	anti-CCP negative
+Sample 209	0	4955	0	0	0	0	0	0	anti-CCP positive
+Sample 210	1076	952	964	893	1359	1013	1359	675	anti-CCP negative
+Sample 211	4773	3511	0	9060	0	3461	0	4493	anti-CCP positive
+Sample 212	13921	1145	2317	464	0	0	0	0	anti-CCP positive
+Sample 213	0	1714	0	0	0	0	0	0	anti-CCP positive
+Sample 214	1360	868	0	3010	0	514	0	0	anti-CCP positive
+Sample 215	0	0	3457	0	0	0	0	0	anti-CCP positive
+Sample 216	1297	15331	45675	12479	0	0	0	1350	anti-CCP positive
+Sample 217	0	0	0	0	0	409	0	0	anti-CCP negative
+Sample 218	0	0	0	536	0	0	0	0	anti-CCP negative
+Sample 219	938	897	265	1533	0	861	0	0	anti-CCP positive
+Sample 220	34317	285	60789	1249	0	0	0	583	anti-CCP positive
+Sample 221	0	0	15214	0	0	0	0	0	anti-CCP positive
+Sample 222	4510	57276	8783	447	0	0	0	0	anti-CCP positive
+Sample 223	4215	290	0	797	0	0	0	757	anti-CCP positive
+Sample 224	0	0	3401	0	0	0	0	0	anti-CCP positive
+Sample 225	0	0	0	0	0	0	0	0	control
+Sample 226	0	0	0	1925	0	0	0	0	control
+Sample 227	0	0	0	0	0	0	0	490	control
+Sample 228	0	0	0	0	0	0	0	0	control
+Sample 229	0	0	0	595	0	0	0	634	control
+Sample 230	0	0	0	238	0	0	0	141	control
+Sample 231	0	0	0	0	0	0	0	0	control
+Sample 232	0	0	0	0	0	0	0	0	control
+Sample 233	0	0	0	0	0	0	0	0	control
+Sample 234	0	0	0	0	0	0	0	0	control
+Sample 235	0	0	0	0	0	0	0	0	control
+Sample 236	0	0	0	0	0	0	0	0	control
+Sample 237	0	0	0	0	0	0	0	0	control
+Sample 238	0	0	0	724	0	0	0	0	control
+Sample 239	0	0	0	0	0	0	0	0	control
+Sample 240	0	0	908	650	0	0	0	821	control
+Sample 241	0	0	0	0	0	0	0	0	control
+Sample 242	0	0	0	0	0	0	0	0	control
+Sample 243	0	0	0	0	0	0	0	0	control
+Sample 244	0	0	0	398	0	0	0	0	control
+Sample 245	0	0	0	10166	0	0	0	0	control
+Sample 246	0	0	0	0	0	0	0	0	control
+Sample 247	0	0	0	0	0	0	0	0	control
+Sample 248	0	0	0	627	0	0	0	0	control
+Sample 249	0	0	0	0	0	0	0	0	control
+Sample 250	0	0	0	0	0	0	0	0	control
+Sample 251	0	0	0	359	0	0	0	363	control
+Sample 252	0	0	572	902	0	0	0	802	anti-CCP negative
+Sample 253	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 254	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 255	0	0	390	0	552	347	552	0	anti-CCP negative
+Sample 256	0	19955	10232	2966	0	0	0	5192	anti-CCP positive
+Sample 257	0	0	1918	1541	0	0	0	0	anti-CCP positive
+Sample 258	0	221	0	2043	0	260	0	0	anti-CCP negative
+Sample 259	0	7309	0	0	0	0	0	0	anti-CCP positive
+Sample 260	488	10834	5544	783	473	0	473	725	anti-CCP positive
+Sample 261	0	1591	1659	0	0	0	0	0	anti-CCP positive
+Sample 262	466	0	4424	10861	758	0	758	464	anti-CCP positive
+Sample 263	831	364	411	863	378	574	378	0	anti-CCP negative
+Sample 264	569	721	391	1503	354	1530	354	606	anti-CCP negative
+Sample 265	1053	0	0	0	0	0	0	0	anti-CCP negative
+Sample 266	0	0	1316	1290	486	0	486	0	anti-CCP positive
+Sample 267	0	0	0	621	0	0	0	0	anti-CCP negative
+Sample 268	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 269	0	0	371	443	496	0	496	314	anti-CCP negative
+Sample 270	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 271	0	0	0	1267	0	0	0	0	anti-CCP negative
+Sample 272	0	0	288	1906	442	0	442	305	anti-CCP negative
+Sample 273	953	28524	35876	5123	552	459	552	1426	anti-CCP positive
+Sample 274	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 275	390	50028	932	0	0	0	0	0	anti-CCP positive
+Sample 276	1981	0	0	594	0	0	0	697	anti-CCP positive
+Sample 277	0	0	0	1124	0	0	0	782	anti-CCP negative
+Sample 278	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 279	423	0	0	387	0	0	0	283	anti-CCP positive
+Sample 280	0	5701	5670	784	0	0	0	342	anti-CCP positive
+Sample 281	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 282	342	316	17483	4185	0	0	0	820	anti-CCP positive
+Sample 283	0	30343	12590	5266	0	0	0	307	anti-CCP positive
+Sample 284	0	0	0	5040	0	0	0	3568	control
+Sample 285	0	0	0	0	0	0	0	0	control
+Sample 286	0	0	0	0	0	0	0	0	control
+Sample 287	0	0	0	0	0	0	0	0	control
+Sample 288	3791	0	0	0	796	0	796	0	control
+Sample 289	0	0	0	0	0	0	0	0	control
+Sample 290	5506	3484	692	0	1155	4736	1155	506	control
+Sample 291	0	0	0	589	0	0	0	465	control
+Sample 292	0	0	0	488	0	0	0	748	control
+Sample 293	0	0	0	287	0	0	0	229	control
+Sample 294	0	0	0	1628	0	0	0	0	control
+Sample 295	0	0	0	272	0	0	0	0	control
+Sample 296	0	0	485	0	619	0	619	0	control
+Sample 297	0	0	0	364	0	0	0	509	control
+Sample 298	0	0	0	920	0	0	0	910	control
+Sample 299	0	0	0	1114	0	0	0	1037	control
+Sample 300	0	0	0	326	0	0	0	322	control
+Sample 301	0	0	0	0	0	0	0	0	control
+Sample 302	0	0	0	0	0	0	0	0	control
+Sample 303	0	0	731	0	683	0	683	0	control
+Sample 304	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 305	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 306	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 307	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 308	0	0	478	1028	449	0	449	1388	anti-CCP positive
+Sample 309	0	0	1659	3718	1813	0	1813	0	anti-CCP negative
+Sample 310	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 311	0	0	0	434	0	0	0	661	anti-CCP negative
+Sample 312	0	0	0	1425	0	0	0	1760	anti-CCP negative
+Sample 313	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 314	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 315	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 316	0	0	0	635	0	0	0	874	anti-CCP negative
+Sample 317	882	5286	3061	3519	286	1187	286	473	anti-CCP positive
+Sample 318	553	4145	8603	584	500	0	500	0	anti-CCP positive
+Sample 319	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 320	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 321	0	0	0	8802	0	0	0	0	anti-CCP negative
+Sample 322	0	0	455	416	0	0	0	530	anti-CCP negative
+Sample 323	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 324	0	0	481	0	591	0	591	507	anti-CCP negative
+Sample 325	516	4729	56151	12286	0	317	0	521	anti-CCP positive
+Sample 326	0	0	2903	2650	1346	0	1346	1206	anti-CCP positive
+Sample 327	510	0	0	6981	542	0	542	870	anti-CCP negative
+Sample 328	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 329	239	252	197	402	287	322	287	384	anti-CCP negative
+Sample 330	0	0	0	1030	0	0	0	0	anti-CCP negative
+Sample 331	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 332	0	6075	3170	1360	0	0	0	1220	anti-CCP positive
+Sample 333	0	0	0	279	0	0	0	214	anti-CCP negative
+Sample 334	0	0	0	8534	0	0	0	1634	anti-CCP negative
+Sample 335	0	0	671	2418	0	0	0	0	anti-CCP positive
+Sample 336	0	0	695	0	635	0	635	0	anti-CCP negative
+Sample 337	666	14208	27031	2507	0	0	0	367	anti-CCP positive
+Sample 338	0	0	0	307	0	0	0	269	anti-CCP negative
+Sample 339	0	773	588	429	389	0	389	294	anti-CCP positive
+Sample 340	857	289	919	1371	0	0	0	467	anti-CCP positive
+Sample 341	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 342	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 343	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 344	263	287	0	732	0	276	0	481	anti-CCP positive
+Sample 345	0	2987	1990	1362	0	0	0	0	anti-CCP positive
+Sample 346	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 347	164	2564	6014	478	0	102	0	729	anti-CCP positive
+Sample 348	0	0	0	4803	0	0	0	0	anti-CCP negative
+Sample 349	0	4804	0	1678	0	0	0	0	anti-CCP negative
+Sample 350	0	0	8559	2255	0	0	0	0	anti-CCP positive
+Sample 351	0	0	3302	8155	0	0	0	0	anti-CCP positive
+Sample 352	0	0	573	854	623	0	623	684	anti-CCP negative
+Sample 353	0	0	1870	0	2191	0	2191	0	anti-CCP negative
+Sample 354	0	0	0	499	0	0	0	0	anti-CCP negative
+Sample 355	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 356	0	0	0	1060	0	0	0	717	anti-CCP negative
+Sample 357	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 358	0	0	0	674	0	0	0	331	anti-CCP negative
+Sample 359	0	0	0	0	0	0	0	317	anti-CCP negative
+Sample 360	0	0	0	400	0	0	0	319	anti-CCP negative
+Sample 361	0	0	0	1239	0	0	0	0	anti-CCP negative
+Sample 362	0	0	1632	2789	0	0	0	1087	anti-CCP positive
+Sample 363	1558	3008	819	919	0	0	0	0	anti-CCP positive
+Sample 364	0	0	0	413	0	0	0	0	anti-CCP negative
+Sample 365	1971	2056	374	1302	0	0	0	363	anti-CCP positive
+Sample 366	0	18642	5611	21763	0	0	0	0	anti-CCP positive
+Sample 367	0	411	2546	2497	0	0	0	2265	anti-CCP positive
+Sample 368	7823	1803	0	0	0	0	0	0	anti-CCP positive
+Sample 369	0	936	7585	5377	0	0	0	548	anti-CCP positive
+Sample 370	0	0	0	489	0	0	0	283	control
+Sample 371	0	0	0	0	0	0	0	0	control
+Sample 372	0	0	0	0	0	0	0	0	control
+Sample 373	0	0	0	298	0	0	0	0	control
+Sample 374	0	0	0	0	0	0	0	0	control
+Sample 375	0	0	0	0	0	0	0	0	control
+Sample 376	0	0	308	0	564	0	564	0	control
+Sample 377	0	0	0	0	0	0	0	0	control
+Sample 378	0	0	0	0	0	0	0	0	control
+Sample 379	0	0	0	0	0	0	0	0	control
+Sample 380	0	0	0	0	0	0	0	0	control
+Sample 381	0	0	0	434	0	0	0	686	control
+Sample 382	0	0	0	580	0	0	0	0	control
+Sample 383	0	0	0	716	272	0	272	622	control
+Sample 384	0	0	0	0	0	0	0	0	control
+Sample 385	0	0	0	241	0	0	0	0	control
+Sample 386	0	0	0	482	0	0	0	385	control
+Sample 387	0	0	0	544	0	0	0	0	control
+Sample 388	0	0	0	0	0	0	0	0	control
+Sample 389	0	0	0	0	0	0	0	0	control
+Sample 390	0	0	0	0	0	0	0	0	control
+Sample 391	0	0	0	768	0	0	0	851	control
+Sample 392	0	0	0	920	0	0	0	609	control
+Sample 393	0	0	0	0	0	0	0	0	control
+Sample 394	0	0	0	795	0	0	0	0	control
+Sample 395	0	0	0	602	0	0	0	507	control
+Sample 396	0	0	0	519	0	0	0	369	control
+Sample 397	0	0	0	0	0	0	0	0	control
+Sample 398	0	0	265	361	263	303	263	394	control
+Sample 399	178	218	0	413	0	256	0	483	control
+Sample 400	0	0	0	0	0	0	0	0	control
+Sample 401	0	0	0	0	0	0	0	425	control
+Sample 402	0	0	0	0	0	0	0	0	control
+Sample 403	0	0	0	896	0	0	0	353	control
+Sample 404	0	0	0	2980	0	0	0	742	control
+Sample 405	0	0	0	0	0	0	0	153	control
+Sample 406	0	0	0	0	0	0	0	0	control
+Sample 407	0	0	0	0	0	0	0	481	control
+Sample 408	0	0	0	598	0	0	0	0	control
+Sample 409	0	0	0	277	0	0	0	338	control
+Sample 410	544	0	660	8270	0	0	0	1107	anti-CCP negative
+Sample 411	340	8913	5638	0	0	0	0	0	anti-CCP positive
+Sample 412	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 413	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 414	0	0	555	1864	882	0	882	0	anti-CCP negative
+Sample 415	0	0	0	3763	0	0	0	1078	anti-CCP negative
+Sample 416	0	0	3114	0	0	0	0	0	anti-CCP positive
+Sample 417	0	0	241	268	287	0	287	0	anti-CCP negative
+Sample 418	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 419	576	660	337	1005	289	0	289	424	anti-CCP positive
+Sample 420	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 421	0	13612	9624	6845	0	0	0	0	anti-CCP positive
+Sample 422	722	33357	3619	2734	0	0	0	505	anti-CCP positive
+Sample 423	0	1752	6114	0	0	0	0	0	anti-CCP positive
+Sample 424	1035	1472	3106	2654	273	0	273	352	anti-CCP positive
+Sample 425	447	350	665	409	672	1068	672	633	anti-CCP negative
+Sample 426	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 427	513	48472	1590	554	815	0	815	0	anti-CCP positive
+Sample 428	1364	444	401	899	253	0	253	973	anti-CCP positive
+Sample 429	0	0	569	458	0	0	0	0	control
+Sample 430	0	0	0	0	0	0	0	0	control
+Sample 431	0	0	0	0	0	0	0	0	control
+Sample 432	0	0	0	0	0	0	0	0	control
+Sample 433	0	0	0	0	0	0	0	0	control
+Sample 434	0	0	0	0	0	0	0	0	control
+Sample 435	0	0	0	2622	0	0	0	2683	control
+Sample 436	0	0	0	1404	2559	0	2559	1209	control
+Sample 437	611	536	0	818	0	734	0	644	control
+Sample 438	0	0	0	0	0	0	0	0	control
+Sample 439	0	0	0	0	0	0	0	0	control
+Sample 440	0	0	0	2157	0	0	0	472	control
+Sample 441	0	0	0	379	0	0	0	0	control
+Sample 442	0	0	0	733	0	0	0	895	control
+Sample 443	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 444	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 445	0	0	0	856	0	0	0	0	control
+Sample 446	0	0	0	0	0	0	0	0	control
+Sample 447	0	1894	0	0	0	0	0	0	anti-CCP positive
+Sample 448	939	355	0	1405	680	582	680	708	anti-CCP negative
+Sample 449	0	0	0	3442	0	0	0	2921	anti-CCP negative
+Sample 450	893	0	1455	0	746	0	746	0	anti-CCP positive
+Sample 451	0	0	681	275	817	0	817	318	anti-CCP negative
+Sample 452	637	2578	7534	4474	0	362	0	6703	anti-CCP positive
+Sample 453	574	543	775	1396	942	811	942	943	anti-CCP negative
+Sample 454	986	21391	0	0	0	805	0	0	anti-CCP positive
+Sample 455	0	0	313	430	0	0	0	389	anti-CCP negative
+Sample 456	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 457	992	632	681	1332	1069	1025	1069	0	anti-CCP negative
+Sample 458	0	0	26128	10352	0	0	0	0	anti-CCP positive
+Sample 459	4774	2110	4088	632	830	0	830	412	anti-CCP positive
+Sample 460	489	14282	31536	1092	646	0	646	976	anti-CCP positive
+Sample 461	0	0	0	608	0	0	0	0	anti-CCP negative
+Sample 462	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 463	438	275	922	1537	689	384	689	1933	anti-CCP negative
+Sample 464	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 465	0	0	0	4960	0	0	0	6355	anti-CCP negative
+Sample 466	0	0	0	2023	0	0	0	1120	anti-CCP negative
+Sample 467	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 468	4274	0	35808	2582	543	0	543	438	anti-CCP positive
+Sample 469	0	0	0	4753	0	0	0	0	anti-CCP negative
+Sample 470	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 471	0	0	0	920	0	0	0	0	anti-CCP negative
+Sample 472	301	0	558	280	0	316	0	0	anti-CCP negative
+Sample 473	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 474	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 475	0	0	0	1560	544	0	544	785	anti-CCP negative
+Sample 476	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 477	6083	7554	4195	0	499	0	499	0	anti-CCP positive
+Sample 478	2915	2380	551	624	676	2842	676	649	anti-CCP negative
+Sample 479	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 480	0	0	0	9315	0	0	0	0	anti-CCP negative
+Sample 481	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 482	1228	759	0	863	745	654	745	1318	anti-CCP negative
+Sample 483	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 484	1009	0	0	0	0	0	0	0	anti-CCP negative
+Sample 485	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 486	0	3495	2821	1038	449	0	449	875	anti-CCP positive
+Sample 487	781	5855	0	0	0	0	0	0	anti-CCP positive
+Sample 488	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 489	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 490	0	968	0	0	0	0	0	0	anti-CCP negative
+Sample 491	0	216	277	644	343	0	343	579	anti-CCP negative
+Sample 492	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 493	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 494	930	0	0	406	0	0	0	466	anti-CCP negative
+Sample 495	0	0	338	959	419	0	419	748	anti-CCP negative
+Sample 496	0	0	385	547	415	0	415	522	anti-CCP negative
+Sample 497	2153	295	746	680	0	177	0	421	anti-CCP positive
+Sample 498	0	0	0	846	0	0	0	572	anti-CCP negative
+Sample 499	0	0	0	333	0	0	0	280	anti-CCP negative
+Sample 500	0	0	0	7488	0	0	0	0	anti-CCP negative
+Sample 501	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 502	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 503	0	0	441	753	0	0	0	759	anti-CCP negative
+Sample 504	0	0	0	489	0	0	0	450	anti-CCP negative
+Sample 505	0	0	31989	21281	0	0	0	0	anti-CCP positive
+Sample 506	0	0	0	1341	0	0	0	791	anti-CCP positive
+Sample 507	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 508	227	293	388	0	420	0	420	527	anti-CCP negative
+Sample 509	0	10084	5230	0	0	0	0	0	anti-CCP positive
+Sample 510	0	0	0	605	0	0	0	426	anti-CCP negative
+Sample 511	542	0	0	0	0	0	0	0	anti-CCP negative
+Sample 512	0	0	485	661	687	0	687	567	anti-CCP negative
+Sample 513	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 514	0	0	433	378	0	0	0	316	anti-CCP negative
+Sample 515	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 516	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 517	2207	2594	1042	1702	994	3025	994	1554	anti-CCP negative
+Sample 518	0	0	2250	600	0	0	0	0	anti-CCP positive
+Sample 519	0	0	468	776	316	0	316	948	anti-CCP negative
+Sample 520	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 521	0	0	0	2427	0	0	0	2166	anti-CCP positive
+Sample 522	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 523	0	0	603	473	635	0	635	432	anti-CCP negative
+Sample 524	0	0	0	10991	0	0	0	1465	anti-CCP negative
+Sample 525	608	447	654	0	0	678	0	0	anti-CCP negative
+Sample 526	0	0	535	517	401	0	401	777	anti-CCP negative
+Sample 527	0	0	1281	0	0	0	0	0	anti-CCP positive
+Sample 528	0	2929	47451	7884	0	0	0	0	anti-CCP positive
+Sample 529	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 530	489	424	0	0	0	418	0	0	anti-CCP negative
+Sample 531	0	0	482	866	400	0	400	717	anti-CCP positive
+Sample 532	455	727	11685	0	0	0	0	0	anti-CCP positive
+Sample 533	0	4427	32831	6322	581	669	581	822	anti-CCP positive
+Sample 534	0	0	0	4402	0	0	0	7388	anti-CCP negative
+Sample 535	0	0	0	634	0	0	0	687	anti-CCP negative
+Sample 536	0	0	0	409	0	0	0	319	anti-CCP negative
+Sample 537	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 538	0	0	0	1835	0	0	0	0	anti-CCP negative
+Sample 539	467	351	0	959	0	0	0	669	anti-CCP negative
+Sample 540	7071	20464	0	557	0	0	0	622	anti-CCP positive
+Sample 541	0	22253	28856	4687	0	0	0	0	anti-CCP positive
+Sample 542	0	0	981	589	885	0	885	418	anti-CCP positive
+Sample 543	0	0	0	0	1978	0	1978	0	anti-CCP negative
+Sample 544	0	0	0	2577	0	0	0	678	anti-CCP negative
+Sample 545	2072	1638	0	0	0	1992	0	0	anti-CCP negative
+Sample 546	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 547	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 548	0	2382	56381	6134	0	0	0	1992	anti-CCP positive
+Sample 549	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 550	0	0	0	3162	0	0	0	0	anti-CCP negative
+Sample 551	0	0	0	536	0	0	0	961	anti-CCP negative
+Sample 552	0	0	0	2243	1071	0	1071	2004	anti-CCP negative
+Sample 553	15760	13053	1910	0	0	0	0	0	anti-CCP positive
+Sample 554	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 555	0	0	0	3795	0	0	0	1091	anti-CCP negative
+Sample 556	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 557	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 558	1019	1000	792	955	1008	1317	1008	1108	anti-CCP negative
+Sample 559	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 560	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 561	0	0	0	22486	0	0	0	1639	anti-CCP negative
+Sample 562	0	0	366	400	521	0	521	286	anti-CCP negative
+Sample 563	2079	0	1386	1006	2006	2597	2006	1158	anti-CCP negative
+Sample 564	0	0	419	0	480	0	480	0	anti-CCP negative
+Sample 565	2398	0	0	961	0	0	0	1456	anti-CCP negative
+Sample 566	0	5659	5947	1436	0	0	0	594	anti-CCP positive
+Sample 567	182	179	319	403	390	317	390	0	anti-CCP negative
+Sample 568	0	543	29161	1848	0	0	0	781	anti-CCP positive
+Sample 569	0	0	6358	0	4238	0	4238	0	anti-CCP positive
+Sample 570	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 571	849	558	19136	4196	509	0	509	459	anti-CCP positive
+Sample 572	0	1240	4562	0	378	0	378	0	anti-CCP positive
+Sample 573	0	0	5901	616	0	0	0	0	anti-CCP positive
+Sample 574	0	0	4071	1664	0	0	0	966	anti-CCP positive
+Sample 575	0	0	0	1461	0	0	0	2526	anti-CCP negative
+Sample 576	0	0	492	1009	514	0	514	644	anti-CCP negative
+Sample 577	0	2372	1180	0	0	0	0	0	anti-CCP positive
+Sample 578	0	0	0	193	0	0	0	178	anti-CCP negative
+Sample 579	0	0	0	4077	0	0	0	0	anti-CCP negative
+Sample 580	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 581	1976	49597	4196	0	0	0	0	0	anti-CCP positive
+Sample 582	2934	45997	1078	931	0	0	0	687	anti-CCP positive
+Sample 583	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 584	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 585	5099	0	1279	0	0	0	0	0	anti-CCP positive
+Sample 586	57715	314	0	509	0	0	0	0	anti-CCP positive
+Sample 587	56063	45589	0	0	0	0	0	0	anti-CCP positive
+Sample 588	4166	3099	0	0	0	3301	0	0	anti-CCP negative
+Sample 589	9318	37566	38377	20492	0	0	0	0	anti-CCP positive
+Sample 590	790	1435	35657	33592	2131	274	2131	698	anti-CCP positive
+Sample 591	564	656	583	455	0	0	0	0	anti-CCP positive
+Sample 592	1082	0	807	1263	871	400	871	686	anti-CCP positive
+Sample 593	0	0	0	2567	0	0	0	2832	anti-CCP positive
+Sample 594	0	220	0	460	0	0	0	399	anti-CCP positive
+Sample 595	357	0	826	1131	0	0	0	1056	anti-CCP positive
+Sample 596	0	1013	5570	708	0	0	0	0	anti-CCP positive
+Sample 597	4661	2467	4383	4217	0	0	0	0	anti-CCP positive
+Sample 598	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 599	2667	56744	763	1057	0	0	0	0	anti-CCP positive
+Sample 600	0	0	0	533	0	0	0	388	anti-CCP negative
+Sample 601	1480	6449	507	437	0	0	0	370	anti-CCP positive
+Sample 602	0	10991	0	0	0	0	0	0	anti-CCP positive
+Sample 603	0	0	352	638	0	0	0	514	anti-CCP positive
+Sample 604	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 605	0	411	0	1058	0	0	0	494	anti-CCP positive
+Sample 606	0	0	0	4143	0	0	0	0	anti-CCP positive
+Sample 607	0	0	639	627	0	322	0	0	anti-CCP negative
+Sample 608	0	0	0	685	0	0	0	388	anti-CCP negative
+Sample 609	0	0	0	1215	0	0	0	411	anti-CCP negative
+Sample 610	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 611	0	33197	3234	3262	0	0	0	0	anti-CCP positive
+Sample 612	0	0	15501	4572	0	0	0	0	anti-CCP positive
+Sample 613	0	18811	1108	1823	0	0	0	615	anti-CCP positive
+Sample 614	0	0	0	785	0	0	0	524	anti-CCP negative
+Sample 615	0	0	3136	0	0	0	0	0	anti-CCP positive
+Sample 616	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 617	528	6740	60044	32882	0	0	0	607	anti-CCP positive
+Sample 618	0	0	0	848	0	0	0	0	anti-CCP negative
+Sample 619	731	838	6557	1228	0	605	0	1006	anti-CCP positive
+Sample 620	15427	0	4433	0	0	0	0	0	anti-CCP positive
+Sample 621	0	0	317	402	0	0	0	354	anti-CCP positive
+Sample 622	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 623	0	0	899	0	0	0	0	0	anti-CCP negative
+Sample 624	0	0	0	1181	0	0	0	250	control
+Sample 625	0	0	0	444	0	0	0	0	control
+Sample 626	0	0	0	735	0	0	0	705	control
+Sample 627	0	0	0	452	0	0	0	448	control
+Sample 628	1026	989	0	0	0	0	0	0	control
+Sample 629	0	0	0	307	0	0	0	343	control
+Sample 630	0	0	0	337	0	0	0	0	control
+Sample 631	0	0	0	475	0	0	0	543	control
+Sample 632	0	0	0	0	0	0	0	0	control
+Sample 633	0	0	0	651	0	0	0	440	control
+Sample 634	0	0	0	812	0	0	0	0	control
+Sample 635	0	0	0	239	0	0	0	246	control
+Sample 636	0	0	0	659	0	0	0	305	control
+Sample 637	0	0	0	0	0	0	0	0	control
+Sample 638	424	428	310	475	374	604	374	0	control
+Sample 639	0	0	0	0	0	0	0	0	control
+Sample 640	0	0	0	0	0	0	0	0	control
+Sample 641	0	0	0	0	0	0	0	0	control
+Sample 642	0	0	0	0	0	0	0	0	control
+Sample 643	0	0	0	0	0	0	0	0	control
+Sample 644	533	475	0	0	0	553	0	0	control
+Sample 645	0	0	228	438	302	0	302	313	control
+Sample 646	0	0	0	782	0	0	0	528	control
+Sample 647	0	0	0	0	0	0	0	0	control
+Sample 648	0	0	0	0	0	0	0	0	control
+Sample 649	0	0	0	0	0	0	0	0	control
+Sample 650	0	1896	0	425	0	335	0	0	control
+Sample 651	0	0	0	725	0	0	0	0	control
+Sample 652	344	256	0	2027	0	404	0	1900	control
+Sample 653	0	477	0	0	0	0	0	0	control
+Sample 654	0	0	649	1445	1318	0	1318	0	control
+Sample 655	0	0	0	1086	0	0	0	0	control
+Sample 656	0	0	0	2097	0	0	0	0	control
+Sample 657	0	0	0	538	0	0	0	1001	control
+Sample 658	0	0	0	0	0	0	0	0	control
+Sample 659	0	0	0	400	0	0	0	284	control
+Sample 660	0	0	0	1776	0	0	0	410	control
+Sample 661	335	0	568	1225	688	368	688	753	control
+Sample 662	0	0	0	0	0	0	0	0	control
+Sample 663	0	0	481	0	691	0	691	0	control
+Sample 664	0	0	0	0	0	0	0	2037	control
+Sample 665	0	0	0	0	0	0	0	0	control
+Sample 666	0	0	0	1555	0	0	0	1691	control
+Sample 667	0	0	0	528	0	0	0	0	control
+Sample 668	0	0	0	813	0	0	0	738	control
+Sample 669	0	0	0	0	0	0	0	0	control
+Sample 670	0	295	0	543	0	0	0	604	control
+Sample 671	0	0	0	336	0	0	0	0	control
+Sample 672	0	0	0	331	0	0	0	448	control
+Sample 673	0	0	0	1632	0	0	0	779	control
+Sample 674	0	0	0	481	0	0	0	0	control
+Sample 675	0	0	0	1148	0	0	0	378	control
+Sample 676	0	0	0	793	688	0	688	590	control
+Sample 677	0	0	0	1002	0	0	0	798	control
+Sample 678	0	0	0	0	0	0	0	0	control
+Sample 679	0	0	0	0	0	0	0	0	control
+Sample 680	0	0	0	955	0	0	0	269	control
+Sample 681	0	0	0	696	0	0	0	469	control
+Sample 682	0	0	0	433	0	0	0	536	control
+Sample 683	604	485	0	0	0	0	0	0	control
+Sample 684	0	0	0	0	0	0	0	0	control
+Sample 685	0	0	0	0	0	0	0	0	control
+Sample 686	0	0	0	405	0	0	0	0	control
+Sample 687	0	0	0	2497	0	0	0	0	control
+Sample 688	0	0	0	0	0	0	0	0	control
+Sample 689	0	0	0	0	0	0	0	0	control
+Sample 690	0	0	0	641	0	0	0	0	control
+Sample 691	0	0	0	0	0	0	0	0	control
+Sample 692	0	0	0	0	0	0	0	0	control
+Sample 693	0	0	0	0	0	0	0	0	control
+Sample 694	0	0	0	362	0	0	0	0	control
+Sample 695	0	340	9227	15184	0	0	0	790	control
+Sample 696	0	0	0	0	0	0	0	0	control
+Sample 697	0	0	0	0	0	0	0	0	control
+Sample 698	0	0	0	0	0	0	0	0	control
+Sample 699	0	0	0	379	0	0	0	281	control
+Sample 700	0	0	0	0	0	0	0	0	control
+Sample 701	0	0	0	680	0	0	0	0	control
+Sample 702	0	0	1258	0	1363	0	1363	0	control
+Sample 703	0	0	0	916	0	0	0	0	control
+Sample 704	0	0	0	0	0	0	0	0	control
+Sample 705	1897	1453	0	339	0	2153	0	0	control
+Sample 706	0	0	0	0	0	0	0	0	control
+Sample 707	0	0	0	351	0	0	0	589	control
+Sample 708	0	0	0	639	0	0	0	0	control
+Sample 709	0	0	0	1189	0	0	0	569	control
+Sample 710	0	0	0	1016	0	0	0	1089	control
+Sample 711	0	0	0	0	0	0	0	0	control
+Sample 712	0	0	0	0	0	0	0	0	control
+Sample 713	0	0	0	436	0	0	0	394	control
+Sample 714	0	0	0	0	0	0	0	0	control
+Sample 715	0	0	0	331	0	0	0	247	control
+Sample 716	0	0	0	453	0	0	0	0	control
+Sample 717	0	0	0	519	0	0	0	0	control
+Sample 718	0	0	0	1140	0	0	0	1318	control
+Sample 719	0	0	0	0	0	0	0	0	control
+Sample 720	0	0	0	0	0	0	0	0	control
+Sample 721	0	0	0	1097	0	0	0	0	control
+Sample 722	0	0	0	352	0	0	0	411	control
+Sample 723	0	0	0	0	0	0	0	0	control
+Sample 724	0	0	0	0	0	0	0	0	control
+Sample 725	0	0	0	0	0	0	0	0	control
+Sample 726	0	0	0	611	0	0	0	0	control
+Sample 727	0	0	0	0	0	0	0	0	control
+Sample 728	0	0	0	2920	0	0	0	0	control
+Sample 729	0	0	0	0	0	0	0	0	control
+Sample 730	238	0	0	0	0	0	0	0	control
+Sample 731	0	0	0	0	0	0	0	0	control
+Sample 732	0	0	0	0	0	0	0	0	control
+Sample 733	0	0	0	0	0	0	0	0	control
+Sample 734	0	0	0	0	0	0	0	0	control
+Sample 735	0	0	0	454	0	0	0	0	control
+Sample 736	0	0	722	449	0	0	0	380	control
+Sample 737	0	0	0	0	0	0	0	0	control
+Sample 738	0	0	0	0	0	0	0	0	control
+Sample 739	418	392	0	0	1012	0	1012	0	control
+Sample 740	0	0	0	0	0	0	0	0	control
+Sample 741	0	0	0	0	0	0	0	0	control
+Sample 742	0	0	0	1037	0	0	0	471	control
+Sample 743	0	0	0	3454	0	0	0	0	control
+Sample 744	0	0	0	0	0	0	0	0	control
+Sample 745	0	0	0	0	0	0	0	0	control
+Sample 746	0	0	0	0	0	0	0	0	control
+Sample 747	0	0	0	0	0	0	0	0	control
+Sample 748	1098	0	887	3032	0	0	0	0	anti-CCP negative
+Sample 749	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 750	0	0	0	483	0	0	0	0	anti-CCP negative
+Sample 751	0	0	0	3359	0	0	0	0	anti-CCP negative
+Sample 752	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 753	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 754	0	0	0	547	0	148	0	422	anti-CCP negative
+Sample 755	0	0	0	1876	0	0	0	0	anti-CCP negative
+Sample 756	246	0	0	181	328	0	328	203	anti-CCP negative
+Sample 757	2130	1744	698	0	783	1788	783	0	anti-CCP negative
+Sample 758	458	288	1116	492	1379	567	1379	452	anti-CCP negative
+Sample 759	3924	0	0	0	0	0	0	0	anti-CCP positive
+Sample 760	0	0	0	1544	231	0	231	342	anti-CCP negative
+Sample 761	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 762	0	0	2705	0	0	0	0	0	anti-CCP positive
+Sample 763	0	3498	0	0	0	0	0	0	anti-CCP positive
+Sample 764	0	0	984	2559	0	0	0	2731	anti-CCP negative
+Sample 765	1411	0	838	771	729	0	729	745	anti-CCP positive
+Sample 766	2274	1615	0	0	0	1519	0	0	control
+Sample 767	0	0	0	0	0	0	0	0	control
+Sample 768	0	0	0	366	0	0	0	0	control
+Sample 769	0	0	0	838	0	0	0	0	control
+Sample 770	0	0	0	5856	0	0	0	0	anti-CCP negative
+Sample 771	0	0	0	4829	0	0	0	0	anti-CCP negative
+Sample 772	0	0	0	1147	0	0	0	0	anti-CCP negative
+Sample 773	0	0	0	1715	0	0	0	0	anti-CCP negative
+Sample 774	0	0	0	1302	0	0	0	0	anti-CCP negative
+Sample 775	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 776	0	0	0	2411	0	0	0	0	anti-CCP negative
+Sample 777	1971	1530	2635	6039	3108	1478	3108	3789	anti-CCP negative
+Sample 778	0	0	0	989	0	0	0	0	anti-CCP negative
+Sample 779	0	0	0	0	423	0	423	0	anti-CCP negative
+Sample 780	0	0	0	13725	0	0	0	0	anti-CCP negative
+Sample 781	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 782	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 783	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 784	5349	3070	889	307	331	530	331	254	anti-CCP positive
+Sample 785	212	170	273	306	351	374	351	599	anti-CCP negative
+Sample 786	1187	821	857	921	905	1604	905	1362	anti-CCP negative
+Sample 787	0	0	0	0	0	0	0	278	anti-CCP negative
+Sample 788	0	0	0	0	0	0	0	363	anti-CCP negative
+Sample 789	0	0	0	957	0	0	0	0	anti-CCP negative
+Sample 790	0	0	0	0	315	0	315	0	anti-CCP negative
+Sample 791	1879	0	545	0	0	0	0	0	anti-CCP negative
+Sample 792	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 793	5741	27349	665	725	729	447	729	566	anti-CCP positive
+Sample 794	884	1120	0	0	0	0	0	0	anti-CCP negative
+Sample 795	0	0	0	0	365	0	365	0	anti-CCP negative
+Sample 796	275	0	196	225	469	560	469	363	anti-CCP negative
+Sample 797	0	0	392	244	574	338	574	265	anti-CCP negative
+Sample 798	0	0	429	327	424	0	424	0	anti-CCP negative
+Sample 799	186	0	410	469	414	0	414	311	anti-CCP negative
+Sample 800	1301	755	472	1915	799	919	799	482	anti-CCP negative
+Sample 801	438	459	253	667	336	719	336	856	anti-CCP negative
+Sample 802	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 803	0	0	663	0	0	0	0	0	anti-CCP negative
+Sample 804	0	2600	1311	0	0	0	0	0	anti-CCP positive
+Sample 805	0	0	0	342	0	0	0	0	anti-CCP negative
+Sample 806	338	0	1647	0	1477	0	1477	0	anti-CCP positive
+Sample 807	623	681	5381	1016	0	0	0	0	anti-CCP positive
+Sample 808	286	463	1592	877	0	0	0	584	anti-CCP positive
+Sample 809	0	6266	916	0	0	0	0	0	anti-CCP positive
+Sample 810	0	4410	27351	2419	0	0	0	0	anti-CCP positive
+Sample 811	687	4874	6531	670	390	379	390	641	anti-CCP positive
+Sample 812	0	0	0	0	0	0	0	0	control
+Sample 813	0	0	0	423	0	0	0	440	control
+Sample 814	0	0	0	0	0	0	0	0	control
+Sample 815	0	0	0	536	0	0	0	0	control
+Sample 816	0	0	0	580	0	0	0	412	control
+Sample 817	0	0	0	0	0	0	0	0	control
+Sample 818	0	0	0	0	0	0	0	0	control
+Sample 819	0	0	1349	0	1891	0	1891	0	anti-CCP negative
+Sample 820	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 821	444	634	0	0	0	897	0	0	anti-CCP negative
+Sample 822	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 823	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 824	0	904	0	0	0	0	0	0	anti-CCP positive
+Sample 825	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 826	0	0	420	1738	402	0	402	413	anti-CCP negative
+Sample 827	151	221	970	0	715	165	715	0	anti-CCP negative
+Sample 828	0	0	1163	0	0	0	0	0	anti-CCP positive
+Sample 829	0	0	0	1682	0	0	0	0	anti-CCP negative
+Sample 830	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 831	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 832	0	523	1074	559	543	0	543	551	anti-CCP positive
+Sample 833	0	0	914	0	0	0	0	0	anti-CCP positive
+Sample 834	0	0	0	0	413	0	413	0	anti-CCP negative
+Sample 835	0	0	0	325	0	0	0	401	anti-CCP negative
+Sample 836	5913	4796	6776	16288	795	545	795	0	anti-CCP positive
+Sample 837	438	0	543	531	629	454	629	410	anti-CCP negative
+Sample 838	0	0	0	330	0	0	0	0	anti-CCP negative
+Sample 839	0	0	372	0	451	0	451	453	anti-CCP negative
+Sample 840	400	0	428	454	872	636	872	428	anti-CCP negative
+Sample 841	0	0	0	1873	0	0	0	0	anti-CCP negative
+Sample 842	1123	49708	25889	392	868	544	868	521	anti-CCP positive
+Sample 843	0	771	390	0	583	419	583	1002	anti-CCP negative
+Sample 844	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 845	0	0	0	426	0	0	0	457	anti-CCP negative
+Sample 846	0	0	0	0	0	0	0	1519	anti-CCP negative
+Sample 847	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 848	1997	40762	11315	7840	0	0	0	7465	anti-CCP positive
+Sample 849	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 850	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 851	0	0	0	280	0	0	0	266	anti-CCP negative
+Sample 852	0	0	1439	1420	0	0	0	0	anti-CCP positive
+Sample 853	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 854	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 855	0	1269	0	0	0	0	0	0	anti-CCP positive
+Sample 856	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 857	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 858	4612	17243	0	0	0	0	0	0	anti-CCP positive
+Sample 859	0	5461	1898	0	0	0	0	0	anti-CCP positive
+Sample 860	4346	0	4247	634	0	0	0	0	anti-CCP positive
+Sample 861	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 862	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 863	0	39219	0	0	0	0	0	0	anti-CCP positive
+Sample 864	0	0	2040	0	2241	0	2241	0	anti-CCP negative
+Sample 865	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 866	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 867	0	0	2283	5251	0	0	0	426	anti-CCP positive
+Sample 868	0	765	1526	0	0	0	0	0	anti-CCP positive
+Sample 869	0	0	0	1816	0	0	0	0	anti-CCP negative
+Sample 870	0	448	264	1093	168	0	168	407	anti-CCP positive
+Sample 871	4066	27446	49521	42676	10589	463	10589	0	anti-CCP positive
+Sample 872	0	40466	18725	0	0	0	0	0	anti-CCP positive
+Sample 873	0	0	0	2303	0	0	0	803	control
+Sample 874	0	0	0	350	0	0	0	435	control
+Sample 875	0	0	0	230	0	0	0	283	control
+Sample 876	0	0	0	0	0	0	0	0	control
+Sample 877	0	0	0	0	0	0	0	0	control
+Sample 878	0	0	0	0	0	0	0	0	control
+Sample 879	0	0	0	0	0	0	0	0	control
+Sample 880	0	0	0	0	0	0	0	0	control
+Sample 881	0	0	798	662	1231	0	1231	936	control
+Sample 882	0	0	0	0	0	0	0	0	control
+Sample 883	0	0	0	1300	0	0	0	1592	control
+Sample 884	0	0	0	752	0	0	0	0	control
+Sample 885	581	442	0	1859	0	472	0	0	control
+Sample 886	0	0	0	0	0	0	0	0	control
+Sample 887	0	0	0	516	0	0	0	0	control
+Sample 888	0	0	0	220	0	0	0	276	control
+Sample 889	0	0	0	410	0	0	0	309	control
+Sample 890	0	0	0	370	0	0	0	407	control
+Sample 891	486	479	0	0	966	415	966	0	control
+Sample 892	0	0	0	326	0	0	0	0	control
+Sample 893	0	0	0	806	0	0	0	0	control
+Sample 894	0	0	0	1582	0	0	0	0	control
+Sample 895	0	0	0	1396	0	0	0	0	control
+Sample 896	0	0	0	0	0	0	0	0	control
+Sample 897	0	0	0	258	350	0	350	372	anti-CCP negative
+Sample 898	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 899	0	0	0	1106	0	0	0	0	anti-CCP positive
+Sample 900	0	0	0	1299	0	0	0	0	anti-CCP negative
+Sample 901	0	0	0	977	0	0	0	788	anti-CCP negative
+Sample 902	0	0	0	5481	0	0	0	7852	anti-CCP negative
+Sample 903	0	2724	0	0	0	0	0	0	anti-CCP positive
+Sample 904	0	0	0	13698	0	0	0	0	anti-CCP negative
+Sample 905	0	0	0	6077	0	0	0	0	anti-CCP negative
+Sample 906	0	0	0	14130	0	0	0	769	anti-CCP negative
+Sample 907	2732	0	0	1344	0	0	0	0	anti-CCP positive
+Sample 908	0	755	1966	0	0	0	0	0	anti-CCP positive
+Sample 909	0	0	0	4889	0	0	0	0	anti-CCP positive
+Sample 910	292	167	372	824	366	394	366	522	anti-CCP negative
+Sample 911	598	621	444	593	844	897	844	538	anti-CCP negative
+Sample 912	1085	659	679	680	707	1506	707	1159	anti-CCP negative
+Sample 913	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 914	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 915	1038	1252	0	0	0	1802	0	0	anti-CCP negative
+Sample 916	536	514	1002	661	372	477	372	686	anti-CCP positive
+Sample 917	3109	3992	873	2516	1558	7995	1558	2150	anti-CCP negative
+Sample 918	0	236	0	0	0	0	0	0	anti-CCP negative
+Sample 919	0	782	0	1356	0	0	0	873	anti-CCP negative
+Sample 920	356	1188	0	0	0	0	0	0	anti-CCP negative
+Sample 921	0	3569	4001	0	0	0	0	0	anti-CCP positive
+Sample 922	559	999	538	252	363	378	363	678	anti-CCP positive
+Sample 923	0	0	1269	0	0	0	0	0	anti-CCP positive
+Sample 924	0	0	417	1197	417	0	417	1173	anti-CCP negative
+Sample 925	2575	1597	1249	1105	1601	1585	1601	1038	anti-CCP negative
+Sample 926	0	0	0	817	270	0	270	1324	anti-CCP negative
+Sample 927	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 928	0	0	319	657	376	0	376	548	anti-CCP negative
+Sample 929	0	0	1659	1818	2084	0	2084	2105	anti-CCP negative
+Sample 930	0	0	3163	941	0	0	0	0	anti-CCP positive
+Sample 931	0	0	9666	2508	0	0	0	0	anti-CCP positive
+Sample 932	700	1518	0	0	563	948	563	801	anti-CCP negative
+Sample 933	0	0	406	584	488	387	488	952	anti-CCP negative
+Sample 934	0	0	476	0	566	0	566	0	anti-CCP positive
+Sample 935	1970	4096	1101	2619	270	0	270	0	anti-CCP positive
+Sample 936	0	0	0	0	1456	1010	1456	0	anti-CCP negative
+Sample 937	436	0	500	333	528	0	528	277	anti-CCP negative
+Sample 938	1006	1888	1220	1202	998	1378	998	0	anti-CCP positive
+Sample 939	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 940	2152	8697	16028	1337	0	0	0	0	anti-CCP positive
+Sample 941	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 942	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 943	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 944	185	291	1061	402	0	0	0	0	anti-CCP positive
+Sample 945	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 946	0	0	762	1783	0	0	0	0	anti-CCP positive
+Sample 947	0	0	0	239	0	0	0	0	anti-CCP negative
+Sample 948	0	0	662	0	423	0	423	0	anti-CCP negative
+Sample 949	0	3169	0	0	0	0	0	0	anti-CCP positive
+Sample 950	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 951	369	20439	0	392	0	0	0	0	anti-CCP positive
+Sample 952	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 953	0	0	0	552	0	0	0	476	anti-CCP negative
+Sample 954	0	222	0	0	0	0	0	0	anti-CCP negative
+Sample 955	0	677	0	386	0	0	0	425	anti-CCP positive
+Sample 956	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 957	209	7343	1778	9255	0	284	0	12689	anti-CCP positive
+Sample 958	351	2487	6836	807	0	0	0	0	anti-CCP positive
+Sample 959	0	1226	11473	0	0	0	0	0	anti-CCP positive
+Sample 960	687	1249	561	1271	652	525	652	804	anti-CCP positive
+Sample 961	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 962	1567	0	0	0	0	0	0	0	anti-CCP negative
+Sample 963	606	1603	2843	1612	1964	1568	1964	1127	anti-CCP positive
+Sample 964	1861	0	0	412	0	0	0	312	anti-CCP positive
+Sample 965	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 966	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 967	0	6398	8996	0	0	0	0	0	anti-CCP positive
+Sample 968	265	0	6687	571	0	0	0	0	anti-CCP positive
+Sample 969	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 970	0	13179	0	0	5765	0	5765	0	anti-CCP positive
+Sample 971	543	346	546	597	0	0	0	676	anti-CCP negative
+Sample 972	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 973	644	7373	2396	955	0	0	0	0	anti-CCP positive
+Sample 974	0	0	0	3890	0	0	0	0	anti-CCP positive
+Sample 975	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 976	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 977	1395	1238	0	305	0	1492	0	0	anti-CCP negative
+Sample 978	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 979	4217	2438	9113	5112	0	0	0	0	anti-CCP positive
+Sample 980	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 981	646	475	19656	1464	0	0	0	0	anti-CCP positive
+Sample 982	0	0	0	1045	0	0	0	0	anti-CCP negative
+Sample 983	0	0	0	977	0	0	0	0	anti-CCP positive
+Sample 984	0	0	0	479	0	0	0	0	anti-CCP negative
+Sample 985	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 986	6863	0	1691	0	0	0	0	0	anti-CCP positive
+Sample 987	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 988	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 989	323	206	2524	633	0	337	0	0	anti-CCP positive
+Sample 990	0	426	1835	484	0	0	0	0	anti-CCP positive
+Sample 991	0	5519	5401	0	0	0	0	0	anti-CCP positive
+Sample 992	1395	883	364	0	0	296	0	0	anti-CCP positive
+Sample 993	757	233	301	270	0	443	0	0	anti-CCP positive
+Sample 994	571	469	4079	1256	0	497	0	0	anti-CCP positive
+Sample 995	2494	5816	6661	712	0	0	0	0	anti-CCP positive
+Sample 996	7571	0	0	1082	0	0	0	0	anti-CCP positive
+Sample 997	7169	0	0	236	0	0	0	340	anti-CCP positive
+Sample 998	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 999	2306	783	3790	1748	538	410	538	0	anti-CCP positive
+Sample 1000	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1001	0	0	0	678	0	0	0	750	anti-CCP negative
+Sample 1002	0	0	1468	0	0	0	0	0	anti-CCP positive
+Sample 1003	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1004	0	41583	38548	2705	0	0	0	1039	anti-CCP positive
+Sample 1005	0	0	0	293	0	0	0	0	anti-CCP negative
+Sample 1006	359	3702	20655	1085	0	0	0	398	anti-CCP positive
+Sample 1007	0	5509	9092	0	0	0	0	0	anti-CCP positive
+Sample 1008	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1009	0	8274	20461	5803	0	0	0	0	anti-CCP positive
+Sample 1010	0	0	0	524	0	0	0	0	anti-CCP negative
+Sample 1011	0	0	771	1735	0	0	0	0	anti-CCP positive
+Sample 1012	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1013	0	9740	18827	6040	0	0	0	0	anti-CCP positive
+Sample 1014	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1015	335	0	0	473	0	0	0	0	anti-CCP positive
+Sample 1016	0	0	0	859	0	0	0	0	anti-CCP negative
+Sample 1017	0	0	303	540	348	0	348	741	anti-CCP positive
+Sample 1018	0	0	9527	0	419	0	419	0	anti-CCP positive
+Sample 1019	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1020	0	0	0	0	689	0	689	0	anti-CCP positive
+Sample 1021	0	0	0	515	0	0	0	0	anti-CCP negative
+Sample 1022	0	0	26214	0	0	0	0	0	anti-CCP positive
+Sample 1023	0	36511	0	739	0	0	0	0	anti-CCP positive
+Sample 1024	0	1155	0	715	0	0	0	0	anti-CCP positive
+Sample 1025	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1026	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1027	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1028	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1029	512	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1030	421	605	0	2661	404	0	404	896	anti-CCP negative
+Sample 1031	2251	1698	0	1163	0	0	0	0	anti-CCP positive
+Sample 1032	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1033	0	0	0	1368	0	0	0	1145	anti-CCP negative
+Sample 1034	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1035	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1036	0	0	0	5872	0	0	0	0	anti-CCP negative
+Sample 1037	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1038	0	1616	6198	0	0	0	0	0	anti-CCP positive
+Sample 1039	0	10134	19591	0	438	0	438	526	anti-CCP positive
+Sample 1040	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1041	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1042	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1043	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1044	0	0	1963	0	0	0	0	0	anti-CCP positive
+Sample 1045	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1046	0	0	0	1748	0	0	0	728	anti-CCP positive
+Sample 1047	0	0	9853	465	11389	0	11389	384	anti-CCP positive
+Sample 1048	1421	416	463	264	0	433	0	267	anti-CCP positive
+Sample 1049	775	1235	889	0	0	0	0	0	anti-CCP positive
+Sample 1050	0	445	9698	305	0	0	0	0	anti-CCP positive
+Sample 1051	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1052	0	1022	0	0	0	0	0	0	anti-CCP positive
+Sample 1053	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1054	0	0	0	1017	825	0	825	657	anti-CCP negative
+Sample 1055	5305	1573	34812	1731	0	0	0	0	anti-CCP positive
+Sample 1056	0	0	374	1241	354	0	354	901	anti-CCP negative
+Sample 1057	0	0	42073	1892	0	0	0	0	anti-CCP positive
+Sample 1058	0	2772	19219	28193	0	0	0	0	anti-CCP positive
+Sample 1059	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1060	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1061	0	0	12322	0	380	0	380	0	anti-CCP positive
+Sample 1062	4080	50581	1153	843	0	0	0	0	anti-CCP positive
+Sample 1063	0	5460	27741	1384	0	0	0	0	anti-CCP positive
+Sample 1064	678	3547	0	0	0	0	0	0	anti-CCP positive
+Sample 1065	0	0	311	0	267	0	267	0	anti-CCP positive
+Sample 1066	0	0	31396	4486	0	0	0	0	anti-CCP positive
+Sample 1067	0	0	0	0	0	0	0	0	control
+Sample 1068	0	0	0	0	0	0	0	0	control
+Sample 1069	0	0	0	0	0	0	0	0	control
+Sample 1070	0	0	0	0	0	0	0	0	control
+Sample 1071	0	0	0	0	0	0	0	0	control
+Sample 1072	0	0	0	0	0	0	0	0	control
+Sample 1073	0	0	0	0	0	0	0	0	control
+Sample 1074	0	0	0	1139	0	0	0	0	control
+Sample 1075	0	0	0	0	0	0	0	0	control
+Sample 1076	0	0	0	0	0	0	0	0	control
+Sample 1077	0	0	0	0	0	0	0	0	control
+Sample 1078	0	0	0	0	0	0	0	0	control
+Sample 1079	0	0	0	0	0	0	0	0	control
+Sample 1080	0	0	0	0	0	0	0	0	control
+Sample 1081	0	0	0	0	0	0	0	0	control
+Sample 1082	0	0	0	1097	0	0	0	0	control
+Sample 1083	0	0	0	5518	0	0	0	752	control
+Sample 1084	0	0	0	0	0	0	0	0	control
+Sample 1085	0	0	0	0	0	0	0	0	control
+Sample 1086	0	0	0	0	0	0	0	0	control
+Sample 1087	0	0	0	0	0	0	0	0	control
+Sample 1088	0	0	0	0	0	0	0	0	control
+Sample 1089	0	0	0	1119	0	0	0	457	control
+Sample 1090	0	0	0	0	660	0	660	0	control
+Sample 1091	0	0	0	0	0	0	0	0	control
+Sample 1092	0	0	0	1394	0	0	0	535	control
+Sample 1093	0	0	0	0	0	0	0	0	control
+Sample 1094	502	474	0	1358	0	517	0	804	control
+Sample 1095	0	0	0	545	0	0	0	506	control
+Sample 1096	0	0	0	0	0	0	0	0	control
+Sample 1097	0	0	0	430	0	0	0	543	control
+Sample 1098	0	0	0	397	0	0	0	457	control
+Sample 1099	0	0	0	0	0	0	0	0	control
+Sample 1100	0	0	734	651	0	0	0	545	control
+Sample 1101	0	0	0	705	0	0	0	454	control
+Sample 1102	0	0	0	7867	0	0	0	12179	control
+Sample 1103	0	0	0	197	0	0	0	233	control
+Sample 1104	0	0	0	0	0	0	0	0	control
+Sample 1105	0	0	0	0	0	0	0	0	control
+Sample 1106	0	0	0	2171	0	0	0	0	control
+Sample 1107	0	0	0	391	0	0	0	0	control
+Sample 1108	0	0	0	387	0	0	0	0	control
+Sample 1109	0	0	0	2888	0	374	0	792	control
+Sample 1110	0	498	0	508	0	0	0	584	control
+Sample 1111	0	0	0	0	0	0	0	0	control
+Sample 1112	0	0	0	648	0	0	0	0	control
+Sample 1113	0	0	0	286	0	0	0	0	control
+Sample 1114	0	0	0	2895	0	0	0	0	control
+Sample 1115	0	0	1532	1832	481	0	481	0	control
+Sample 1116	0	0	0	0	0	0	0	0	control
+Sample 1117	0	0	0	2807	0	0	0	546	control
+Sample 1118	0	0	0	0	0	0	0	0	control
+Sample 1119	0	0	0	0	0	0	0	0	control
+Sample 1120	0	0	0	1036	0	0	0	1216	control
+Sample 1121	0	0	284	0	510	0	510	0	control
+Sample 1122	0	0	0	325	0	0	0	318	control
+Sample 1123	0	0	0	1201	0	0	0	0	control
+Sample 1124	0	0	0	8149	0	0	0	0	control
+Sample 1125	0	0	0	0	0	0	0	0	control
+Sample 1126	0	0	0	0	0	0	0	0	control
+Sample 1127	0	0	0	0	0	0	0	0	control
+Sample 1128	0	0	0	866	0	0	0	529	control
+Sample 1129	0	0	0	216	0	0	0	234	control
+Sample 1130	0	0	0	0	0	0	0	305	control
+Sample 1131	0	0	0	698	0	0	0	499	control
+Sample 1132	0	989	1408	3224	1375	1168	1375	2145	control
+Sample 1133	0	0	0	0	0	0	0	0	control
+Sample 1134	0	0	0	402	0	0	0	0	control
+Sample 1135	0	0	0	0	0	0	0	0	control
+Sample 1136	0	0	0	0	0	0	0	0	control
+Sample 1137	0	0	0	312	0	0	0	398	control
+Sample 1138	0	0	0	0	0	0	0	0	control
+Sample 1139	0	0	0	0	0	0	0	0	control
+Sample 1140	0	0	0	0	0	0	0	0	control
+Sample 1141	0	0	0	0	0	0	0	0	control
+Sample 1142	0	0	0	0	0	0	0	0	control
+Sample 1143	0	0	0	0	0	0	0	0	control
+Sample 1144	0	0	0	399	0	0	0	0	control
+Sample 1145	0	0	0	711	0	0	0	545	control
+Sample 1146	0	0	0	0	0	0	0	0	control
+Sample 1147	0	0	0	0	0	0	0	0	control
+Sample 1148	0	0	0	0	0	0	0	279	control
+Sample 1149	0	0	0	0	0	0	0	0	control
+Sample 1150	0	0	0	0	0	0	0	0	control
+Sample 1151	0	0	0	0	0	0	0	0	control
+Sample 1152	0	0	0	1554	0	0	0	0	control
+Sample 1153	0	0	0	0	0	0	0	0	control
+Sample 1154	0	0	0	375	0	0	0	0	control
+Sample 1155	0	0	0	0	0	0	0	0	control
+Sample 1156	0	0	0	0	0	0	0	0	control
+Sample 1157	0	0	0	0	0	0	0	0	control
+Sample 1158	0	0	0	0	0	0	0	0	control
+Sample 1159	0	0	0	0	0	0	0	0	control
+Sample 1160	0	0	0	0	0	0	0	520	control
+Sample 1161	0	0	0	251	0	0	0	0	control
+Sample 1162	0	0	0	455	0	0	0	505	control
+Sample 1163	0	0	0	0	0	0	0	0	control
+Sample 1164	0	0	0	0	0	0	0	0	control
+Sample 1165	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1166	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1167	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1168	624	5643	10848	11803	837	392	837	793	anti-CCP positive
+Sample 1169	871	852	12596	10503	806	947	806	1755	anti-CCP positive
+Sample 1170	0	0	1702	0	2325	0	2325	0	anti-CCP negative
+Sample 1171	0	0	0	1156	0	0	0	0	anti-CCP negative
+Sample 1172	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1173	0	0	0	284	0	0	0	0	anti-CCP negative
+Sample 1174	305	0	198	180	214	0	214	263	anti-CCP negative
+Sample 1175	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1176	0	0	3945	0	0	0	0	0	anti-CCP positive
+Sample 1177	0	5076	394	7237	473	0	473	0	anti-CCP negative
+Sample 1178	0	2653	2415	1676	0	0	0	0	anti-CCP positive
+Sample 1179	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1180	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1181	1620	1457	632	446	927	1465	927	443	anti-CCP negative
+Sample 1182	0	1927	62258	9180	0	0	0	0	anti-CCP positive
+Sample 1183	0	0	0	170	0	0	0	174	control
+Sample 1184	0	0	0	0	0	0	0	0	control
+Sample 1185	0	0	0	888	0	0	0	0	control
+Sample 1186	1037	0	10064	1772	0	0	0	213	anti-CCP positive
+Sample 1187	4486	585	7186	0	0	0	0	0	anti-CCP positive
+Sample 1188	0	0	0	580	0	0	0	764	control
+Sample 1189	0	0	0	0	0	0	0	0	control
+Sample 1190	0	0	0	0	0	0	0	0	control
+Sample 1191	0	0	0	0	0	0	0	0	control
+Sample 1192	0	0	0	0	0	0	0	0	control
+Sample 1193	0	0	0	0	0	0	0	0	control
+Sample 1194	988	1091	300	0	445	1166	445	0	anti-CCP negative
+Sample 1195	0	3748	5222	15123	0	0	0	0	anti-CCP positive
+Sample 1196	0	394	755	1400	0	0	0	0	anti-CCP negative
+Sample 1197	0	0	0	2390	0	0	0	3106	anti-CCP negative
+Sample 1198	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1199	0	0	0	16728	0	0	0	0	anti-CCP negative
+Sample 1200	337	11459	3435	996	503	0	503	0	anti-CCP positive
+Sample 1201	307	430	0	712	586	0	586	1119	anti-CCP negative
+Sample 1202	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1203	867	2254	30394	1472	6824	419	6824	486	anti-CCP positive
+Sample 1204	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1205	812	1074	492	1134	588	0	588	774	anti-CCP negative
+Sample 1206	0	0	0	1398	0	0	0	1450	anti-CCP negative
+Sample 1207	1247	982	0	0	0	1253	0	0	anti-CCP negative
+Sample 1208	220	0	0	721	319	0	319	0	anti-CCP negative
+Sample 1209	0	53040	910	1728	0	0	0	0	anti-CCP positive
+Sample 1210	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1211	0	0	0	1261	0	0	0	0	anti-CCP negative
+Sample 1212	0	0	0	8901	0	0	0	0	anti-CCP negative
+Sample 1213	0	0	0	1102	0	0	0	0	anti-CCP negative
+Sample 1214	0	0	3147	1369	0	0	0	0	anti-CCP positive
+Sample 1215	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1216	755	535	775	1737	945	0	945	0	anti-CCP negative
+Sample 1217	0	0	0	5035	0	0	0	0	anti-CCP negative
+Sample 1218	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1219	0	0	0	5967	0	0	0	0	anti-CCP positive
+Sample 1220	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1221	0	0	0	2168	0	0	0	0	anti-CCP negative
+Sample 1222	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1223	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1224	0	0	647	645	0	0	0	0	anti-CCP negative
+Sample 1225	0	0	0	693	0	0	0	668	anti-CCP negative
+Sample 1226	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1227	0	0	0	594	0	0	0	0	anti-CCP positive
+Sample 1228	0	0	4994	2471	0	0	0	0	anti-CCP negative
+Sample 1229	0	0	1866	660	0	0	0	0	anti-CCP negative
+Sample 1230	0	0	0	2571	0	0	0	0	anti-CCP negative
+Sample 1231	1238	1136	2016	2732	990	863	990	0	anti-CCP positive
+Sample 1232	0	0	0	6760	0	0	0	0	anti-CCP positive
+Sample 1233	0	0	0	5699	0	0	0	0	anti-CCP negative
+Sample 1234	0	0	0	2769	0	0	0	0	anti-CCP negative
+Sample 1235	0	952	2761	16298	0	0	0	0	anti-CCP positive
+Sample 1236	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1237	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1238	0	0	0	1190	0	0	0	0	anti-CCP negative
+Sample 1239	0	0	0	597	0	0	0	289	anti-CCP negative
+Sample 1240	0	0	0	20490	0	0	0	0	anti-CCP negative
+Sample 1241	0	0	1399	12572	0	0	0	0	anti-CCP positive
+Sample 1242	0	0	0	624	0	0	0	0	anti-CCP negative
+Sample 1243	0	0	0	6100	0	0	0	0	anti-CCP negative
+Sample 1244	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1245	0	0	0	1253	0	0	0	0	anti-CCP positive
+Sample 1246	0	0	0	7122	0	0	0	0	anti-CCP negative
+Sample 1247	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1248	0	1411	34088	1315	0	0	0	0	anti-CCP positive
+Sample 1249	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1250	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1251	0	0	0	4482	0	0	0	959	anti-CCP negative
+Sample 1252	0	11910	7210	2337	0	0	0	0	anti-CCP positive
+Sample 1253	0	0	0	0	0	0	0	1093	anti-CCP negative
+Sample 1254	0	0	3995	839	0	0	0	0	anti-CCP positive
+Sample 1255	1417	1223	6825	3196	2484	0	2484	0	anti-CCP positive
+Sample 1256	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1257	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1258	0	0	0	881	0	0	0	0	anti-CCP negative
+Sample 1259	0	4562	0	0	0	0	0	0	anti-CCP positive
+Sample 1260	0	0	5939	4131	0	0	0	0	anti-CCP positive
+Sample 1261	1385	1051	0	2650	1444	0	1444	0	anti-CCP negative
+Sample 1262	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1263	0	2256	7711	0	551	0	551	0	anti-CCP positive
+Sample 1264	0	0	0	3121	0	0	0	0	anti-CCP positive
+Sample 1265	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1266	0	0	210	321	285	0	285	285	anti-CCP negative
+Sample 1267	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1268	516	3439	22528	5748	952	474	952	960	anti-CCP positive
+Sample 1269	444	634	0	0	603	897	603	0	anti-CCP negative
+Sample 1270	2729	3049	21599	3233	0	0	0	2201	anti-CCP positive
+Sample 1271	598	604	444	593	937	897	937	540	anti-CCP negative
+Sample 1272	2390	2821	21016	1904	0	0	0	1842	anti-CCP negative
+Sample 1273	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1274	0	0	0	322	0	0	0	0	anti-CCP negative
+Sample 1275	0	0	0	491	0	0	0	381	anti-CCP negative
+Sample 1276	626	448	0	0	0	400	0	0	anti-CCP negative
+Sample 1277	0	4850	3840	0	0	0	0	0	anti-CCP positive
+Sample 1278	0	0	0	1100	0	0	0	0	anti-CCP negative
+Sample 1279	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1280	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1281	0	11000	0	0	0	0	0	0	anti-CCP positive
+Sample 1282	321	186	0	814	0	299	0	402	anti-CCP negative
+Sample 1283	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1284	1141	3212	16180	0	0	0	0	0	anti-CCP positive
+Sample 1285	1136	907	0	937	0	1404	0	0	anti-CCP negative
+Sample 1286	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1287	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1288	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1289	556	317	0	0	371	516	371	0	anti-CCP negative
+Sample 1290	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1291	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1292	0	0	0	797	0	0	0	305	anti-CCP negative
+Sample 1293	0	0	993	0	2224	0	2224	0	anti-CCP negative
+Sample 1294	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1295	1851	1183	567	1881	1160	1441	1160	1860	anti-CCP positive
+Sample 1296	0	0	7234	0	0	0	0	0	anti-CCP positive
+Sample 1297	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1298	1794	383	2006	0	268	0	268	0	anti-CCP positive
+Sample 1299	0	0	0	0	857	0	857	0	anti-CCP negative
+Sample 1300	18766	0	1812	1416	1023	466	1023	557	anti-CCP positive
+Sample 1301	912	791	856	356	1135	696	1135	495	anti-CCP positive
+Sample 1302	0	0	339	1128	411	0	411	1294	anti-CCP negative
+Sample 1303	0	16728	0	187	0	0	0	0	anti-CCP positive
+Sample 1304	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1305	661	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1306	0	0	0	1896	0	0	0	2866	anti-CCP negative
+Sample 1307	1571	1456	3241	2112	3241	2009	3241	2137	anti-CCP negative
+Sample 1308	0	0	0	0	2240	0	2240	0	anti-CCP negative
+Sample 1309	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1310	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1311	4295	6778	1346	2010	1101	2647	1101	545	anti-CCP positive
+Sample 1312	305	0	0	0	369	0	369	309	anti-CCP negative
+Sample 1313	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1314	0	602	221	333	298	0	298	351	anti-CCP negative
+Sample 1315	0	0	0	378	0	0	0	400	anti-CCP positive
+Sample 1316	1410	2287	12847	1753	0	1892	0	0	anti-CCP positive
+Sample 1317	627	3733	4166	863	0	0	0	902	anti-CCP positive
+Sample 1318	334	1948	5693	0	438	395	438	0	anti-CCP positive
+Sample 1319	1439	31155	15050	2492	0	0	0	1988	anti-CCP positive
+Sample 1320	0	0	711	486	0	0	0	425	anti-CCP positive
+Sample 1321	351	10839	0	478	0	0	0	489	anti-CCP positive
+Sample 1322	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1323	0	0	1537	0	0	0	0	0	anti-CCP positive
+Sample 1324	0	0	1447	600	0	0	0	0	anti-CCP positive
+Sample 1325	0	0	13854	3374	0	0	0	653	anti-CCP positive
+Sample 1326	0	0	10160	0	0	0	0	0	anti-CCP positive
+Sample 1327	259	1815	2236	0	0	0	0	0	anti-CCP positive
+Sample 1328	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1329	1378	2366	0	494	0	1821	0	340	anti-CCP positive
+Sample 1330	0	3436	6280	688	0	0	0	0	anti-CCP positive
+Sample 1331	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1332	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1333	1366	1397	0	0	0	0	0	0	anti-CCP positive
+Sample 1334	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1335	0	0	0	1169	0	0	0	0	anti-CCP negative
+Sample 1336	650	930	3252	0	0	0	0	0	anti-CCP positive
+Sample 1337	472	18608	0	0	0	0	0	0	anti-CCP positive
+Sample 1338	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1339	0	0	354	505	0	0	0	0	anti-CCP positive
+Sample 1340	2218	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1341	0	0	37027	19915	0	0	0	0	anti-CCP positive
+Sample 1342	0	540	4941	2254	0	0	0	263	anti-CCP positive
+Sample 1343	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1344	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1345	0	0	698	0	0	0	0	1036	anti-CCP positive
+Sample 1346	2955	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1347	0	0	0	0	0	0	0	0	anti-CCP positive
+Sample 1348	0	0	1620	1129	592	0	592	0	anti-CCP positive
+Sample 1349	11055	14553	6345	1457	993	562	993	1115	anti-CCP positive
+Sample 1350	623	781	2005	3688	1728	741	1728	2049	anti-CCP positive
+Sample 1351	306	233	42902	5247	20495	514	20495	3376	anti-CCP positive
+Sample 1352	0	0	725	758	0	0	0	760	anti-CCP positive
+Sample 1353	0	0	0	1365	0	0	0	671	control
+Sample 1354	0	0	0	2760	0	0	0	2264	control
+Sample 1355	0	0	0	0	0	0	0	0	control
+Sample 1356	0	0	0	0	0	0	0	0	control
+Sample 1357	0	0	0	0	0	0	0	0	control
+Sample 1358	0	0	0	0	0	0	0	0	control
+Sample 1359	0	0	0	0	0	0	0	0	control
+Sample 1360	620	587	438	2987	453	548	453	0	control
+Sample 1361	0	0	0	0	0	0	0	0	control
+Sample 1362	0	0	0	0	0	0	0	0	control
+Sample 1363	0	0	0	0	0	0	0	0	control
+Sample 1364	0	0	0	0	0	0	0	0	control
+Sample 1365	0	0	0	0	0	0	0	0	control
+Sample 1366	0	0	0	0	0	0	0	0	control
+Sample 1367	0	0	493	737	411	0	411	478	control
+Sample 1368	488	465	0	0	1602	443	1602	1341	control
+Sample 1369	0	0	0	305	0	0	0	286	control
+Sample 1370	0	0	0	3307	0	0	0	0	control
+Sample 1371	0	0	0	1650	0	0	0	1686	control
+Sample 1372	617	350	0	0	0	708	0	0	control
+Sample 1373	0	0	0	0	0	0	0	285	control
+Sample 1374	263	182	266	1169	0	414	0	0	control
+Sample 1375	1491	0	0	0	0	0	0	0	control
+Sample 1376	0	0	0	0	0	0	0	0	control
+Sample 1377	0	0	0	907	0	0	0	479	control
+Sample 1378	0	0	0	0	0	0	0	0	control
+Sample 1379	0	0	0	0	0	0	0	0	control
+Sample 1380	0	0	0	0	0	0	0	0	control
+Sample 1381	0	0	0	460	0	0	0	379	control
+Sample 1382	0	0	0	0	0	0	0	0	control
+Sample 1383	0	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1384	1204	700	867	1078	828	1022	828	1358	anti-CCP negative
+Sample 1385	0	0	500	0	863	811	863	0	anti-CCP negative
+Sample 1386	0	50069	17119	0	0	0	0	0	anti-CCP positive
+Sample 1387	1513	0	0	0	0	0	0	0	anti-CCP negative
+Sample 1388	1128	2044	433	769	591	1129	591	0	anti-CCP negative

@@ -10,9 +10,11 @@ from knn import knn
 import time
 
 
-dat=np.loadtxt('diabetes.csv',skiprows=1,delimiter=',',usecols=(0,1,2,3,4,5,6,7))
-#dat=np.loadtxt('E-GEOD-72658.txt',skiprows=1,delimiter='\t',usecols=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16))
 
+#dat=np.loadtxt('E-GEOD-72658.txt',skiprows=1,delimiter='\t',usecols=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16))
+#dat=np.loadtxt('diabet',skiprows=1,delimiter=',',usecols=(0,1,2,3,4,5,6,7))
+
+dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))
 
 np.random.shuffle(dat)
 print(dat.shape)

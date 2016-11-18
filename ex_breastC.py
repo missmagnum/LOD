@@ -27,11 +27,11 @@ dat=np.array(prot_breac)
 np.random.shuffle(dat)
 print(dat.shape)
 
-dataset=dat
+#dataset=dat
 
 
 #################NORMALIZATION#############################
-"""
+
 ## standard score
 dataset=np.zeros_like(dat)
 mea=np.mean(dat,axis=1)
@@ -45,7 +45,7 @@ for i in range(dat.shape[1]):
 dataset=np.zeros_like(dat)
 for i in range(dat.shape[1]):
     dataset[:,i]=-1+ 2*(dat[:,i]-min(dat[:,i]))/(max(dat[:,i])-min(dat[:,i]))
-
+"""
 ############################################################
 
 
@@ -83,14 +83,14 @@ for mis in missing_percent:
                       portion_data = data,
                       problem = 'regression',
                       available_mask = mask,
-                      method = 'rmsprop',
+                      method = 'nes_mom',
                       pretraining_epochs = 100,
                       pretrain_lr = 0.0001,
                       training_epochs = 100,
                       finetune_lr = 0.0001,
-                      batch_size = 2,
-                      hidden_size = [300,100,20,15],
-                      corruption_da = [0.1,0.1,0.1,.1],
+                      batch_size = 100,
+                      hidden_size = [100,20,10],
+                      corruption_da = [0.1,0.1,.1],
                       dA_initiall = True ,
                       error_known = True )
     
