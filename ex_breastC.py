@@ -8,16 +8,26 @@ import matplotlib.pyplot as plt
 from gather_sda import Gather_sda
 from knn import knn
 import time
-
+import glob
 
 
 #############################################################################################
 ############################################################################################
-dat=np.loadtxt('wdbc.data',skiprows=0,delimiter=',',usecols=range(2,32))  #(569, 30)  PCA--> 6
+#dat=np.loadtxt('wdbc.data',skiprows=0,delimiter=',',usecols=range(2,32))  #(569, 30)  PCA--> 6
+
+
+e_name=glob.glob('E-GEOD-80233/*.txt')
+
+
+prot_breac=[]    ######### Protein_breastcancer E-GEOD-80233  (945, 134)  PCA--> 15
+for i in e_name:
+    prot_breac.append(np.loadtxt(i,skiprows=1,delimiter='\t',usecols=[1]))
+
+dat=np.array(prot_breac)
 np.random.shuffle(dat)
 print(dat.shape)
 
-#dataset=dat
+dataset=dat
 
 
 #################NORMALIZATION#############################
@@ -28,8 +38,8 @@ mea=np.mean(dat,axis=1)
 st=np.std(dat,axis=1)
 for i in range(dat.shape[1]):
     dataset[:,i]=(dat[:,i]-mea)/st
-"""
 
+"""
     
 ## feature scaling
 dataset=np.zeros_like(dat)
@@ -73,14 +83,14 @@ for mis in missing_percent:
                       portion_data = data,
                       problem = 'regression',
                       available_mask = mask,
-                      method = 'nes_mom',
+                      method = 'rmsprop',
                       pretraining_epochs = 100,
                       pretrain_lr = 0.0001,
                       training_epochs = 100,
                       finetune_lr = 0.0001,
-                      batch_size = 10,
-                      hidden_size = [600,100,10,7,6],
-                      corruption_da = [0.1,0.1,0.1,0.1,.1],
+                      batch_size = 2,
+                      hidden_size = [300,100,20,15],
+                      corruption_da = [0.1,0.1,0.1,.1],
                       dA_initiall = True ,
                       error_known = True )
     
