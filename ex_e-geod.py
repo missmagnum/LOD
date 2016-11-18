@@ -68,28 +68,34 @@ for mis in missing_percent:
                       problem = 'regression',
                       available_mask = mask,
                       method = 'adam',
-                      pretraining_epochs = 00,
+                      pretraining_epochs = 10,
                       pretrain_lr = 0.0001,
                       training_epochs = 100,
                       finetune_lr = 0.0001,
-                      batch_size = 500,
+                      batch_size = 1000,
                       hidden_size = [25600,100,10],
                       corruption_da = [0.1,0.1,0.1],
                       dA_initiall = True ,
                       error_known = True )
     
     gather.finetuning()
-      
-    knn_result = knn(dataset,available_mask)
+    ###########define nof K ###############  
+    knn_result = knn(dataset,available_mask,k=1000)
 
     #########run the result for test
     dd_mask=test_mask
     dd = test_set
 
-    
-    sda_error.append(sum((1-dd_mask)*(np.abs(dd-gather.gather_out())), axis=1).mean())
-    mean_error.append(sum((1-available_mask)*(np.abs(dataset-dataset.mean(axis=0))), axis=1).mean())
-    knn_error.append(sum((1-available_mask)*(np.abs(dataset-knn_result)), axis=1).mean())
+    def MAE(x,xr,mas):
+        return np.sum((1-mas) * np.abs(x-xr),axis=1).np.mean()
+
+    sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
+    mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
+    knn_error.append(MAE(dataset,knn_result,available_mask))
+        
+    #sda_error.append(sum((1-dd_mask)*(np.abs(dd-gather.gather_out())), axis=1).mean())
+    #mean_error.append(sum((1-available_mask)*(np.abs(dataset-dataset.mean(axis=0))), axis=1).mean())
+    #knn_error.append(sum((1-available_mask)*(np.abs(dataset-knn_result)), axis=1).mean())
   
 
 day=time.strftime("%d-%m-%Y")
@@ -97,7 +103,7 @@ tim=time.strftime("%H-%M")
 result=open('result_{}_{}.dat'.format(day,tim),'w')
 result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()    
-
+"""
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )
 plt.plot(missing_percent,sda_error,'--ro',label='sda[800,200,8]')
@@ -106,6 +112,7 @@ plt.ylabel('Mean absolute error')
 plt.title('dataset: diabetes')
 plt.legend(loc=4,prop={'size':9})
 plt.show()
+"""
 
 
 
