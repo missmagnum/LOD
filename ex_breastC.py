@@ -10,8 +10,10 @@ from knn import knn
 import time
 
 
-dat=np.loadtxt('wdbc.data',skiprows=0,delimiter=',',usecols=range(2,32))  #(569, 30)  PCA--> 6
 
+#############################################################################################
+############################################################################################
+dat=np.loadtxt('wdbc.data',skiprows=0,delimiter=',',usecols=range(2,32))  #(569, 30)  PCA--> 6
 np.random.shuffle(dat)
 print(dat.shape)
 
@@ -19,15 +21,20 @@ print(dat.shape)
 
 
 #################NORMALIZATION#############################
+"""
+## standard score
 dataset=np.zeros_like(dat)
-#dataset=dat/np.linalg.norm(dat)
-#dataset=dat-np.mean(dat,axis=0)/np.std(dat)
-
 mea=np.mean(dat,axis=1)
 st=np.std(dat,axis=1)
 for i in range(dat.shape[1]):
     dataset[:,i]=(dat[:,i]-mea)/st
+"""
 
+    
+## feature scaling
+dataset=np.zeros_like(dat)
+for i in range(dat.shape[1]):
+    dataset[:,i]=-1+ 2*(dat[:,i]-min(dat[:,i]))/(max(dat[:,i])-min(dat[:,i]))
 
 ############################################################
 
@@ -72,8 +79,8 @@ for mis in missing_percent:
                       training_epochs = 100,
                       finetune_lr = 0.0001,
                       batch_size = 10,
-                      hidden_size = [600,100,20,6,4],
-                      corruption_da = [0.1,0.1,0.1,0.1,0.1],
+                      hidden_size = [600,100,10,7,6],
+                      corruption_da = [0.1,0.1,0.1,0.1,.1],
                       dA_initiall = True ,
                       error_known = True )
     
@@ -109,7 +116,7 @@ plt.plot(missing_percent,knn_error,'--go',label='knn' )
 plt.plot(missing_percent,sda_error,'--ro',label='sda[800,200,8]')
 plt.xlabel('corruption percentage')
 plt.ylabel('Mean absolute error')
-plt.title('dataset: diabetes')
+plt.title('dataset: breastCancer')
 plt.legend(loc=4,prop={'size':9})
 plt.show()
 """
