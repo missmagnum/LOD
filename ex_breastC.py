@@ -33,14 +33,10 @@ print(dat.shape)
 #################NORMALIZATION#############################
 
 ## standard score
-dataset=np.zeros_like(dat)
-mea=np.mean(dat,axis=1)
-st=np.std(dat,axis=1)
-for i in range(dat.shape[1]):
-    dataset[:,i]=(dat[:,i]-mea)/st
+dataset = (dat-dat.mean(axis=0))/dat.std(axis=0)
 
-"""
-    
+
+"""    
 ## feature scaling
 dataset=np.zeros_like(dat)
 for i in range(dat.shape[1]):

@@ -14,7 +14,7 @@ import time
 #dat=np.loadtxt('E-GEOD-72658.txt',skiprows=1,delimiter='\t',usecols=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16))
 #dat=np.loadtxt('diabet',skiprows=1,delimiter=',',usecols=(0,1,2,3,4,5,6,7))
 
-dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))#(1388, 8) PCA--> 2-3
+dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))#(1388, 8) PCA--> 4
 
 np.random.shuffle(dat)
 print(dat.shape)
@@ -80,11 +80,11 @@ for mis in missing_percent:
                       available_mask = mask,
                       method = 'adam',
                       pretraining_epochs = 10,
-                      pretrain_lr = 0.001,
+                      pretrain_lr = 0.01,
                       training_epochs = 100,
-                      finetune_lr = 0.001,
-                      batch_size = 100,
-                      hidden_size = [200,50,2],
+                      finetune_lr = 0.01,
+                      batch_size = 20,
+                      hidden_size = [200,50,4],
                       corruption_da = [ 0.1,.1,0.1],
                       dA_initiall = True ,
                       error_known = True )    
@@ -95,7 +95,7 @@ for mis in missing_percent:
 
    
     ############# KNN  & MEAN #########################
-    knn_result = knn(dataset,available_mask,k=10)
+    knn_result = knn(dataset,available_mask,k=5)
     knn_error.append(MAE(dataset,knn_result,available_mask))
  
     mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
