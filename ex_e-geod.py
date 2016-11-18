@@ -3,7 +3,7 @@ from __future__ import print_function, unicode_literals
 
 import numpy as np
 import matplotlib.pyplot as plt
-from numpy import *
+
 
 from gather_sda import Gather_sda
 from knn import knn
@@ -72,7 +72,7 @@ for mis in missing_percent:
                       pretrain_lr = 0.0001,
                       training_epochs = 100,
                       finetune_lr = 0.0001,
-                      batch_size = 1000,
+                      batch_size = 800,
                       hidden_size = [25600,100,10],
                       corruption_da = [0.1,0.1,0.1],
                       dA_initiall = True ,
@@ -83,12 +83,13 @@ for mis in missing_percent:
     knn_result = knn(dataset,available_mask,k=1000)
 
     #########run the result for test
-    dd_mask=test_mask
-    dd = test_set
+    #dd_mask=test_mask
+    #dd = test_set
 
     def MAE(x,xr,mas):
-        return np.sum((1-mas) * np.abs(x-xr),axis=1).np.mean()
+        return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
 
+    
     sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
     mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
     knn_error.append(MAE(dataset,knn_result,available_mask))

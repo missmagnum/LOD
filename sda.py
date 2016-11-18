@@ -22,7 +22,7 @@ class Sda(object):
                   method=None,
                   problem = None):         
 
-        activation_function = T.arctan  #T.tanh 
+        activation_function =T.tanh  #T.arctan  #T.tanh 
         
         self.n_layers = len(hidden_layers_sizes)
         self.n_inputs=n_inputs
@@ -122,9 +122,8 @@ class Sda(object):
                 else:
                     act_func = T.nnet.sigmoid
             else:
-
-                act_func=activation_function
-
+            act_func=activation_function
+            
             self.decoder_layer=perceptron(rng=numpy_rng,
                                         input=layer_input,
                                         n_in=input_size,
