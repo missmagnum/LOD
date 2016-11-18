@@ -14,7 +14,7 @@ import time
 #dat=np.loadtxt('E-GEOD-72658.txt',skiprows=1,delimiter='\t',usecols=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16))
 #dat=np.loadtxt('diabet',skiprows=1,delimiter=',',usecols=(0,1,2,3,4,5,6,7))
 
-dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))
+dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))#(1388, 8) PCA--> 2-3
 
 np.random.shuffle(dat)
 print(dat.shape)
@@ -78,12 +78,12 @@ for mis in missing_percent:
                       available_mask = mask,
                       method = 'adam',
                       pretraining_epochs = 200,
-                      pretrain_lr = 0.00001,
+                      pretrain_lr = 0.0001,
                       training_epochs = 200,
-                      finetune_lr = 0.00001,
-                      batch_size = 2,
-                      hidden_size = [780,400,100,50,10,2],
-                      corruption_da = [0.1,0.1,0.2,0.1, 0.1,0.1],
+                      finetune_lr = 0.0001,
+                      batch_size = 20,
+                      hidden_size = [100,20,2],
+                      corruption_da = [0.1, 0.1,0.1],
                       dA_initiall = True ,
                       error_known = True )    
     gather.finetuning()
