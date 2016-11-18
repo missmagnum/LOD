@@ -23,15 +23,21 @@ print(dat.shape)
 
 
 #################NORMALIZATION#############################
+
+## standard score
 dataset=np.zeros_like(dat)
-#dataset=dat/np.linalg.norm(dat)
-#dataset=dat-np.mean(dat,axis=0)/np.std(dat)
 mea=np.mean(dat,axis=1)
 st=np.std(dat,axis=1)
 for i in range(dat.shape[1]):
     dataset[:,i]=(dat[:,i]-mea)/st
 
-
+"""
+    
+## feature scaling
+dataset=np.zeros_like(dat)
+for i in range(dat.shape[1]):
+    dataset[:,i]=-1+ 2*(dat[:,i]-min(dat[:,i]))/(max(dat[:,i])-min(dat[:,i]))
+"""
 ############################################################
 
 
@@ -77,41 +83,21 @@ for mis in missing_percent:
                       problem = 'regression',
                       available_mask = mask,
                       method = 'adam',
-                      pretraining_epochs = 200,
+                      pretraining_epochs = 10,
                       pretrain_lr = 0.0001,
-                      training_epochs = 200,
+                      training_epochs = 100,
                       finetune_lr = 0.0001,
                       batch_size = 20,
                       hidden_size = [100,20,2],
                       corruption_da = [0.1, 0.1,0.1],
                       dA_initiall = True ,
                       error_known = True )    
-    gather.finetuning()
+    gather_sda.finetuning()
     
   
     sda_error.append(MAE(test_set, gather_sda.gather_out(), test_mask))
 
-    ########### SDA without initialization ######################
-    gather_sdaw=Gather_sda(dataset = test_set*test_mask,
-                      portion_data = data,
-                      problem = 'regression',
-                      available_mask = mask,
-                      method = 'adam',
-                      pretraining_epochs = 200,
-                      pretrain_lr = 0.00001,
-                      training_epochs = 200,
-                      finetune_lr = 0.00001,
-                      batch_size = 2,
-                      hidden_size = [780,400,100,50,10,2],
-                      corruption_da = [0.1,0.1,0.2,0.1, 0.1,0.1],
-                      dA_initiall = False ,
-                      error_known = True )
-
-    gather.finetuning()
-  
-    sdaw.append((MAE(test_set, gather_sdaw.gather_out(), test_mask))
-
-  
+   
     ############# KNN  & MEAN #########################
     knn_result = knn(dataset,available_mask,k=1000)
     knn_error.append(MAE(dataset,knn_result,available_mask))
@@ -131,7 +117,6 @@ result.close()
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )
 plt.plot(missing_percent,sda_error,'--ro',label='sda')
-plt.plot(missing_percent,sdaw,'--mo',label='sda_No_initial')
 plt.xlabel('corruption percentage')
 plt.ylabel('Mean absolute error')
 plt.title('dataset: diabetes')
