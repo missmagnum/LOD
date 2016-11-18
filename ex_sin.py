@@ -5,7 +5,6 @@ import datetime
 from gather_sda import Gather_sda
 from knn import knn
 
-
 import time
 
 def syn_ph(nsamp,nfeat,doplot=False):
@@ -31,80 +30,6 @@ def syn_ph(nsamp,nfeat,doplot=False):
          plot(t,np.sin(t+ph),'b')         
  
     return X
-
-def syn_cos(nsamp,nfeat,doplot=False):
-    
-    X = np.zeros((nsamp,nfeat))
-    t = np.linspace(0,2*np.pi,nfeat)
-    
-    u1 = np.sin(t)*np.random.uniform(0,2*np.pi)
-    u2 = np.sin(3*linspace(2*np.pi,3*np.pi,nfeat))*np.random.uniform(0,2*np.pi)
-    
-    if doplot:
-        figure(1)
-        clf()
-    for i in range(nsamp):
-        ph = np.random.uniform(0,2*np.pi)
-        X[i,:] = u1+u2 + np.random.normal(0,0.5,nfeat) 
-        if doplot:           
-            plot(t,X[i,:],'r.')
-    if doplot:
-         plot(t,np.sin(t+ph),'b')         
- 
-    return X
-
-
-"""
-nfeat=5
-nsamp=100
-x=syn_ph(nsamp,nfeat)
-
-
-for i in range(nfeat):
-    plot([i]*nsamp,x[:,i],'r.')
-#plot(x[:,1],x[:,3],'r.')
-#################
-
-x=syn_ph(1000,10)
-
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-ax.scatter(x[:,0],x[:,1],x[:,2])
-
-#######################
-########ino neshoon bede
-
-
-t = np.linspace(0,2*np.pi,100)
-uniform1= np.sin(t+np.pi/2)
-uniform2=np.sin(t+np.pi)
-f,ax = plt.subplots(2, sharex=True)
-sam =uniform1+np.random.normal(0,.5,100)
-ax[0].plot(t,np.sin(t+0.1),'r',t,uniform1,'b',t,sam,'bo')
-ax[1].plot( np.linspace(2.9,3.1,100),sam,'ro' )
-
-f1,ax1 = plt.subplots(2, sharex=True)
-ax1[0].plot(t,np.sin(t),'r',t,uniform2,'b',t,uniform2+np.random.normal(0,.5,100),'bo')
-ax1[1].plot( np.linspace(2.9,3.1,100),uniform2+np.random.normal(0,.5,100),'ro'  )
-
-
-plt.show()
-
-
-
-######################
-t = np.linspace(0,2*np.pi,100)
-uniform1 = np.sin(t)*np.random.uniform(0,2*np.pi)
-uniform2 = np.cos(t)*np.random.uniform(0,2*np.pi)
-figure(1)
-plot(t,np.sin(t),'r',t,uniform1,'b',t,uniform1+np.random.normal(0,.5,100),'bo')
-figure(2)
-plot(t,np.sin(t),'r',t,uniform2,'b',t,uniform2+np.random.normal(0,.5,100),'bo')
-show()
-
-"""
 
 dataset=syn_ph(4000,1000)
 np.random.shuffle(dataset)

@@ -25,14 +25,10 @@ print(dat.shape)
 #################NORMALIZATION#############################
 
 ## standard score
-dataset=np.zeros_like(dat)
-mea=np.mean(dat,axis=1)
-st=np.std(dat,axis=1)
-for i in range(dat.shape[1]):
-    dataset[:,i]=(dat[:,i]-mea)/st
+dataset = (dat-dat.mean(axis=0))/dat.std(axis=0)
 
-"""
-    
+
+"""    
 ## feature scaling
 dataset=np.zeros_like(dat)
 for i in range(dat.shape[1]):
@@ -84,12 +80,12 @@ for mis in missing_percent:
                       available_mask = mask,
                       method = 'adam',
                       pretraining_epochs = 10,
-                      pretrain_lr = 0.0001,
+                      pretrain_lr = 0.001,
                       training_epochs = 100,
-                      finetune_lr = 0.0001,
-                      batch_size = 20,
-                      hidden_size = [100,20,2],
-                      corruption_da = [0.1, 0.1,0.1],
+                      finetune_lr = 0.001,
+                      batch_size = 100,
+                      hidden_size = [200,50,2],
+                      corruption_da = [ 0.1,.1,0.1],
                       dA_initiall = True ,
                       error_known = True )    
     gather_sda.finetuning()
@@ -99,7 +95,7 @@ for mis in missing_percent:
 
    
     ############# KNN  & MEAN #########################
-    knn_result = knn(dataset,available_mask,k=1000)
+    knn_result = knn(dataset,available_mask,k=10)
     knn_error.append(MAE(dataset,knn_result,available_mask))
  
     mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
