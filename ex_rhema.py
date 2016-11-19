@@ -52,7 +52,7 @@ missing_percent=np.linspace(0.,0.9,10)
 
 
 cross_vali = 10
-for kfold in cross_vali:
+for kfold in range(cross_vali):
     
     np.random.shuffle(train)
     percent_valid = int(train.shape[0] * 0.9)
