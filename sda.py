@@ -81,7 +81,8 @@ class Sda(object):
                               n_hidden=hidden_layers_sizes[i],
                               W=self.encoder_layer.W,
                               bhid=self.encoder_layer.b,
-                              method = self.method)
+                              method = self.method,
+                              activation=activation_function)
                 
                 self.dA_layers.append(dA_layer)
             
