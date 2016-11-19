@@ -80,13 +80,13 @@ for mis in missing_percent:
                       problem = 'regression',
                       available_mask = mask,
                       method = 'adam',
-                      pretraining_epochs = 100,
+                      pretraining_epochs = 10,
                       pretrain_lr = 0.0001,
-                      training_epochs = 100,
+                      training_epochs = 200,
                       finetune_lr = 0.0001,
-                      batch_size = 50,
-                      hidden_size = [400,100,21],  #19 was good for >80%corrup
-                      corruption_da = [0.1,0.1,.1,.1],
+                      batch_size = 30,
+                      hidden_size = [600,400,100,21],  #19 was good for >80%corrup
+                      corruption_da = [0.1,0.1,0.1,.1],
                       dA_initiall = True ,
                       error_known = True )
     

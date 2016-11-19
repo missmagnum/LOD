@@ -11,11 +11,8 @@ import time
 
 
 
-#dat=np.loadtxt('E-GEOD-72658.txt',skiprows=1,delimiter='\t',usecols=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16))
-#dat=np.loadtxt('diabet',skiprows=1,delimiter=',',usecols=(0,1,2,3,4,5,6,7))
-
 dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))
-#(1388, 8)   E-MTAB-3606
+#########(1388, 8)   E-MTAB-3606
 
 
 np.random.shuffle(dat)
@@ -96,8 +93,8 @@ for kfold in range(cross_vali):
                           pretrain_lr = 0.0001,
                           training_epochs = 100,
                           finetune_lr = 0.0001,
-                          batch_size = 20,
-                          hidden_size = [600,100,50,4],
+                          batch_size = 30,
+                          hidden_size = [100,30,3],  #(1388, 8)  PCA--> 3
                           corruption_da = [ 0.1,.1,0.1,.1],
                           dA_initiall = True ,
                           error_known = True )    

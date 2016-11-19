@@ -162,7 +162,7 @@ class Gather_sda(object):
                 if (iter + 1) % validation_frequency == 0:
                     validation_losses = validate_model()
                     this_validation_loss = numpy.mean(validation_losses)
-                    print('epoch %i, minibatch %i/%i, validation error %f ' %
+                    #print('epoch %i, minibatch %i/%i, validation error %f ' %
                           (epoch, minibatch_index + 1, self.n_train_batches,
                            this_validation_loss))
 
@@ -184,9 +184,9 @@ class Gather_sda(object):
                         test_losses = test_model()
                         test_score = numpy.mean(test_losses)
                         #print(('     epoch %i, minibatch %i/%i, validation error of '
-                               'best model %f ') %
-                              (epoch, minibatch_index + 1, self.n_train_batches,
-                               best_validation_loss))
+                        #       'best model %f ') %
+                        #      (epoch, minibatch_index + 1, self.n_train_batches,
+                        #       best_validation_loss))
                         #print('W',self.sda.decoder_layer.W.get_value()[-1,-1])
                         
                 if patience <= iter:

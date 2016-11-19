@@ -190,7 +190,7 @@ class Sda(object):
         z = self.decoder_layer.output* self.mask
 
         if self.problem == 'regression':
-            print('regression')
+            #print('regression')
             cost = T.mean(T.sum((x - z )**2 , axis=1))
         else:
             cost = T.mean(T.sum((x - z )**2 , axis=1))#T.mean(T.sum( x* T.log(z) + (1-x)*T.log(1-z) ,axis=1))
