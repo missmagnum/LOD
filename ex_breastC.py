@@ -81,18 +81,18 @@ for mis in missing_percent:
                       available_mask = mask,
                       method = 'adam',
                       pretraining_epochs = 100,
-                      pretrain_lr = 0.001,
+                      pretrain_lr = 0.01,
                       training_epochs = 100,
-                      finetune_lr = 0.001,
+                      finetune_lr = 0.01,
                       batch_size = 5,
-                      hidden_size = [200,20,10,5],
+                      hidden_size = [1000,100,20,15],
                       corruption_da = [0.1,0.1,.1,.1],
                       dA_initiall = True ,
                       error_known = True )
     
     gather.finetuning()
     ###########define nof K ###############  
-    knn_result = knn(dataset,available_mask,k=3)
+    knn_result = knn(test_set,test_mask,k=3)
 
     #########run the result for test
     #dd_mask=test_mask
@@ -104,8 +104,8 @@ for mis in missing_percent:
     
     sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
     mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
-    knn_error.append(MAE(dataset,knn_result,available_mask))
-        
+    #knn_error.append(MAE(dataset,knn_result,available_mask))
+    knn_error.append(MAE(test_set,knn_result,test_mask))
     #sda_error.append(sum((1-dd_mask)*(np.abs(dd-gather.gather_out())), axis=1).mean())
     #mean_error.append(sum((1-available_mask)*(np.abs(dataset-dataset.mean(axis=0))), axis=1).mean())
     #knn_error.append(sum((1-available_mask)*(np.abs(dataset-knn_result)), axis=1).mean())

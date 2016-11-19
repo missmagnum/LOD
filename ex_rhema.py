@@ -110,13 +110,16 @@ for kfold in range(cross_vali):
         mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
     
     
-   
+ 
+print(sda_error)
+print(knn_error)
+print(mean_error)  
 
 
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result_{}_{}.dat'.format(day,tim),'w')
-result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s\n\n2sda %s" % (str(mean_error), str(sda_error),str(knn_error),str(sdaw)))
+result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()    
 """
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
@@ -129,8 +132,3 @@ plt.legend(loc=4,prop={'size':9})
 plt.show()
 """
 
-
-print(sda_error)
-print(knn_error)
-print(mean_error)
-print(sdaw)
