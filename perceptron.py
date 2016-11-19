@@ -18,7 +18,7 @@ class perceptron(object):
 
 
         if W is None:
-            print('......w navarrr.........')
+            
             W_values = numpy.asarray(
                 rng.uniform(
                     low=-numpy.sqrt(6. / (n_in + n_out)),

@@ -162,10 +162,11 @@ class Gather_sda(object):
                 if (iter + 1) % validation_frequency == 0:
                     validation_losses = validate_model()
                     this_validation_loss = numpy.mean(validation_losses)
-                    #print('epoch %i, minibatch %i/%i, validation error %f ' %
+                    """
+                    print('epoch %i, minibatch %i/%i, validation error %f ' %
                           (epoch, minibatch_index + 1, self.n_train_batches,
                            this_validation_loss))
-
+                    """
                     # if we got the best validation score until now
                     if this_validation_loss < best_validation_loss:
 
@@ -193,7 +194,7 @@ class Gather_sda(object):
                     done_looping = True
                     break
       
-        
+        """
         print(
             (
                 'Optimization complete with best validation score of %f , '
@@ -202,7 +203,7 @@ class Gather_sda(object):
             )
             % (best_validation_loss , best_iter + 1, test_score )
         )
-        
+        """
         return self.sda
 
         
