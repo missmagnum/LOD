@@ -9,7 +9,8 @@ def knn(data, mask, k = 10, lamb=0.7 ,norm=2 ):
     missing_index=np.where(mask==0)
     miss_rows = list(set(missing_index[0])) #without replicate
     
-    D=np.zeros((len(miss_rows),n))
+    #distance
+    D=np.zeros((len(miss_rows),n)) 
     
         
     for i,mis in enumerate(miss_rows):

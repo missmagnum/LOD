@@ -79,20 +79,20 @@ for mis in missing_percent:
                       portion_data = data,
                       problem = 'regression',
                       available_mask = mask,
-                      method = 'nes_mom',
+                      method = 'adam',
                       pretraining_epochs = 100,
-                      pretrain_lr = 0.0001,
+                      pretrain_lr = 0.001,
                       training_epochs = 100,
-                      finetune_lr = 0.0001,
-                      batch_size = 100,
-                      hidden_size = [1000,20,10,5],
+                      finetune_lr = 0.001,
+                      batch_size = 5,
+                      hidden_size = [200,20,10,5],
                       corruption_da = [0.1,0.1,.1,.1],
                       dA_initiall = True ,
                       error_known = True )
     
     gather.finetuning()
     ###########define nof K ###############  
-    knn_result = knn(dataset,available_mask,k=10)
+    knn_result = knn(dataset,available_mask,k=3)
 
     #########run the result for test
     #dd_mask=test_mask
