@@ -11,7 +11,7 @@ def knn(data, mask, k = 3, lamb=0.7 ,norm=2 ):
     
     #distance
     D=np.zeros((len(miss_rows),n)) 
-    print(D,missing_index)
+  
         
     for i,mis in enumerate(miss_rows):
         for j in range(n):

@@ -71,7 +71,7 @@ for mis in missing_percent:
     data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
     mask= train_mask, valid_mask, test_mask
    
-    
+     ###############activation_function =T.tanh
     
     #### SDA with test set for output
     # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
@@ -81,17 +81,18 @@ for mis in missing_percent:
                       available_mask = mask,
                       method = 'adam',
                       pretraining_epochs = 100,
-                      pretrain_lr = 0.00001,
+                      pretrain_lr = 0.0001,
                       training_epochs = 200,
                       finetune_lr = 0.00001,
-                      batch_size = 20,
-                      hidden_size = [600,400,100,21],  #19 was good for >80%corrup
-                      corruption_da = [0.1,0.1,0.1,.1],
+                      batch_size = 30,
+                      hidden_size = [400,100,21],  #19 was good for >80%corrup
+                      corruption_da = [0.1,0.1,.1],
                       dA_initiall = True ,
                       error_known = True )
     
     gather.finetuning()
-    ###########define nof K ###############  
+    ###########define nof K ###############
+    print('... Knn calculation')
     knn_result = knn(dataset,available_mask,k=20)
 
     #########run the result for test
@@ -111,11 +112,20 @@ for mis in missing_percent:
     #knn_error.append(sum((1-available_mask)*(np.abs(dataset-knn_result)), axis=1).mean())
   
 
+
+print('sda_error= ',sda_error)
+print('knn_error= ',knn_error)
+print('mean_error= ',mean_error)  
+
+
+    
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result_{}_{}.dat'.format(day,tim),'w')
 result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s" % (str(mean_error), str(sda_error),str(knn_error)))
-result.close()    
+result.close()
+
+
 """
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )
@@ -127,8 +137,3 @@ plt.legend(loc=4,prop={'size':9})
 plt.show()
 """
 
-
-
-print(sda_error)
-print(knn_error)
-print(mean_error)

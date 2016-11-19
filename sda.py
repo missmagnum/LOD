@@ -143,7 +143,7 @@ class Sda(object):
             
         self.network_layers=  self.encoder_layers + self.decoder_layers
         self.params = self.encoder_params + self.decoder_params
-        print(self.params)
+        #print(self.params)
         
 
  
