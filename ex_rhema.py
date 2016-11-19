@@ -39,66 +39,75 @@ for i in range(dat.shape[1]):
 
 percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
 train, test_set = dataset[:percent] ,dataset[percent:]
-percent_valid = int(train.shape[0] * 0.9)
-train_set, valid_set = train[:percent_valid] , train[percent_valid:]
+
 
 
 sda_error=[]
 mean_error=[]
 knn_error=[]
-sdaw=[]
+
+
 missing_percent=np.linspace(0.,0.9,10)
 #missing_percent=[0.6,.7,.8]
 
-def MAE(x,xr,mas):
-    return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
 
-def MSE(x,xr,mas):
-    return np.mean(np.sum((1-mas) * (x-xr)**2,axis=1))
+cross_vali = 10
+for kfold in cross_vali:
+    
+    np.random.shuffle(train)
+    percent_valid = int(train.shape[0] * 0.9)
+    train_set, valid_set = train[:percent_valid] , train[percent_valid:]
 
 
-for mis in missing_percent:
-    print('missing percentage: ',mis)
+    def MAE(x,xr,mas):
+        return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
+
+    def MSE(x,xr,mas):
+        return np.mean(np.sum((1-mas) * (x-xr)**2,axis=1))
+
+
+    for mis in missing_percent:
+        print('missing percentage: ',mis)
+
+
+        available_mask=np.random.binomial(n=1, p = 1-mis, size = dataset.shape)
+        rest_mask, test_mask = available_mask[:percent], available_mask[percent:]
+        ### without corruption in training
+        train_mask =  np.random.binomial(n=1, p = 1, size = train_set.shape) #rest_mask[:percent_valid]
+        valid_mask = rest_mask[percent_valid:]
+
+        data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
+        mask= train_mask, valid_mask, test_mask
+
+
+
+        #### SDA with test set for outputinitialization###################
+        # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
+        gather_sda=Gather_sda(dataset = test_set*test_mask,
+                          portion_data = data,
+                          problem = 'regression',
+                          available_mask = mask,
+                          method = 'adam',
+                          pretraining_epochs = 10,
+                          pretrain_lr = 0.01,
+                          training_epochs = 100,
+                          finetune_lr = 0.01,
+                          batch_size = 20,
+                          hidden_size = [200,50,4],
+                          corruption_da = [ 0.1,.1,0.1],
+                          dA_initiall = True ,
+                          error_known = True )    
+        gather_sda.finetuning()
+
+
+        sda_error.append(MAE(test_set, gather_sda.gather_out(), test_mask))
 
    
-    available_mask=np.random.binomial(n=1, p = 1-mis, size = dataset.shape)
-    rest_mask, test_mask = available_mask[:percent], available_mask[percent:]
-    ### without corruption in training
-    train_mask =  np.random.binomial(n=1, p = 1, size = train_set.shape) #rest_mask[:percent_valid]
-    valid_mask = rest_mask[percent_valid:]
-    
-    data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
-    mask= train_mask, valid_mask, test_mask
-   
-    
-    
-    #### SDA with test set for outputinitialization###################
-    # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
-    gather_sda=Gather_sda(dataset = test_set*test_mask,
-                      portion_data = data,
-                      problem = 'regression',
-                      available_mask = mask,
-                      method = 'adam',
-                      pretraining_epochs = 10,
-                      pretrain_lr = 0.01,
-                      training_epochs = 100,
-                      finetune_lr = 0.01,
-                      batch_size = 20,
-                      hidden_size = [200,50,4],
-                      corruption_da = [ 0.1,.1,0.1],
-                      dA_initiall = True ,
-                      error_known = True )    
-    gather_sda.finetuning()
-    
-  
-    sda_error.append(MAE(test_set, gather_sda.gather_out(), test_mask))
-
-   
-    ############# KNN  & MEAN #########################
-    knn_result = knn(dataset,available_mask,k=5)
-    knn_error.append(MAE(dataset,knn_result,available_mask))
+        ############# KNN  & MEAN #########################
+        knn_result = knn(dataset,available_mask,k=5)
+        knn_error.append(MAE(dataset,knn_result,available_mask))
  
-    mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
+        mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
     
     
    
