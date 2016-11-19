@@ -2,7 +2,7 @@ import numpy as np
 import time
 import copy
 
-def knn(data, mask, k = 10, lamb=0.7 ,norm=2 ):
+def knn(data, mask, k = 3, lamb=0.7 ,norm=2 ):
     data=copy.copy(data)
     t0=time.time()
     n = data.shape[0]
@@ -11,13 +11,13 @@ def knn(data, mask, k = 10, lamb=0.7 ,norm=2 ):
     
     #distance
     D=np.zeros((len(miss_rows),n)) 
-    
+    print(D,missing_index)
         
     for i,mis in enumerate(miss_rows):
         for j in range(n):
             m = mask[mis]*mask[j]
             if mis==j :
-                D[i,j]= np.nan
+                D[i,j]= 1e15
             else:
                 D[i,j] = (1./(np.sum(m)) * np.sum( (abs(data[mis]-data[j])**norm)*m))**(1/norm)
                 #D[i,j] = np.sqrt(np.sum((data[mis]-data[j])**2 ))
@@ -47,7 +47,7 @@ def knn(data, mask, k = 10, lamb=0.7 ,norm=2 ):
 
 if __name__ == "__main__":
 
-    import datetime ,gzip, pickle
+    
     z=np.array([[9,1,2],[0,0,4],[5,9,0],[0,1,8],[7,3,7],[2,9,9]])
     a=np.array([[1, 1, 1], [0, 0, 1],[1, 1, 0], [0, 1, 1],[1, 1, 1], [1, 1, 1]])
     d=knn(z,a)
