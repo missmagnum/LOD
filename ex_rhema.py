@@ -14,8 +14,7 @@ import time
 #dat=np.loadtxt('E-GEOD-72658.txt',skiprows=1,delimiter='\t',usecols=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16))
 #dat=np.loadtxt('diabet',skiprows=1,delimiter=',',usecols=(0,1,2,3,4,5,6,7))
 
-dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))#(1388, 8) PCA--> 4
-
+dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))#(1388, 8) 
 np.random.shuffle(dat)
 print(dat.shape)
 
@@ -26,6 +25,7 @@ print(dat.shape)
 
 ## standard score
 dataset = (dat-dat.mean(axis=0))/dat.std(axis=0)
+### PCA--> 3
 
 
 """    
@@ -52,8 +52,9 @@ missing_percent=np.linspace(0.,0.9,10)
 
 
 cross_vali = 10
+
 for kfold in range(cross_vali):
-    
+    print('...k= {} out of {} crossvalidation'.format(kfold,cross_vali))
     np.random.shuffle(train)
     percent_valid = int(train.shape[0] * 0.9)
     train_set, valid_set = train[:percent_valid] , train[percent_valid:]
@@ -89,12 +90,12 @@ for kfold in range(cross_vali):
                           available_mask = mask,
                           method = 'adam',
                           pretraining_epochs = 10,
-                          pretrain_lr = 0.01,
+                          pretrain_lr = 0.0001,
                           training_epochs = 100,
-                          finetune_lr = 0.01,
+                          finetune_lr = 0.0001,
                           batch_size = 20,
-                          hidden_size = [200,50,4],
-                          corruption_da = [ 0.1,.1,0.1],
+                          hidden_size = [600,100,50,4],
+                          corruption_da = [ 0.1,.1,0.1,.1],
                           dA_initiall = True ,
                           error_known = True )    
         gather_sda.finetuning()
@@ -130,5 +131,22 @@ plt.ylabel('Mean absolute error')
 plt.title('dataset: diabetes')
 plt.legend(loc=4,prop={'size':9})
 plt.show()
+
+
+##############################################
+
+
+missing_percent=[ 0. ,  0.1,  0.2,  0.3,  0.4,  0.5,  0.6,  0.7,  0.8,  0.9]*10
+
+
+mis=np.linspace(0.,0.9,10)
+for i in range(10):
+    k=i+10
+    
+    plt.plot(mis,mean_error[i:k],'--bo')
+    plt.plot(mis,knn_error[i:k], '--go')
+    plt.plot(mis,sda_error[i:k],'--ro' )
+plt.show()
+
 """
 

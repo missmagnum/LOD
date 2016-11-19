@@ -11,7 +11,9 @@ import time
 
 
 #dat=np.loadtxt('diabetes.csv',skiprows=1,delimiter=',',usecols=(0,1,2,3,4,5,6,7))
-dat=np.loadtxt('E-GEOD-72658.txt',skiprows=1,delimiter='\t',usecols=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16))  #(25697, 16)
+
+dat=np.loadtxt('E-GEOD-72658.txt',skiprows=1,delimiter='\t',usecols=range(1,17))
+#(25697, 16)
 
 
 np.random.shuffle(dat)
@@ -74,8 +76,8 @@ for mis in missing_percent:
                       pretrain_lr = 0.0001,
                       training_epochs = 100,
                       finetune_lr = 0.0001,
-                      batch_size = 800,
-                      hidden_size = [25600,100,10],
+                      batch_size = 200,
+                      hidden_size = [1000,100,2],
                       corruption_da = [0.1,0.1,0.1],
                       dA_initiall = True ,
                       error_known = True )
