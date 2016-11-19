@@ -47,7 +47,7 @@ mean_error=[]
 knn_error=[]
 
 
-missing_percent=np.linspace(0.,0.9,10)
+missing_percent=np.linspace(0.1,0.9,9)
 #missing_percent=[0.6,.7,.8]
 
 
@@ -73,8 +73,8 @@ for kfold in range(cross_vali):
 
         available_mask=np.random.binomial(n=1, p = 1-mis, size = dataset.shape)
         rest_mask, test_mask = available_mask[:percent], available_mask[percent:]
-        ### without corruption in training
-        train_mask =  np.random.binomial(n=1, p = 1, size = train_set.shape) #rest_mask[:percent_valid]
+       
+        train_mask =  np.random.binomial(n=1, p = 1-mis, size = train_set.shape) #rest_mask[:percent_valid]
         valid_mask = rest_mask[percent_valid:]
 
         data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
@@ -84,7 +84,7 @@ for kfold in range(cross_vali):
 
         #### SDA with test set for outputinitialization###################
         # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
-        gather_sda=Gather_sda(dataset = test_set*test_mask,
+        gather=Gather_sda(dataset = test_set*test_mask,
                           portion_data = data,
                           problem = 'regression',
                           available_mask = mask,
@@ -98,18 +98,29 @@ for kfold in range(cross_vali):
                           corruption_da = [ 0.1,.1,0.1,.1],
                           dA_initiall = True ,
                           error_known = True )    
-        gather_sda.finetuning()
+    gather.finetuning()
+    ###########define nof K ###############
+    k_neib = 10
+    print('... Knn calculation with {} neighbor'.format(k_neib))
+    knn_result = knn(dataset,available_mask,k=k_neib)
+
+    #########run the result for test
 
 
-        sda_error.append(MAE(test_set, gather_sda.gather_out(), test_mask))
+    def MAE(x,xr,mas):
+        return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
 
-   
-        ############# KNN  & MEAN #########################
-        knn_result = knn(dataset,available_mask,k=5)
-        knn_error.append(MAE(dataset,knn_result,available_mask))
- 
-        mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
     
+    sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
+    mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
+    knn_error.append(MAE(dataset,knn_result,available_mask))
+
+    print('sda_error= ',sda_error[-1])
+    print('knn_error= ',knn_error[-1])
+    print('mean_error= ',mean_error[-1])  
+
+    
+
     
  
 print('sda_error= ',sda_error)
@@ -121,7 +132,8 @@ day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result_{}_{}.dat'.format(day,tim),'w')
 result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s" % (str(mean_error), str(sda_error),str(knn_error)))
-result.close()    
+result.close()
+
 """
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )

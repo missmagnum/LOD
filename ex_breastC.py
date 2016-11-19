@@ -55,7 +55,7 @@ sda_error=[]
 mean_error=[]
 knn_error=[]
 sdaw=[]
-missing_percent=np.linspace(0.,0.9,10)
+missing_percent=np.linspace(0.1,0.9,9)
 #missing_percent=[0.6,.7,.8]
 
 for mis in missing_percent:
@@ -64,8 +64,11 @@ for mis in missing_percent:
    
     available_mask=np.random.binomial(n=1, p = 1-mis, size = dataset.shape)
     rest_mask, test_mask = available_mask[:percent], available_mask[percent:]
-    ### without corruption in training
-    train_mask =  np.random.binomial(n=1, p = 1, size = train_set.shape) #rest_mask[:percent_valid]
+
+    #######################################
+    ######## without corruption in training
+    ########################################
+    train_mask =  np.random.binomial(n=1, p = 1-mis, size = train_set.shape) #rest_mask[:percent_valid]
     valid_mask = rest_mask[percent_valid:]
     
     data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
@@ -83,8 +86,8 @@ for mis in missing_percent:
                       pretraining_epochs = 100,
                       pretrain_lr = 0.0001,
                       training_epochs = 200,
-                      finetune_lr = 0.00001,
-                      batch_size = 30,
+                      finetune_lr = 0.0001,
+                      batch_size = 5,
                       hidden_size = [400,100,21],  #19 was good for >80%corrup
                       corruption_da = [0.1,0.1,.1],
                       dA_initiall = True ,
@@ -92,12 +95,12 @@ for mis in missing_percent:
     
     gather.finetuning()
     ###########define nof K ###############
-    print('... Knn calculation')
-    knn_result = knn(dataset,available_mask,k=20)
+    k_neib = 10
+    print('... Knn calculation with {} neighbor'.format(k_neib))
+    knn_result = knn(dataset,available_mask,k=k_neib)
 
     #########run the result for test
-    #dd_mask=test_mask
-    #dd = test_set
+
 
     def MAE(x,xr,mas):
         return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
@@ -106,12 +109,12 @@ for mis in missing_percent:
     sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
     mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
     knn_error.append(MAE(dataset,knn_result,available_mask))
-        
-    #sda_error.append(sum((1-dd_mask)*(np.abs(dd-gather.gather_out())), axis=1).mean())
-    #mean_error.append(sum((1-available_mask)*(np.abs(dataset-dataset.mean(axis=0))), axis=1).mean())
-    #knn_error.append(sum((1-available_mask)*(np.abs(dataset-knn_result)), axis=1).mean())
-  
 
+    print('sda_error= ',sda_error[-1])
+    print('knn_error= ',knn_error[-1])
+    print('mean_error= ',mean_error[-1])  
+
+    
 
 print('sda_error= ',sda_error)
 print('knn_error= ',knn_error)
@@ -135,5 +138,24 @@ plt.ylabel('Mean absolute error')
 plt.title('dataset: breastCancer')
 plt.legend(loc=4,prop={'size':9})
 plt.show()
+
+
+
+sda_error=  [0.0, 4.0373230473166686, 8.6391201303436187, 13.987815029050715, 19.316061324443002, 27.401109964367784, 34.576769459871421, 45.848975034057055, 64.912280949745977, 85.867797854139724]
+knn_error=  [0.0, 3.2239342553787758, 6.3587991700998661, 9.9424136683517457, 13.383944546058032, 17.322183179812015, 21.691424523815666, 30.697269379329331, 63.725304693900412, 82.948171246346362]
+mean_error=  [0.0, 9.8420046178497458, 19.515621979481068, 29.247118318942814, 39.149222483825014, 49.072122138920648, 58.793330123512035, 68.755998416924584, 78.553190438712463, 87.990986727414281]
+
+pretraining_epochs = 100,
+                      pretrain_lr = 0.0001,
+                      training_epochs = 200,
+                      finetune_lr = 0.0001,
+                      batch_size = 10,
+                      hidden_size = [400,100,21],  #19 was good for >80%corrup
+                      corruption_da = [0.1,0.1,.1],
+
+
+
+
+
 """
 
