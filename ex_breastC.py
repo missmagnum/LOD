@@ -19,7 +19,7 @@ import glob
 e_name=glob.glob('E-GEOD-80233/*.txt')
 
 
-prot_breac=[]    ######### Protein_breastcancer E-GEOD-80233  (945, 134)  PCA--> 15
+prot_breac=[]    ######### Protein_breastcancer E-GEOD-80233  (945, 134) 
 for i in e_name:
     prot_breac.append(np.loadtxt(i,skiprows=1,delimiter='\t',usecols=[1]))
 
@@ -81,18 +81,18 @@ for mis in missing_percent:
                       available_mask = mask,
                       method = 'adam',
                       pretraining_epochs = 100,
-                      pretrain_lr = 0.00001,
+                      pretrain_lr = 0.0001,
                       training_epochs = 100,
-                      finetune_lr = 0.00001,
-                      batch_size = 5,
-                      hidden_size = [400,100,20,5],  #19 was good for >80%corrup
+                      finetune_lr = 0.0001,
+                      batch_size = 50,
+                      hidden_size = [400,100,21],  #19 was good for >80%corrup
                       corruption_da = [0.1,0.1,.1,.1],
                       dA_initiall = True ,
                       error_known = True )
     
     gather.finetuning()
     ###########define nof K ###############  
-    knn_result = knn(dataset,available_mask,k=3)
+    knn_result = knn(dataset,available_mask,k=20)
 
     #########run the result for test
     #dd_mask=test_mask

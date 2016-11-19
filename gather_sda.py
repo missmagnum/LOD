@@ -89,7 +89,7 @@ class Gather_sda(object):
                     c.append(pretraining_fns[i](index = batch_index,
                                                 corruption = corruption_levels[i],
                                                 lr = self.pretrain_lr))
-                print('Pre-training layer %i, epoch %d, cost %f' % (i, epoch, numpy.mean(c)))
+                #print('Pre-training layer %i, epoch %d, cost %f' % (i, epoch, numpy.mean(c)))
 
    
     
@@ -183,11 +183,11 @@ class Gather_sda(object):
                         # test it on the test set
                         test_losses = test_model()
                         test_score = numpy.mean(test_losses)
-                        print(('     epoch %i, minibatch %i/%i, validation error of '
+                        #print(('     epoch %i, minibatch %i/%i, validation error of '
                                'best model %f ') %
                               (epoch, minibatch_index + 1, self.n_train_batches,
                                best_validation_loss))
-                        print('W',self.sda.decoder_layer.W.get_value()[-1,-1])
+                        #print('W',self.sda.decoder_layer.W.get_value()[-1,-1])
                         
                 if patience <= iter:
                     done_looping = True

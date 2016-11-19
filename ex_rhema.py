@@ -14,7 +14,10 @@ import time
 #dat=np.loadtxt('E-GEOD-72658.txt',skiprows=1,delimiter='\t',usecols=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16))
 #dat=np.loadtxt('diabet',skiprows=1,delimiter=',',usecols=(0,1,2,3,4,5,6,7))
 
-dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))#(1388, 8) 
+dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))
+#(1388, 8)   E-MTAB-3606
+
+
 np.random.shuffle(dat)
 print(dat.shape)
 
@@ -25,7 +28,7 @@ print(dat.shape)
 
 ## standard score
 dataset = (dat-dat.mean(axis=0))/dat.std(axis=0)
-### PCA--> 3
+### PCA--> 3 positive - negative or control --> 3 class
 
 
 """    
@@ -130,22 +133,6 @@ plt.xlabel('corruption percentage')
 plt.ylabel('Mean absolute error')
 plt.title('dataset: diabetes')
 plt.legend(loc=4,prop={'size':9})
-plt.show()
-
-
-##############################################
-
-
-missing_percent=[ 0. ,  0.1,  0.2,  0.3,  0.4,  0.5,  0.6,  0.7,  0.8,  0.9]*10
-
-
-mis=np.linspace(0.,0.9,10)
-for i in range(10):
-    k=i+10
-    
-    plt.plot(mis,mean_error[i:k],'--bo')
-    plt.plot(mis,knn_error[i:k], '--go')
-    plt.plot(mis,sda_error[i:k],'--ro' )
 plt.show()
 
 """
