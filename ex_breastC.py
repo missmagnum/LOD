@@ -88,7 +88,7 @@ for mis in missing_percent:
                       training_epochs = 200,
                       finetune_lr = 0.0001,
                       batch_size = 10,
-                      hidden_size = [600,200,100,10],  #19 was good for >80%corrup
+                      hidden_size = [800,200,100,18],  #19 was good for >80%corrup
                       corruption_da = [0.1,0.1,.1,.1],
                       dA_initiall = True ,
                       error_known = True )
