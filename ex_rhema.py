@@ -52,7 +52,7 @@ missing_percent=np.linspace(0.1,0.9,9)
 #missing_percent=[0.6,.7,.8]
 
 
-cross_vali = 1
+cross_vali = 20
 
 for kfold in range(cross_vali):
     print('...k= {} out of {} crossvalidation'.format(kfold,cross_vali))

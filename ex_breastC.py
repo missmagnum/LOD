@@ -60,61 +60,76 @@ sdaw=[]
 missing_percent=np.linspace(0.1,0.9,9)
 #missing_percent=[0.6,.7,.8]
 
-for mis in missing_percent:
-    print('missing percentage: ',mis)
 
-   
-    available_mask=np.random.binomial(n=1, p = 1-mis, size = dataset.shape)
-    rest_mask, test_mask = available_mask[:percent], available_mask[percent:]
 
-    #######################################
-    ######## without corruption in training
-    ########################################
-    train_mask =  np.random.binomial(n=1, p = 1-mis, size = train_set.shape) #rest_mask[:percent_valid]
-    valid_mask = rest_mask[percent_valid:]
-    
-    data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
-    mask= train_mask, valid_mask, test_mask
-   
-    
-    #### SDA with test set for output
-    # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
-    gather=Gather_sda(dataset = test_set*test_mask,
-                      portion_data = data,
-                      problem = 'regression',
-                      available_mask = mask,
-                      method = 'nes_mom',
-                      pretraining_epochs = 200,
-                      pretrain_lr = 0.0001,
-                      training_epochs = 300,
-                      finetune_lr = 0.0001,
-                      batch_size = 10,
-                      hidden_size = [700,600,200,100,60,40,21],  #19 was good for >80%corrup
-                      corruption_da = [0.2,0.2,.2,0.2,.2,.2,.2],
-                      dA_initiall = True ,
-                      error_known = True ,
-                      activ_fun = T.tanh)  #T.nnet.sigmoid)
-    
-    gather.finetuning()
-    ###########define nof K ###############
-    k_neib = 50
-    print('... Knn calculation with {} neighbor'.format(k_neib))
-    knn_result = knn(dataset,available_mask,k=k_neib)
 
-    #########run the result for test
+cross_vali = 1
+
+for kfold in range(cross_vali):
+    print('...k= {} out of {} crossvalidation'.format(kfold,cross_vali))
+    np.random.shuffle(train)
+    percent_valid = int(train.shape[0] * 0.9)
+    train_set, valid_set = train[:percent_valid] , train[percent_valid:]
 
 
     def MAE(x,xr,mas):
         return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
 
-    
-    sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
-    mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
-    knn_error.append(MAE(dataset,knn_result,available_mask))
+    def MSE(x,xr,mas):
+        return np.mean(np.sum((1-mas) * (x-xr)**2,axis=1))
 
-    print('sda_error= ',sda_error[-1])
-    print('knn_error= ',knn_error[-1])
-    print('mean_error= ',mean_error[-1])  
+
+    for mis in missing_percent:
+        print('missing percentage: ',mis)
+
+
+        available_mask=np.random.binomial(n=1, p = 1-mis, size = dataset.shape)
+        rest_mask, test_mask = available_mask[:percent], available_mask[percent:]
+       
+        train_mask =  np.random.binomial(n=1, p = 1-mis, size = train_set.shape) #rest_mask[:percent_valid]
+        valid_mask = rest_mask[percent_valid:]
+
+        data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
+        mask= train_mask, valid_mask, test_mask
+        
+    #### SDA with test set for output
+        # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
+        gather=Gather_sda(dataset = test_set*test_mask,
+                          portion_data = data,
+                          problem = 'regression',
+                          available_mask = mask,
+                          method = 'nes_mom',
+                          pretraining_epochs = 200,
+                          pretrain_lr = 0.0001,
+                          training_epochs = 300,
+                          finetune_lr = 0.0001,
+                          batch_size = 10,
+                          hidden_size = [700,600,200,100,60,40,21],  #19 was good for >80%corrup
+                          corruption_da = [0.2,0.2,.2,0.2,.2,.2,.2],
+                          dA_initiall = True ,
+                          error_known = True ,
+                          activ_fun = T.tanh)  #T.nnet.sigmoid)
+
+        gather.finetuning()
+        ###########define nof K ###############
+        k_neib = 50
+        print('... Knn calculation with {} neighbor'.format(k_neib))
+        knn_result = knn(dataset,available_mask,k=k_neib)
+
+        #########run the result for test
+
+
+        def MAE(x,xr,mas):
+            return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
+
+
+        sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
+        mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
+        knn_error.append(MAE(dataset,knn_result,available_mask))
+
+        print('sda_error= ',sda_error[-1])
+        print('knn_error= ',knn_error[-1])
+        print('mean_error= ',mean_error[-1])  
 
     
 
