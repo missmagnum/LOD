@@ -52,10 +52,10 @@ missing_percent=np.linspace(0.1,0.9,9)
 #missing_percent=[0.6,.7,.8]
 
 
-cross_vali = 20
+cross_vali = 1
 
 for kfold in range(cross_vali):
-    print('...k= {} out of {} crossvalidation'.format(kfold,cross_vali))
+    print('...kfold= {} out of {} crossvalidation'.format(kfold,cross_vali))
     np.random.shuffle(train)
     percent_valid = int(train.shape[0] * 0.9)
     train_set, valid_set = train[:percent_valid] , train[percent_valid:]
@@ -90,16 +90,16 @@ for kfold in range(cross_vali):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs = 100,
+                          pretraining_epochs = 200,
                           pretrain_lr = 0.0001,
-                          training_epochs = 200,
+                          training_epochs = 300,
                           finetune_lr = 0.0001,
-                          batch_size = 10,
+                          batch_size = 20,
                           hidden_size = [800,500,300,100,30,3],  #(1388, 8)  PCA--> 3
                           corruption_da = [ 0.2,.2,0.1,.1,0.1,.1],
                           dA_initiall = True ,
                           error_known = True ,
-                          activ_fun =T.nnet.sigmoid)    
+                          activ_fun =T.tanh)    
         gather.finetuning()
         ###########define nof K ###############
         k_neib = 40

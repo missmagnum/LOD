@@ -26,7 +26,6 @@ for i in e_name:
     prot_breac.append(np.loadtxt(i,skiprows=1,delimiter='\t',usecols=[1]))
 
 dat=np.array(prot_breac)
-np.random.shuffle(dat)
 print(dat.shape)
 
 #dataset=dat
@@ -47,11 +46,6 @@ for i in range(dat.shape[1]):
 ############################################################
 
 
-percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
-train, test_set = dataset[:percent] ,dataset[percent:]
-percent_valid = int(train.shape[0] * 0.8)
-train_set, valid_set = train[:percent_valid] , train[percent_valid:]
-
 
 sda_error=[]
 mean_error=[]
@@ -66,7 +60,14 @@ missing_percent=np.linspace(0.1,0.9,9)
 cross_vali = 1
 
 for kfold in range(cross_vali):
-    print('...k= {} out of {} crossvalidation'.format(kfold,cross_vali))
+    np.random.shuffle(dataset)
+    percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
+    train, test_set = dataset[:percent] ,dataset[percent:]
+    percent_valid = int(train.shape[0] * 0.8)
+    train_set, valid_set = train[:percent_valid] , train[percent_valid:]
+
+    
+    print('...kfold= {} out of {} crossvalidation'.format(kfold+1,cross_vali))
     np.random.shuffle(train)
     percent_valid = int(train.shape[0] * 0.9)
     train_set, valid_set = train[:percent_valid] , train[percent_valid:]
@@ -91,21 +92,20 @@ for kfold in range(cross_vali):
 
         data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
         mask= train_mask, valid_mask, test_mask
-        
     #### SDA with test set for output
         # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
         gather=Gather_sda(dataset = test_set*test_mask,
                           portion_data = data,
                           problem = 'regression',
                           available_mask = mask,
-                          method = 'nes_mom',
+                          method = 'adam',
                           pretraining_epochs = 200,
                           pretrain_lr = 0.0001,
                           training_epochs = 300,
                           finetune_lr = 0.0001,
                           batch_size = 10,
                           hidden_size = [700,600,200,100,60,40,21],  #19 was good for >80%corrup
-                          corruption_da = [0.2,0.2,.2,0.2,.2,.2,.2],
+                          corruption_da = [0.2,0.2,.1,0.2,.2,.2,.2],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
@@ -150,7 +150,7 @@ result.close()
 """
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )
-plt.plot(missing_percent,sda_error,'--ro',label='sda[800,200,8]')
+plt.plot(missing_percent,sda_error,'--ro',label='sda')
 plt.xlabel('corruption percentage')
 plt.ylabel('Mean absolute error')
 plt.title('dataset: breastCancer')

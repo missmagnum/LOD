@@ -17,7 +17,7 @@ def knn(data, mask, k = 3, lamb=0.7 ,norm=2 ):
         for j in range(n):
             m = mask[mis]*mask[j]
             if mis==j :
-                D[i,j]= 1e15
+                D[i,j]= 1e4
             else:
                 D[i,j] = (1./(np.sum(m)) * np.sum( (abs(data[mis]-data[j])**norm)*m))**(1/norm)
                 #D[i,j] = np.sqrt(np.sum((data[mis]-data[j])**2 ))
