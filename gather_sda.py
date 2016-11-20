@@ -60,7 +60,7 @@ class Gather_sda(object):
         self.n_train_batches = self.train_set.get_value(borrow=True).shape[0] // batch_size        
         self.numpy_rng = numpy.random.RandomState(89677)
         self.theano_rng = RandomStreams(self.numpy_rng.randint(2 ** 30))
-        print('input size', self.n_visible)
+       
         
     def pretraining(self):
 

@@ -103,16 +103,16 @@ for kfold in range(cross_vali):
                           pretrain_lr = 0.0001,
                           training_epochs = 300,
                           finetune_lr = 0.0001,
-                          batch_size = 15,
-                          hidden_size = [700,600,200,100,60,40,21],  #19 was good for >80%corrup
-                          corruption_da = [0.2,0.2,.1,0.2,.2,.2,.2],
+                          batch_size = 12,
+                          hidden_size = [600,200,100,60,40,21],  #19 was good for >80%corrup
+                          corruption_da = [0.1,0.1,.1,0.1,.1,.1,.1],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
 
         gather.finetuning()
         ###########define nof K ###############
-        k_neib = 50
+        k_neib = 30
         print('... Knn calculation with {} neighbor'.format(k_neib))
         knn_result = knn(dataset,available_mask,k=k_neib)
 
