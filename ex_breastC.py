@@ -57,7 +57,7 @@ missing_percent=np.linspace(0.1,0.9,9)
 
 
 
-cross_vali = 1
+cross_vali = 15
 
 for kfold in range(cross_vali):
     np.random.shuffle(dataset)
@@ -103,7 +103,7 @@ for kfold in range(cross_vali):
                           pretrain_lr = 0.0001,
                           training_epochs = 300,
                           finetune_lr = 0.0001,
-                          batch_size = 10,
+                          batch_size = 15,
                           hidden_size = [700,600,200,100,60,40,21],  #19 was good for >80%corrup
                           corruption_da = [0.2,0.2,.1,0.2,.2,.2,.2],
                           dA_initiall = True ,
