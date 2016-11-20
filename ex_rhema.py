@@ -51,7 +51,7 @@ missing_percent=np.linspace(0.1,0.9,9)
 #missing_percent=[0.6,.7,.8]
 
 
-cross_vali = 10
+cross_vali = 1
 
 for kfold in range(cross_vali):
     print('...k= {} out of {} crossvalidation'.format(kfold,cross_vali))
@@ -93,31 +93,31 @@ for kfold in range(cross_vali):
                           pretrain_lr = 0.0001,
                           training_epochs = 200,
                           finetune_lr = 0.0001,
-                          batch_size = 20,
+                          batch_size = 10,
                           hidden_size = [300,100,30,3],  #(1388, 8)  PCA--> 3
                           corruption_da = [ 0.1,.1,0.1,.1],
                           dA_initiall = True ,
                           error_known = True )    
-    gather.finetuning()
-    ###########define nof K ###############
-    k_neib = 10
-    print('... Knn calculation with {} neighbor'.format(k_neib))
-    knn_result = knn(dataset,available_mask,k=k_neib)
+        gather.finetuning()
+        ###########define nof K ###############
+        k_neib = 10
+        print('... Knn calculation with {} neighbor'.format(k_neib))
+        knn_result = knn(dataset,available_mask,k=k_neib)
 
-    #########run the result for test
+        #########run the result for test
 
 
-    def MAE(x,xr,mas):
-        return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
+        def MAE(x,xr,mas):
+            return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
 
-    
-    sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
-    mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
-    knn_error.append(MAE(dataset,knn_result,available_mask))
 
-    print('sda_error= ',sda_error[-1])
-    print('knn_error= ',knn_error[-1])
-    print('mean_error= ',mean_error[-1])  
+        sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
+        mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
+        knn_error.append(MAE(dataset,knn_result,available_mask))
+
+        print('sda_error= ',sda_error[-1])
+        print('knn_error= ',knn_error[-1])
+        print('mean_error= ',mean_error[-1])  
 
     
 
