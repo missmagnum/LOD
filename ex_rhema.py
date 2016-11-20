@@ -94,10 +94,11 @@ for kfold in range(cross_vali):
                           training_epochs = 200,
                           finetune_lr = 0.0001,
                           batch_size = 10,
-                          hidden_size = [800,500,100,3],  #(1388, 8)  PCA--> 3
+                          hidden_size = [300,100,30,3],  #(1388, 8)  PCA--> 3
                           corruption_da = [ 0.1,.1,0.1,.1],
                           dA_initiall = True ,
-                          error_known = True )    
+                          error_known = True ,
+                          activ_fun =T.tanh)    
         gather.finetuning()
         ###########define nof K ###############
         k_neib = 10

@@ -23,7 +23,8 @@ class Gather_sda(object):
                  hidden_size = [100,20,2],
                  corruption_da = [0.1, 0.1, 0.1],
                  dA_initiall = True,
-                 error_known = True ):
+                 error_known = True,
+                 activ_fun = None):
         self.problem = problem
         self.method = method
         self.pretraining_epochs = pretraining_epochs
@@ -35,6 +36,7 @@ class Gather_sda(object):
         self.corruption_da = corruption_da
         self.dA_initiall = dA_initiall
         self.error_known = error_known
+        self.activ_fun = activ_fun
        
         def load_data(X):
             try:
@@ -71,7 +73,8 @@ class Gather_sda(object):
             dA_initiall = self.dA_initiall,
             error_known = self.error_known,
             method=self.method,
-            problem = self.problem)
+            problem = self.problem,
+            activ_fun = self.activ_fun)
                  
    
         pretraining_fns = self.sda.pretraining_functions(train_set_x = self.train_set,
@@ -107,7 +110,8 @@ class Gather_sda(object):
             dA_initiall = self.dA_initiall,
             error_known = self.error_known,
             method=self.method,
-            problem = self.problem)
+            problem = self.problem,
+            activ_fun = self.activ_fun)
 
         self.gather_out=theano.function(
             [],

@@ -20,9 +20,10 @@ class Sda(object):
                   dA_initiall=True,
                   error_known=True,
                   method=None,
-                  problem = None):         
+                  problem = None,
+                  activ_fun = None):         
 
-        activation_function =T.tanh  #T.arctan  #T.tanh 
+        self.activ_fun = activ_fun  #T.arctan  #T.tanh 
         
         self.n_layers = len(hidden_layers_sizes)
         self.n_inputs=n_inputs
@@ -63,14 +64,14 @@ class Sda(object):
             else:
                 layer_input=self.encoder_layers[-1].output
                 
-            act_func=activation_function
+            
                 
             self.encoder_layer=perceptron(rng = numpy_rng,
                                           theano_rng=theano_rng,
                                           input = layer_input,
                                           n_in = input_size,
                                           n_out = self.hidden_layers_sizes[i],
-                                          activation = act_func,
+                                          activation = activ_fun,
                                           first_layer_corrup=corruption)
 
             if dA_initiall :
@@ -82,7 +83,7 @@ class Sda(object):
                               W=self.encoder_layer.W,
                               bhid=self.encoder_layer.b,
                               method = self.method,
-                              activation=activation_function)
+                              activation=activ_fun)
                 
                 self.dA_layers.append(dA_layer)
             
@@ -123,7 +124,7 @@ class Sda(object):
                 else:
                     act_func = T.nnet.sigmoid
             else:
-                act_func=activation_function
+                act_func=activ_fun
             
             self.decoder_layer=perceptron(rng=numpy_rng,
                                         input=layer_input,

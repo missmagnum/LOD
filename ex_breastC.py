@@ -3,7 +3,7 @@ from __future__ import print_function, unicode_literals
 
 import numpy as np
 import matplotlib.pyplot as plt
-
+import theano.tensor as T
 
 from gather_sda import Gather_sda
 from knn import knn
@@ -85,17 +85,18 @@ for mis in missing_percent:
                       method = 'adam',
                       pretraining_epochs = 100,
                       pretrain_lr = 0.0001,
-                      training_epochs = 200,
+                      training_epochs = 300,
                       finetune_lr = 0.0001,
                       batch_size = 10,
-                      hidden_size = [800,200,100,18],  #19 was good for >80%corrup
+                      hidden_size = [600,200,100,21],  #19 was good for >80%corrup
                       corruption_da = [0.1,0.1,.1,.1],
                       dA_initiall = True ,
-                      error_known = True )
+                      error_known = True ,
+                      activ_fun = T.nnet.sigmoid)
     
     gather.finetuning()
     ###########define nof K ###############
-    k_neib = 10
+    k_neib = 30
     print('... Knn calculation with {} neighbor'.format(k_neib))
     knn_result = knn(dataset,available_mask,k=k_neib)
 
