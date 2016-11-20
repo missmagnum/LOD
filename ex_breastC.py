@@ -57,19 +57,16 @@ missing_percent=np.linspace(0.1,0.9,9)
 
 
 
-cross_vali = 15
+cross_vali = 30
 
 for kfold in range(cross_vali):
     np.random.shuffle(dataset)
     percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
     train, test_set = dataset[:percent] ,dataset[percent:]
-    percent_valid = int(train.shape[0] * 0.8)
-    train_set, valid_set = train[:percent_valid] , train[percent_valid:]
-
     
-    print('...kfold= {} out of {} crossvalidation'.format(kfold+1,cross_vali))
+
     np.random.shuffle(train)
-    percent_valid = int(train.shape[0] * 0.9)
+    percent_valid = int(train.shape[0] * 0.8)
     train_set, valid_set = train[:percent_valid] , train[percent_valid:]
 
 
@@ -79,7 +76,7 @@ for kfold in range(cross_vali):
     def MSE(x,xr,mas):
         return np.mean(np.sum((1-mas) * (x-xr)**2,axis=1))
 
-
+    print('...kfold= {} out of {} crossvalidation'.format(kfold+1,cross_vali))
     for mis in missing_percent:
         print('missing percentage: ',mis)
 
@@ -105,14 +102,14 @@ for kfold in range(cross_vali):
                           finetune_lr = 0.0001,
                           batch_size = 12,
                           hidden_size = [600,200,100,60,40,21],  #19 was good for >80%corrup
-                          corruption_da = [0.1,0.1,.1,0.1,.1,.1,.1],
+                          corruption_da = [0.1,0.2,.1,0.2,.1,.2,.1],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
 
         gather.finetuning()
         ###########define nof K ###############
-        k_neib = 30
+        k_neib = 60
         print('... Knn calculation with {} neighbor'.format(k_neib))
         knn_result = knn(dataset,available_mask,k=k_neib)
 
@@ -142,7 +139,7 @@ print('mean_error= ',mean_error)
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result/result_{}_{}.dat'.format(day,tim),'w')
-result.write('name of the data {} with k={} for knn\n\n'.format(data_name,k_neib))
+result.write('name of the data: {} with k={} for knn\n\n'.format(data_name,k_neib))
 result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()
 
