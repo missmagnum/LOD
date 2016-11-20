@@ -3,7 +3,8 @@ from __future__ import print_function, unicode_literals
 
 import numpy as np
 import matplotlib.pyplot as plt
-from numpy import *
+import theano.tensor as T
+
 
 from gather_sda import Gather_sda
 from knn import knn
@@ -13,7 +14,7 @@ import time
 
 dat=np.loadtxt('rheumatoid.txt',skiprows=1,delimiter='\t',usecols=range(1,9))
 #########(1388, 8)   E-MTAB-3606
-
+data_name=str('rheumatoid  E-MTAB-3606 ')
 
 np.random.shuffle(dat)
 print(dat.shape)
@@ -94,14 +95,14 @@ for kfold in range(cross_vali):
                           training_epochs = 200,
                           finetune_lr = 0.0001,
                           batch_size = 10,
-                          hidden_size = [300,100,30,3],  #(1388, 8)  PCA--> 3
-                          corruption_da = [ 0.1,.1,0.1,.1],
+                          hidden_size = [800,500,300,100,30,3],  #(1388, 8)  PCA--> 3
+                          corruption_da = [ 0.2,.2,0.1,.1,0.1,.1],
                           dA_initiall = True ,
                           error_known = True ,
-                          activ_fun =T.tanh)    
+                          activ_fun =T.nnet.sigmoid)    
         gather.finetuning()
         ###########define nof K ###############
-        k_neib = 10
+        k_neib = 40
         print('... Knn calculation with {} neighbor'.format(k_neib))
         knn_result = knn(dataset,available_mask,k=k_neib)
 
@@ -132,6 +133,7 @@ print('mean_error= ',mean_error)
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result_{}_{}.dat'.format(day,tim),'w')
+result.write('name of the data {} with k={} for knn\n\n'.format(data_name,k_neib))
 result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()
 

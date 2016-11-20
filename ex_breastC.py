@@ -18,6 +18,8 @@ import glob
 
 e_name=glob.glob('E-GEOD-80233/*.txt')
 
+data_name=str('Protein_breastcancer E-GEOD-80233')
+
 
 prot_breac=[]    ######### Protein_breastcancer E-GEOD-80233  (945, 134) 
 for i in e_name:
@@ -74,7 +76,6 @@ for mis in missing_percent:
     data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
     mask= train_mask, valid_mask, test_mask
    
-     ###############activation_function =T.tanh
     
     #### SDA with test set for output
     # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
@@ -82,21 +83,21 @@ for mis in missing_percent:
                       portion_data = data,
                       problem = 'regression',
                       available_mask = mask,
-                      method = 'adam',
-                      pretraining_epochs = 100,
+                      method = 'nes_mom',
+                      pretraining_epochs = 200,
                       pretrain_lr = 0.0001,
                       training_epochs = 300,
                       finetune_lr = 0.0001,
                       batch_size = 10,
-                      hidden_size = [600,200,100,21],  #19 was good for >80%corrup
-                      corruption_da = [0.1,0.1,.1,.1],
+                      hidden_size = [700,600,200,100,60,40,21],  #19 was good for >80%corrup
+                      corruption_da = [0.2,0.2,.2,0.2,.2,.2,.2],
                       dA_initiall = True ,
                       error_known = True ,
-                      activ_fun = T.nnet.sigmoid)
+                      activ_fun = T.tanh)  #T.nnet.sigmoid)
     
     gather.finetuning()
     ###########define nof K ###############
-    k_neib = 30
+    k_neib = 50
     print('... Knn calculation with {} neighbor'.format(k_neib))
     knn_result = knn(dataset,available_mask,k=k_neib)
 
@@ -125,7 +126,8 @@ print('mean_error= ',mean_error)
     
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
-result=open('result_{}_{}.dat'.format(day,tim),'w')
+result=open('result/result_{}_{}.dat'.format(day,tim),'w')
+result.write('name of the data {} with k={} for knn\n\n'.format(data_name,k_neib))
 result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()
 
@@ -142,16 +144,36 @@ plt.show()
 
 
 
-sda_error=  [3.871869681867294, 8.2436541341801259, 12.964913741228191, 18.675575989245448, 25.131510073080488, 34.622592099472961, 46.613367289922948, 63.890278885043216, 88.559940110878642]
-knn_error=  [3.20499688381648, 6.4108534236094155, 9.8306643617146943, 13.36512634122391, 17.311326069823874, 21.927842680853594, 30.761750633469379, 63.610188952641785, 82.84037353999733]
-mean_error=  [9.9338877005167667, 19.601172492159652, 29.131744163946042, 39.047887549364873, 48.633334717173184, 58.842152171117533, 68.442723810961837, 78.347584073602746, 88.232847722551384]
 
-                   pretraining_epochs = 100,
+sda_error=  [3.8260220448509372, 8.3134063113508372, 13.301469426012245, 18.534558816726975, 25.507519918750134, 34.345746144852747, 43.907880553354687, 65.711575619830185, 88.206401253949323]
+knn_error=  [4.133471439051136, 8.71459097334583, 13.255826924199463, 18.118129399653526, 23.603173355960664, 30.873652227755972, 41.707055851469555, 63.523198813225022, 82.904008821343837]
+mean_error=  [9.7225906322632252, 19.710458600496462, 29.408958287533988, 39.221673034352115, 48.674593199351477, 58.789162736627119, 68.300097992049515, 78.483836561944045, 88.256928348874325]
+
+                     method = 'adam',
+                      pretraining_epochs = 100,
                       pretrain_lr = 0.0001,
                       training_epochs = 200,
                       finetune_lr = 0.0001,
                       batch_size = 10,
-                      hidden_size = [600,200,100,21],  #19 was good for >80%corrup
-                      corruption_da = [0.1,0.1,.1,.1],
+                      hidden_size = [600,200,100,60,40,21],  #19 was good for >80%corrup
+                      corruption_da = [0.2,0.1,0.1,.1,.2,.1],
+                      dA_initiall = True ,
+                      error_known = True ,
+                      activ_fun = T.tanh)
+
+
+
+
+behhhhhhtariiiiiiiin
+
+sda_error=  [3.8037614867461857, 7.8602512425349325, 12.516868974637243, 17.8771785506013, 25.107349726799882, 34.43905740485728, 45.409295524454201, 63.063975343204433, 87.790687521439]
+knn_error=  [4.2961102325030769, 8.7259405347851438, 13.233383029598356, 18.199898697545482, 23.520422607234046, 30.964698101688594, 42.496468044341697, 63.474155393451007, 82.996476076]
+mean_error=  [9.8257947820992175, 19.852977538494812, 29.286181719811889, 39.264182885314241, 48.835079455949547, 58.858003643711626, 68.75078881886111, 78.322282592449042, 88.277710211]
+
+
+
+
+
+
 """
 
