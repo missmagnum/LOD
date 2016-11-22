@@ -31,113 +31,135 @@ def syn_ph(nsamp,nfeat,doplot=False):
  
     return X
 
-dataset=syn_ph(4000,1000)
-np.random.shuffle(dataset)
-print(dataset.shape)
+dat=syn_ph(4000,1000)
+print(dat.shape)
 
 
-percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
-train, test_set = dataset[:percent] ,dataset[percent:]
-percent_valid = int(train.shape[0] * 0.8)
-train_set, valid_set = train[:percent_valid] , train[percent_valid:]
+dataset=dat
 
 
-b_error=[]
+#################NORMALIZATION#############################
+
+"""
+## standard score
+dataset = (dat-dat.mean(axis=0))/dat.std(axis=0)  ### PCA--> 22 out of 134 over 1 var
+
+
+   
+## feature scaling
+dataset=np.zeros_like(dat)
+for i in range(dat.shape[1]):
+    dataset[:,i]=-1+ 2*(dat[:,i]-min(dat[:,i]))/(max(dat[:,i])-min(dat[:,i]))
+"""
+############################################################
+
+
+
+sda_error=[]
 mean_error=[]
 knn_error=[]
 sdaw=[]
-missing_percent=np.linspace(0.,0.9,10)
+missing_percent=np.linspace(0.1,0.9,9)
 #missing_percent=[0.6,.7,.8]
 
-for mis in missing_percent:
-    print('missing percentage: ',mis)
 
-   
-    available_mask=np.random.binomial(n=1, p = 1-mis, size = dataset.shape)
-    rest_mask, test_mask = available_mask[:percent], available_mask[percent:]
-    ### without corruption in training
-    train_mask =  np.random.binomial(n=1, p = 1, size = train_set.shape) #rest_mask[:percent_valid]
-    valid_mask = rest_mask[percent_valid:]
+
+
+cross_vali = 1
+
+for kfold in range(cross_vali):
+    np.random.shuffle(dataset)
+    percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
+    train, test_set = dataset[:percent] ,dataset[percent:]
     
-    data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
-    mask= train_mask, valid_mask, test_mask
-   
-    
-    
+
+    np.random.shuffle(train)
+    percent_valid = int(train.shape[0] * 0.8)
+    train_set, valid_set = train[:percent_valid] , train[percent_valid:]
+
+
+    def MAE(x,xr,mas):
+        return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
+
+    def MSE(x,xr,mas):
+        return np.mean(np.sum((1-mas) * (x-xr)**2,axis=1))
+
+    print('...kfold= {} out of {} crossvalidation'.format(kfold+1,cross_vali))
+    for mis in missing_percent:
+        print('missing percentage: ',mis)
+
+
+        available_mask=np.random.binomial(n=1, p = 1-mis, size = dataset.shape)
+        rest_mask, test_mask = available_mask[:percent], available_mask[percent:]
+       
+        train_mask =  np.random.binomial(n=1, p = 1-mis, size = train_set.shape) #rest_mask[:percent_valid]
+        valid_mask = rest_mask[percent_valid:]
+
+        data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
+        mask= train_mask, valid_mask, test_mask
     #### SDA with test set for output
-    # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
-    gather=Gather_sda(dataset = test_set*test_mask,
-                      portion_data = data,
-                      problem = 'regression',
-                      available_mask = mask,
-                      method = 'nes_mom',
-                      pretraining_epochs = 100,
-                      pretrain_lr = 0.0001,
-                      training_epochs = 200,
-                      finetune_lr = 0.0001,
-                      batch_size = 100,
-                      hidden_size = [100,20,2],
-                      corruption_da = [0.1, 0.1,  0.1],
-                      dA_initiall = True ,
-                      error_known = True )
+        # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
+        gather=Gather_sda(dataset = test_set*test_mask,
+                          portion_data = data,
+                          problem = 'regression',
+                          available_mask = mask,
+                          method = 'adam',
+                          pretraining_epochs =10,
+                          pretrain_lr = 0.0001,
+                          training_epochs = 100,
+                          finetune_lr = 0.0001,
+                          batch_size = 100,
+                          hidden_size = [100,20,2],  #19 was good for >80%corrup
+                          corruption_da = [0.1,0.2,.1,0.2,.1,.2,.1],
+                          dA_initiall = True ,
+                          error_known = True ,
+                          activ_fun = None)  #T.nnet.sigmoid)
+
+        gather.finetuning()
+        ###########define nof K ###############
+        k_neib = 60
+        print('... Knn calculation with {} neighbor'.format(k_neib))
+        knn_result = knn(dataset,available_mask,k=k_neib)
+
+        #########run the result for test
+
+
+        def MAE(x,xr,mas):
+            return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
+
+
+        sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
+        mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
+        knn_error.append(MAE(dataset,knn_result,available_mask))
+
+        print('sda_error= ',sda_error[-1])
+        print('knn_error= ',knn_error[-1])
+        print('mean_error= ',mean_error[-1])  
+
     
-    gather.finetuning()
-      
-    knn_result = knn(dataset,available_mask)
-    #########run the result for test
-    dd_mask=test_mask
-    dd = test_set
+
+print('sda_error= ',sda_error)
+print('knn_error= ',knn_error)
+print('mean_error= ',mean_error)  
+
+
     
-    b_error.append(sum((1-dd_mask)*((dd-gather.gather_out())**2), axis=1).mean())
-    mean_error.append(sum((1-available_mask)*((dataset-dataset.mean(axis=0))**2), axis=1).mean())
-    knn_error.append(sum((1-available_mask)*((dataset-knn_result)**2), axis=1).mean())
-    #plot(mis,b_error[-1],'ro')
-    #plot(mis,mean_error[-1],'bo')
-    #plot(mis,knn_error[-1],'g*')
-
-    #### SDA with corruption in training
- 
-   
-    gather=Gather_sda(dataset = test_set*test_mask,
-                      portion_data = data,
-                      problem = 'regression',
-                      available_mask = mask,
-                      method = 'nes_mom',
-                      pretraining_epochs = 100,
-                      pretrain_lr = 0.0001,
-                      training_epochs = 200,
-                      finetune_lr = 0.0001,
-                      batch_size = 100,
-                      hidden_size = [100,2],
-                      corruption_da = [0.1, 0.1],
-                      dA_initiall = True ,
-                      error_known = True )
-    
-    gather.finetuning()
-
-    sdaw.append(sum((1-dd_mask)*((dd-gather.gather_out())**2), axis=1).mean())
-    #plot(mis,sdaw[-1],'m+')
-
-
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
-result=open('result_{}_{}.dat'.format(day,tim),'w')
-result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s\n\n2sda= %s" % (str(mean_error), str(b_error),str(knn_error),str(sdaw)))
-result.close()    
-"""    
+result=open('result/result_{}_{}.dat'.format(day,tim),'w')
+result.write('name of the data: {} with k={} for knn\n\n'.format(data_name,k_neib))
+result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s" % (str(mean_error), str(sda_error),str(knn_error)))
+result.close()
+
+
+
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )
-plt.plot(missing_percent,sda_error,'--ro',label='sda[800,200,8]')
-plt.plot(missing_percent,sdaw,'--mo',label='sda[1000,200,8]')
+plt.plot(missing_percent,sda_error,'--ro',label='sda')
 plt.xlabel('corruption percentage')
-plt.ylabel('MSE')
-plt.title('dataset: shifted sin + noise')
+plt.ylabel('Mean absolute error')
+plt.title('dataset: breastCancer')
 plt.legend(loc=4,prop={'size':9})
 plt.show()
 
-"""
-print(b_error)
-print(knn_error)
-print(mean_error)
 
-    

@@ -135,9 +135,9 @@ print('mean_error= ',mean_error)
 
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
-result=open('result_{}_{}.dat'.format(day,tim),'w')
+result=open('result/result_{}_{}.dat'.format(day,tim),'w')
 result.write('name of the data {} with k={} for knn\n\n'.format(data_name,k_neib))
-result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s" % (str(mean_error), str(sda_error),str(knn_error)))
+result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()
 
 """

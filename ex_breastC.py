@@ -140,7 +140,7 @@ day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result/result_{}_{}.dat'.format(day,tim),'w')
 result.write('name of the data: {} with k={} for knn\n\n'.format(data_name,k_neib))
-result.write("mean_error %s\n\nsda_error %s\n\nknn_error %s" % (str(mean_error), str(sda_error),str(knn_error)))
+result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()
 
 
@@ -182,6 +182,30 @@ sda_error=  [3.8037614867461857, 7.8602512425349325, 12.516868974637243, 17.8771
 knn_error=  [4.2961102325030769, 8.7259405347851438, 13.233383029598356, 18.199898697545482, 23.520422607234046, 30.964698101688594, 42.496468044341697, 63.474155393451007, 82.996476076]
 mean_error=  [9.8257947820992175, 19.852977538494812, 29.286181719811889, 39.264182885314241, 48.835079455949547, 58.858003643711626, 68.75078881886111, 78.322282592449042, 88.277710211]
 
+
+
+sda_error=np.array(sda_error)
+knn_error=np.array(knn_error)
+mean_error=np.array(mean_error)
+mean_error=mean_error.reshape(30,9)
+sda_error=sda_error.reshape(30,9)
+knn_error=knn_error.reshape(30,9)
+missing_percent=np.linspace(0.1,0.9,9)
+mean_con=np.max(mean_error,axis=0)-np.min(mean_error,axis=0)
+knn_con=np.max(knn_error,axis=0)-np.min(knn_error,axis=0)
+sda_con=np.max(sda_error,axis=0)-np.min(sda_error,axis=0)
+
+
+
+plt.figure()
+plt.errorbar(missing_percent,np.mean(mean_error,axis=0),yerr=mean_con,fmt='--o',label='mean_row')
+plt.errorbar(missing_percent,np.mean(knn_error,axis=0),yerr=knn_con,fmt='--o',label='knn' )
+plt.errorbar(missing_percent,np.mean(sda_error,axis=0),yerr=sda_con,fmt='--o',label='sda')
+plt.xlabel('corruption percentage')
+plt.ylabel('Mean absolute error')
+plt.title('dataset: breast cancer')
+plt.legend(loc=4,prop={'size':9})
+plt.show()
 
 
 
