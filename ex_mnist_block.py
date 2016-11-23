@@ -112,8 +112,8 @@ if __name__ == "__main__":
     ###k-neigbor####
     k_neib = 50
     
-    #missing_percent=np.linspace(0.,0.9,10)  
-    missing_percent=[0.4]
+    missing_percent=np.linspace(0.1,0.9,9)  
+    #missing_percent=[0.4]
     for mis in missing_percent:
         print('missing percentage: ',mis)       
         np.random.shuffle(train_set)
