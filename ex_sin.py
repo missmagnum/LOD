@@ -1,11 +1,14 @@
+from __future__ import division, absolute_import
+from __future__ import print_function, unicode_literals
+
 import numpy as np
-from pylab import *
-import datetime
+import matplotlib.pyplot as plt
+import theano.tensor as T
 
 from gather_sda import Gather_sda
 from knn import knn
-
 import time
+
 
 def syn_ph(nsamp,nfeat,doplot=False):
     """
@@ -31,9 +34,9 @@ def syn_ph(nsamp,nfeat,doplot=False):
  
     return X
 
-dat=syn_ph(4000,1000)
+dat=syn_ph(2000,500)
 print(dat.shape)
-
+data_name = str('sine')
 
 dataset=dat
 
@@ -65,6 +68,15 @@ missing_percent=np.linspace(0.1,0.9,9)
 
 
 
+def MAE(x,xr,mas):
+    #return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
+    return np.sum((1-mas) * np.abs(x-xr))/np.sum(1-mas)
+
+def MSE(x,xr,mas):
+    return np.mean(np.sum((1-mas) * (x-xr)**2,axis=1))
+
+
+
 cross_vali = 1
 
 for kfold in range(cross_vali):
@@ -78,16 +90,10 @@ for kfold in range(cross_vali):
     train_set, valid_set = train[:percent_valid] , train[percent_valid:]
 
 
-    def MAE(x,xr,mas):
-        return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
-
-    def MSE(x,xr,mas):
-        return np.mean(np.sum((1-mas) * (x-xr)**2,axis=1))
 
     print('...kfold= {} out of {} crossvalidation'.format(kfold+1,cross_vali))
     for mis in missing_percent:
         print('missing percentage: ',mis)
-
 
         available_mask=np.random.binomial(n=1, p = 1-mis, size = dataset.shape)
         rest_mask, test_mask = available_mask[:percent], available_mask[percent:]
@@ -113,19 +119,18 @@ for kfold in range(cross_vali):
                           corruption_da = [0.1,0.2,.1,0.2,.1,.2,.1],
                           dA_initiall = True ,
                           error_known = True ,
-                          activ_fun = None)  #T.nnet.sigmoid)
+                          activ_fun = T.tanh)  #T.nnet.sigmoid)
 
         gather.finetuning()
         ###########define nof K ###############
-        k_neib = 60
+        k_neib = 10
         print('... Knn calculation with {} neighbor'.format(k_neib))
         knn_result = knn(dataset,available_mask,k=k_neib)
 
         #########run the result for test
 
 
-        def MAE(x,xr,mas):
-            return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
+ 
 
 
         sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
