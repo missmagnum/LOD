@@ -71,7 +71,7 @@ def mnist_block(train_set, valid_set, test_set, mis,k_neib):
 
     sda_er = MAE(test_set, gather.gather_out(), test_mask)
     mean_er = MAE(train_set,train_set.mean(axis=0),train_mask)
-    kn_er = MAE(train_set,train_set.mean(axis=0),train_mask)
+    kn_er = MAE(test_set,knn_result,test_mask)
  
     
     return(sda_er,kn_er,mean_er)
