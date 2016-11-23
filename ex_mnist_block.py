@@ -117,7 +117,7 @@ if __name__ == "__main__":
     for mis in missing_percent:
         print('missing percentage: ',mis)       
         np.random.shuffle(train_set)
-        sd,knn,mean = mnist_block(train_set, valid_set, test_set, mis)
+        sd,knn,mean = mnist_block(train_set, valid_set, test_set, mis , k_neib)
         sda_error.append(sd)
         knn_error.append(knn)
         mean_error.append(mean)
