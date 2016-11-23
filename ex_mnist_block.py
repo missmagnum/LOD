@@ -42,9 +42,8 @@ def mnist_block(train_set, valid_set, test_set, mis,k_neib):
 
     
     ###knn
-    knn_mask = np.split(train_mask, 10)[0]
     t0=time.time()
-    knn_result = knn(knn_data , knn_mask,k= k_neib)
+    knn_result = knn(train_set , train_mask ,k= k_neib)
     tknn=time.time()-t0
     
 
