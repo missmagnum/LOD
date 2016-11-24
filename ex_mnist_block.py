@@ -29,7 +29,7 @@ def block_mask(datashape,mask,mis):
     return mask
 
 
-def mnist_block(train_set, valid_set, test_set, mis,k_neib):
+def mnist_block(mean_data,knn_data,train_set, valid_set, test_set, mis,k_neib):
 
   
     train_mask=block_mask(train_set.shape[0], np.ones_like(train_set), mis)
@@ -108,6 +108,9 @@ if __name__ == "__main__":
     sda_error=[]   
     knn_error=[]
     mean_error=[]
+
+    mean_data = train_set
+    knn_data = test_set
     
     ###k-neigbor####
     k_neib = 50
@@ -117,7 +120,7 @@ if __name__ == "__main__":
     for mis in missing_percent:
         print('missing percentage: ',mis)       
         np.random.shuffle(train_set)
-        sd,knn,mean = mnist_block(train_set, valid_set, test_set, mis , k_neib)
+        sd,knn,mean = mnist_block(mean_data,knn_data,train_set, valid_set, test_set, mis , k_neib)
         sda_error.append(sd)
         knn_error.append(knn)
         mean_error.append(mean)
