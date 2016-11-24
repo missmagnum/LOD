@@ -39,7 +39,12 @@ def mnist_block(train_set, valid_set, test_set, mis,k_neib):
     data = (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
     mask= train_mask, valid_mask, test_mask
 
-
+    ###knn
+    t0=time.time()
+    print('... Knn calculation with {} neighbor'.format(k_neib))
+    knn_result = knn(test_set , test_mask ,k = k_neib)
+    tknn=time.time()-t0
+   
 
     ###sda
     t0=time.time()    
@@ -53,7 +58,7 @@ def mnist_block(train_set, valid_set, test_set, mis,k_neib):
                           training_epochs = 100,
                           finetune_lr = 0.0001,
                           batch_size = 500,
-                          hidden_size = [1000, 500, 10], 
+                          hidden_size = [2500,1000, 500, 10], 
                           corruption_da = [0.1,0.2,.1,0.2,.1,.2,.1],
                           dA_initiall = True ,
                           error_known = True ,
@@ -61,12 +66,7 @@ def mnist_block(train_set, valid_set, test_set, mis,k_neib):
     gather.finetuning()
     tsda=time.time()-t0
        
-    ###knn
-    t0=time.time()
-    print('... Knn calculation with {} neighbor'.format(k_neib))
-    knn_result = knn(test_set , test_mask ,k = k_neib)
-    tknn=time.time()-t0
-   
+
     #print('time_knn',tknn,'time_sda',tsda)
 
     sda_er = MAE(test_set, gather.gather_out(), test_mask)
