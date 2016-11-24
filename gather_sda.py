@@ -22,6 +22,7 @@ class Gather_sda(object):
                  batch_size = 50,
                  hidden_size = [100,20,2],
                  corruption_da = [0.1, 0.1, 0.1],
+                 drop = [0.2, .5, .5],
                  dA_initiall = True,
                  error_known = True,
                  activ_fun = None):
@@ -37,6 +38,7 @@ class Gather_sda(object):
         self.dA_initiall = dA_initiall
         self.error_known = error_known
         self.activ_fun = activ_fun
+        self.drop = drop
        
         def load_data(X):
             try:
@@ -63,7 +65,7 @@ class Gather_sda(object):
        
         
     def pretraining(self):
-
+        
         self.sda=Sda(
             numpy_rng = self.numpy_rng,
             theano_rng= self.theano_rng,
@@ -74,7 +76,8 @@ class Gather_sda(object):
             error_known = self.error_known,
             method=self.method,
             problem = self.problem,
-            activ_fun = self.activ_fun)
+            activ_fun = self.activ_fun,
+            drop = self.drop)
                  
    
         pretraining_fns = self.sda.pretraining_functions(train_set_x = self.train_set,
@@ -111,7 +114,8 @@ class Gather_sda(object):
             error_known = self.error_known,
             method=self.method,
             problem = self.problem,
-            activ_fun = self.activ_fun)
+            activ_fun = self.activ_fun,
+            drop = self.drop)
 
         self.gather_out=theano.function(
             [],

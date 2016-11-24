@@ -70,9 +70,8 @@ def mnist_block(mean_data,knn_data,train_set, valid_set, test_set, mis,k_neib):
     #print('time_knn',tknn,'time_sda',tsda)
 
     sda_er = MAE(test_set, gather.gather_out(), test_mask)
-    mean_er = MAE(mean_data,train_set.mean(axis=0),train_mask)
     kn_er = MAE(test_set,knn_result,test_mask)
- 
+    mean_er = MAE(mean_data,train_set.mean(axis=0),train_mask)
     
     return(sda_er,kn_er,mean_er)
 
@@ -174,5 +173,20 @@ ylabel('MSE')
 title('dataset: mnist')
 legend(loc=4,prop={'size':9})
 show()
+
+
+
+#################################  new############
+
+missing percentage:  0.1
+... Knn calculation with 50 neighbor
+... pre-training the model
+... getting the finetuning functions
+sda_error=  6.01451
+knn_error=  4.88066
+mean_error=  10.505
+
+
+
 """
 

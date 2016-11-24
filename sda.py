@@ -1,10 +1,9 @@
 import numpy as np
-import numpy
 import theano
 import lasagne
 
 import theano.tensor as T
-from theano.tensor.shared_randomstreams import RandomStreams
+from theano.sandbox.rng_mrg import MRG_RandomStreams as RandomStreams
 
 from dA import dA
 from perceptron import perceptron
@@ -21,7 +20,8 @@ class Sda(object):
                   error_known=True,
                   method=None,
                   problem = None,
-                  activ_fun = None):         
+                  activ_fun = None,
+                  drop = None):         
 
         self.activ_fun = activ_fun  #T.arctan  #T.tanh 
         
@@ -31,17 +31,13 @@ class Sda(object):
         self.error_known = error_known
         self.method=method
         self.problem = problem
+        self.drop = drop
         
         assert self.n_layers >= 2
 
-        if not numpy_rng:
-            numpy_rng = numpy.random.RandomState(123)
-               
-        if not theano_rng:
-            theano_rng = RandomStreams(numpy_rng.randint(2 ** 30))
-
-        self.x = T.matrix('x')       
-        self.mask = T.matrix('mask')
+ 
+        self.x = T.fmatrix('x')       
+        self.mask = T.fmatrix('mask')
 
 
         ### encoder_layers ####
@@ -66,13 +62,12 @@ class Sda(object):
                 
             
                 
-            self.encoder_layer=perceptron(rng = numpy_rng,
-                                          theano_rng=theano_rng,
-                                          input = layer_input,
+            self.encoder_layer=perceptron(input = layer_input,
                                           n_in = input_size,
                                           n_out = self.hidden_layers_sizes[i],
                                           activation = activ_fun,
-                                          first_layer_corrup=corruption)
+                                          first_layer_corrup=corruption,
+                                          drop = self.drop[i])
 
             if dA_initiall :
                 dA_layer = dA(numpy_rng=numpy_rng,
@@ -97,6 +92,7 @@ class Sda(object):
 
         self.decoder_layers = []
         self.decoder_params = []
+        self.drop.reverse()
         
         self.reverse_layers=self.encoder_layers[::-1]
         #self.reverse_da=self.dA_layers[::-1]
@@ -126,15 +122,15 @@ class Sda(object):
             else:
                 act_func=activ_fun
             
-            self.decoder_layer=perceptron(rng=numpy_rng,
-                                        input=layer_input,
-                                        n_in=input_size,
-                                        n_out=n_out,
-                                        W= self.reverse_layers[i].W,
-                                        b= None,
-                                        activation=act_func,
-                                        decoder=True
-            )
+            self.decoder_layer=perceptron(input=layer_input,
+                                          n_in=input_size,
+                                          n_out=n_out,
+                                          W= self.reverse_layers[i].W,
+                                          b= None,
+                                          activation=act_func,
+                                          decoder=True,
+                                          drop = self.drop[i])
+    
 
             
             self.decoder_layers.append(self.decoder_layer)

@@ -34,7 +34,7 @@ def syn_ph(nsamp,nfeat,doplot=False):
  
     return X
 
-dat=syn_ph(2000,500)
+dat=syn_ph(1000,200)
 print(dat.shape)
 data_name = str('sine')
 
@@ -110,13 +110,14 @@ for kfold in range(cross_vali):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs =10,
+                          pretraining_epochs =100,
                           pretrain_lr = 0.0001,
-                          training_epochs = 100,
+                          training_epochs = 200,
                           finetune_lr = 0.0001,
                           batch_size = 100,
                           hidden_size = [100,20,2],  #19 was good for >80%corrup
                           corruption_da = [0.1,0.2,.1,0.2,.1,.2,.1],
+                          drop = [.2 ,0., 0.],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
