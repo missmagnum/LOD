@@ -44,7 +44,7 @@ class perceptron(object):
        
 
         if first_layer_corrup:
-            corruption_level = 0.1        
+            corruption_level = 0.2        
             input = theano_rng.binomial(size=input.shape, n=1,
                                         p=1 - corruption_level,
                                         dtype=theano.config.floatX) * input
