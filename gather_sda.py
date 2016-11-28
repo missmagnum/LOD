@@ -117,24 +117,16 @@ class Gather_sda(object):
             activ_fun = self.activ_fun,
             drop = self.drop)
 
-        self.gather_out=theano.function(
-            [],
-            outputs=self.sda.decoder_layer.output,
-            givens={
-                self.sda.x : self.dataset}
-        )
-
+  
         
 
         print('... getting the finetuning functions')
-        train_fn, validate_model, test_model =self.sda.build_finetune_functions(
+        train_fn, validate_model =self.sda.build_finetune_functions(
             dataset = self.dataset,
             method = self.method,
             train_set_x = self.train_set,
             valid_set_x = self.valid_set,
-            test_set_x = self.test_set,
             train_mask = self.train_mask,
-            test_mask = self.test_mask,
             valid_mask = self.valid_mask,
             batch_size = self.batch_size,
             learning_rate = self.finetune_lr)
@@ -188,16 +180,7 @@ class Gather_sda(object):
                         # save best validation score and iteration number
                         best_validation_loss = this_validation_loss
                         best_iter = iter
-                        
-                        # test it on the test set
-                        test_losses = test_model()
-                        test_score = numpy.mean(test_losses)
-                        #print(('     epoch %i, minibatch %i/%i, validation error of '
-                        #       'best model %f ') %
-                        #      (epoch, minibatch_index + 1, self.n_train_batches,
-                        #       best_validation_loss))
-                        #print('W',self.sda.decoder_layer.W.get_value()[-1,-1])
-                        
+           
                 if patience <= iter:
                     done_looping = True
                     break
@@ -212,6 +195,14 @@ class Gather_sda(object):
             % (best_validation_loss , best_iter + 1, test_score )
         )
         """
+
+        self.gather_out=theano.function(
+            [],
+            outputs=self.sda.decoder_layer.output,
+            givens={
+                self.sda.x : self.dataset}
+        )
+
         return self.sda
 
         

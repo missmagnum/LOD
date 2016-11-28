@@ -33,11 +33,11 @@ class Sda(object):
         self.problem = problem
         self.drop = drop
         
-        assert self.n_layers >= 2
+        #assert self.n_layers >= 2
 
  
-        self.x = T.fmatrix('x')       
-        self.mask = T.fmatrix('mask')
+        self.x = T.matrix('x')       
+        self.mask = T.matrix('mask')
 
 
         ### encoder_layers ####
@@ -129,7 +129,7 @@ class Sda(object):
                                           b= None,
                                           activation=act_func,
                                           decoder=True,
-                                          drop = self.drop[i])
+                                          drop = None)#self.drop[i])
     
 
             
@@ -188,32 +188,36 @@ class Sda(object):
 
         if self.problem == 'regression':
             #print('regression')
-            cost = T.mean(T.sum((x - z )**2 , axis=1))
+            #cost = T.mean(T.sum((x - z )**2 , axis=1))
+            cost = T.mean(T.sqr(x-z)) 
         else:
-            cost = T.mean(T.sum((x - z )**2 , axis=1))#T.mean(T.sum( x* T.log(z) + (1-x)*T.log(1-z) ,axis=1))
+            T.mean(T.sum( x* T.log(z) + (1-x)*T.log(1-z) ,axis=1))
         
-        ## add regularization
-        regularizationl2=lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l2)
-        regu_l2 = T.sum([ T.sum(layer.W**2) for layer in self.network_layers] )
-        regu_l1 = T.sum([ T.sum(abs(layer.W)) for layer in self.network_layers] )
-        lambda1 = 1e-4
+        ################### add regularization ###################
 
-        cost_regu=cost + lambda1 * regu_l2
+        lamb1 = 1e-6
+        lamb2 = 1e-4
+        #L2 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l2)
+        #L1 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l1)
+        
+        regu_l2 = T.sum([ T.sum(T.sqr(layer.W)) for layer in self.network_layers] )
+        regu_l1 = T.sum([ np.abs(T.sum(layer.W)) for layer in self.network_layers] ) 
+
+        cost_regu=cost # + lamb1* regu_l1 + lamb2 * regu_l2
 
         return cost_regu ,cost
 
         
     
-    def build_finetune_functions(self,dataset, method, train_set_x, valid_set_x, test_set_x,
-                                 train_mask, test_mask, valid_mask,
+    def build_finetune_functions(self,dataset, method, train_set_x, valid_set_x,
+                                 train_mask, valid_mask,
                                  batch_size, learning_rate):
         
 
 
         
         n_valid_batches = valid_set_x.get_value(borrow=True).shape[0] // batch_size
-        n_test_batches = test_set_x.get_value(borrow=True).shape[0] // batch_size
-
+ 
         index = T.lscalar('index') 
 
         
@@ -238,22 +242,10 @@ class Sda(object):
             name='train'
         )
 
-        test_score_i = theano.function(
-            [index],
-            outputs = validation_test,
-            givens={
-                self.x: test_set_x[
-                    index * batch_size: (index + 1) * batch_size],
-                self.mask: test_mask[
-                    index * batch_size: (index + 1) * batch_size
-                ]
-            },
-            name='test'
-        )
-
+ 
         valid_score_i = theano.function(
             [index],
-            outputs = validation_test,
+            outputs = finetune_cost,
             givens={
                 self.x: valid_set_x[
                     index * batch_size: (index + 1) * batch_size],
@@ -274,10 +266,9 @@ class Sda(object):
             return [valid_score_i(i) for i in range(n_valid_batches)]
 
         
-        def test_score():
-            return [test_score_i(i) for i in range(n_test_batches)]
+   
 
-        return train_fn, valid_score, test_score
+        return train_fn, valid_score
 
 
 
