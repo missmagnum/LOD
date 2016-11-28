@@ -114,7 +114,7 @@ for kfold in range(cross_vali):
                           training_epochs = 300,
                           finetune_lr = 0.0001,
                           batch_size = 100,
-                          hidden_size = [400,100,20,2],  # first layer units: 4/3*input_size
+                          hidden_size = [400,100,20,3],  # first layer units: 4/3*input_size
                           corruption_da = [0.1,0.1, 0.,0.,.1,.2,.1],
                           drop = [0.2 ,0.3, 0.1,0.],
                           dA_initiall = True ,
