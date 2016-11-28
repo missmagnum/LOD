@@ -2,7 +2,7 @@ from __future__ import division, absolute_import
 from __future__ import print_function, unicode_literals
 
 import numpy as np
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import theano.tensor as T
 
 from gather_sda import Gather_sda
@@ -44,9 +44,9 @@ dataset=dat
 #################NORMALIZATION#############################
 
 """
+
 ## standard score
 dataset = (dat-dat.mean(axis=0))/dat.std(axis=0)  ### PCA--> 22 out of 134 over 1 var
-
 
    
 ## feature scaling
@@ -76,15 +76,15 @@ def MSE(x,xr,mas):
     return np.mean(np.sum((1-mas) * (x-xr)**2,axis=1))
 
 
+percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
+train, test_set = dataset[:percent] ,dataset[percent:]
+    
 
 cross_vali = 20
 
 for kfold in range(cross_vali):
-    np.random.shuffle(dataset)
-    percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
-    train, test_set = dataset[:percent] ,dataset[percent:]
-    
 
+    np.random.shuffle(train)
     percent_valid = int(train.shape[0] * 0.8)
     train_set, valid_set = train[:percent_valid] , train[percent_valid:]
 
@@ -110,9 +110,9 @@ for kfold in range(cross_vali):
                           available_mask = mask,
                           method = 'adam',
                           pretraining_epochs =200,
-                          pretrain_lr = 0.0001,
+                          pretrain_lr = 0.001,
                           training_epochs = 300,
-                          finetune_lr = 0.0001,
+                          finetune_lr = 0.001,
                           batch_size = 100,
                           hidden_size = [400,100,20,3],  # first layer units: 4/3*input_size
                           corruption_da = [0.1,0.1, 0.,0.,.1,.2,.1],
@@ -156,7 +156,7 @@ print('mean_error= ',mean_error)
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result/result_{}_{}.dat'.format(day,tim),'w')
-result.write('name of the data: {} with k={} for knn\n\n'.format(data_name,k_neib))
+result.write('name of the data-without regularization: {} with k={} for knn\n\n'.format(data_name,k_neib))
 result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()
 
