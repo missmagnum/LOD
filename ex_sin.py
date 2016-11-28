@@ -63,7 +63,7 @@ mean_error=[]
 knn_error=[]
 sdaw=[]
 missing_percent=np.linspace(0.1,0.9,9)
-missing_percent=[0.1]
+#missing_percent=[0.1]
 
 
 
@@ -77,7 +77,7 @@ def MSE(x,xr,mas):
 
 
 
-cross_vali = 1
+cross_vali = 20
 
 for kfold in range(cross_vali):
     np.random.shuffle(dataset)
@@ -126,8 +126,8 @@ for kfold in range(cross_vali):
         ###########define nof K ###############
        
         k_neib = 30
-        #print('... Knn calculation with {} neighbor'.format(k_neib))
-        #knn_result = knn(dataset,available_mask,k=k_neib)
+        print('... Knn calculation with {} neighbor'.format(k_neib))
+        knn_result = knn(dataset,available_mask,k=k_neib)
         
         #########run the result for test
 
@@ -136,24 +136,21 @@ for kfold in range(cross_vali):
 
 
         sda_error.append(MSE(test_set, gather.gather_out(), test_mask))
-        #mean_error.append(MSE(dataset,dataset.mean(axis=0),available_mask))
-        #knn_error.append(MSE(dataset,knn_result,available_mask))
+        mean_error.append(MSE(dataset,dataset.mean(axis=0),available_mask))
+        knn_error.append(MSE(dataset,knn_result,available_mask))
 
         print('sda_error= ',sda_error[-1])
-        #print('knn_error= ',knn_error[-1])
-        #print('mean_error= ',mean_error[-1])  
+        print('knn_error= ',knn_error[-1])
+        print('mean_error= ',mean_error[-1])  
 
     
 
-#print('sda_error= ',sda_error)
-#print('knn_error= ',knn_error)
-#print('mean_error= ',mean_error)  
+print('sda_error= ',sda_error)
+print('knn_error= ',knn_error)
+print('mean_error= ',mean_error)  
 
 
-"""    
-missing percent = 0.1
-knn_error=  7.75599430514
-mean_error=  22.4877530328
+ 
 
 
 day=time.strftime("%d-%m-%Y")
@@ -163,7 +160,7 @@ result.write('name of the data: {} with k={} for knn\n\n'.format(data_name,k_nei
 result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()
 
-
+"""   
 
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )
