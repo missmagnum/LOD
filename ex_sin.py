@@ -2,7 +2,7 @@ from __future__ import division, absolute_import
 from __future__ import print_function, unicode_literals
 
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import theano.tensor as T
 
 from gather_sda import Gather_sda
