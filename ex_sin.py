@@ -57,7 +57,7 @@ for i in range(dat.shape[1]):
 ############################################################
 
 
-
+sda2_error=[]
 sda_error=[]
 mean_error=[]
 knn_error=[]
@@ -109,14 +109,14 @@ for kfold in range(cross_vali):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs =200,
+                          pretraining_epochs =300,
                           pretrain_lr = 0.0001,
                           training_epochs = 300,
                           finetune_lr = 0.0001,
                           batch_size = 100,
-                          hidden_size = [100,20,2],  # first layer units: 4/3*input_size[400,100,20,3
-                          corruption_da = [0.2,0.2, 0.1,0.,.1,.2,.1],
-                          drop = [0.2 ,0.3, 0.1,0.0,0.,0.],
+                          hidden_size = [250,100,20,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
+                          corruption_da = [0.2,0.1, 0.1,0.1,.1,.2,.1],
+                          drop = [0. ,0., 0.,0.0,0.,0.],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
@@ -125,42 +125,59 @@ for kfold in range(cross_vali):
 
         ###########define nof K ###############
        
-        k_neib = 100
+        k_neib = 50
         print('... Knn calculation with {} neighbor'.format(k_neib))
-        knn_result = knn(dataset,available_mask,k=k_neib)
+        knn_result = knn(test_set,test_mask,k=k_neib)
         
         #########run the result for test
+        gather2=Gather_sda(dataset = test_set*test_mask,
+                          portion_data = data,
+                          problem = 'regression',
+                          available_mask = mask,
+                          method = 'adam',
+                          pretraining_epochs =300,
+                          pretrain_lr = 0.0001,
+                          training_epochs = 300,
+                          finetune_lr = 0.0001,
+                          batch_size = 100,
+                          hidden_size = [250,100,20,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
+                          corruption_da = [0.2,0.1, 0.1,0.1,.1,.2,.1],
+                          drop = [0. ,0., 0.,0.0,0.,0.],
+                          dA_initiall = False ,
+                          error_known = True ,
+                          activ_fun = T.tanh)  #T.nnet.sigmoid)
 
+        gather2.finetuning()
 
  
 
-
+        sda2_error.append(MSE(test_set, gather2.gather_out(), test_mask))
         sda_error.append(MSE(test_set, gather.gather_out(), test_mask))
         mean_error.append(MSE(dataset,dataset.mean(axis=0),available_mask))
-        knn_error.append(MSE(dataset,knn_result,available_mask))
+        knn_error.append(MSE(test_set,knn_result,test_mask))
 
         print('sda_error= ',sda_error[-1])
         print('knn_error= ',knn_error[-1])
         print('mean_error= ',mean_error[-1])  
 
     
-
+print('sda2_error= ',sda_error)
 print('sda_error= ',sda_error)
 print('knn_error= ',knn_error)
 print('mean_error= ',mean_error)  
 
 
  
-"""   
+  
 
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result/result_{}_{}.dat'.format(day,tim),'w')
 result.write('name of the data-without regularization: {} with k={} for knn\n\n'.format(data_name,k_neib))
-result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s" % (str(mean_error), str(sda_error),str(knn_error)))
+result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s\n\nsda2_error= %s\n" % (str(mean_error), str(sda_error),str(knn_error),str(sda2_error)))
 result.close()
 
-
+""" 
 
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )
