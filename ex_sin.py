@@ -26,7 +26,7 @@ def syn_ph(nsamp,nfeat,doplot=False):
     for i in range(nsamp):
         ph = np.random.uniform(0,2*np.pi)
         #ph = np.random.uniform(-3,3)
-        X[i,:] = np.sin(t+ph) + np.random.normal(0,.5,nfeat) 
+        X[i,:] = np.sin(t+ph) + np.random.normal(0,.7,nfeat) 
         if doplot:           
             plot(t,X[i,:],'r.')
     if doplot:
@@ -34,7 +34,7 @@ def syn_ph(nsamp,nfeat,doplot=False):
  
     return X
 
-dat=syn_ph(1000,300)
+dat=syn_ph(1000,200)
 print(dat.shape)
 data_name = str('sine')
 
@@ -63,7 +63,7 @@ mean_error=[]
 knn_error=[]
 sdaw=[]
 missing_percent=np.linspace(0.1,0.9,9)
-#missing_percent=[0.1]
+#missing_percent=[0.1,0.5,0.6]
 
 
 
@@ -75,12 +75,12 @@ def MAE(x,xr,mas):
 def MSE(x,xr,mas):
     return np.mean(np.sum((1-mas) * (x-xr)**2,axis=1))
 
-
+np.random.shuffle(dataset)
 percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
 train, test_set = dataset[:percent] ,dataset[percent:]
     
 
-cross_vali = 20
+cross_vali = 30
 
 for kfold in range(cross_vali):
 
@@ -110,13 +110,13 @@ for kfold in range(cross_vali):
                           available_mask = mask,
                           method = 'adam',
                           pretraining_epochs =200,
-                          pretrain_lr = 0.001,
+                          pretrain_lr = 0.0001,
                           training_epochs = 300,
-                          finetune_lr = 0.001,
+                          finetune_lr = 0.0001,
                           batch_size = 100,
-                          hidden_size = [400,100,20,3],  # first layer units: 4/3*input_size
-                          corruption_da = [0.1,0.1, 0.,0.,.1,.2,.1],
-                          drop = [0.2 ,0.3, 0.1,0.],
+                          hidden_size = [100,20,2],  # first layer units: 4/3*input_size[400,100,20,3
+                          corruption_da = [0.2,0.2, 0.1,0.,.1,.2,.1],
+                          drop = [0.2 ,0.3, 0.1,0.0,0.,0.],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
@@ -125,7 +125,7 @@ for kfold in range(cross_vali):
 
         ###########define nof K ###############
        
-        k_neib = 30
+        k_neib = 100
         print('... Knn calculation with {} neighbor'.format(k_neib))
         knn_result = knn(dataset,available_mask,k=k_neib)
         
@@ -151,7 +151,7 @@ print('mean_error= ',mean_error)
 
 
  
-
+"""   
 
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
@@ -160,7 +160,7 @@ result.write('name of the data-without regularization: {} with k={} for knn\n\n'
 result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()
 
-"""   
+
 
 plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
 plt.plot(missing_percent,knn_error,'--go',label='knn' )

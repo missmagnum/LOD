@@ -38,7 +38,7 @@ mean_error=[]
 knn_error=[]
 sdaw=[]
 missing_percent=np.linspace(0.1,0.9,9)
-missing_percent=[0.1]
+missing_percent=[0.1,0.5,0.8]
 
 
 def MAE(x,xr,mas):
@@ -83,14 +83,14 @@ for kfold in range(cross_vali):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs = 10,
+                          pretraining_epochs = 200,
                           pretrain_lr = 0.0001,
-                          training_epochs = 200,
+                          training_epochs = 300,
                           finetune_lr = 0.0001,
-                          batch_size = 10,
-                          hidden_size = [3000,1000,450,168],
+                          batch_size = 10,  #10
+                          hidden_size = [5000,1000], #[3000,1000,450,168],
                           corruption_da = [0.1, 0.1, .1, 0.1],
-                          drop = [.1 ,0., 0.,0.,0.,0.],
+                          drop = [0.1 ,0., 0.,0.,0.,0.],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)

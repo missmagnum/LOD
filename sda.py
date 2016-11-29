@@ -188,22 +188,22 @@ class Sda(object):
 
         if self.problem == 'regression':
             #print('regression')
-            #cost = T.mean(T.sum((x - z )**2 , axis=1))
-            cost = T.mean(T.sqr(x-z)) 
+            #cost = T.sum(T.sum((x - z )**2 , axis=1))
+            cost = T.sum(T.sqr(x-z)) 
         else:
             T.mean(T.sum( x* T.log(z) + (1-x)*T.log(1-z) ,axis=1))
         
         ################### add regularization ###################
 
-        lamb1 = 1e-6
-        lamb2 = 1e-4
+        lamb1 = 1e-4
+        lamb2 = 1e-5
         #L2 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l2)
         #L1 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l1)
         
-        regu_l2 = T.sum([ T.sum(T.sqr(layer.W)) for layer in self.network_layers] )
+        regu_l2 = T.sum([T.sum(T.sqr(layer.W)) for layer in self.network_layers] )
         regu_l1 = T.sum([ np.abs(T.sum(layer.W)) for layer in self.network_layers] ) 
 
-        cost_regu=cost # + lamb1* regu_l1 + lamb2 * regu_l2
+        cost_regu=cost   + lamb2 * regu_l2 
 
         return cost_regu ,cost
 

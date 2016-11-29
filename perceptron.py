@@ -80,13 +80,14 @@ class perceptron():
      
         self.srng = RandomStreams()
         shape = (n_in, n_out)
-        
+       
         if W is None:            
             W = theano.shared(self.floatX(np.random.randn(*shape) * 0.1), name='W', borrow=True)
           
         if b is None:
             b = theano.shared(self.floatX( np.zeros((n_out,))), name='b', borrow=True)
-
+      
+        
         if drop is not None:
             input = self.dropout (input,drop)
             
