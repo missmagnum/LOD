@@ -183,18 +183,24 @@ knn_error=  [4.2961102325030769, 8.7259405347851438, 13.233383029598356, 18.1998
 mean_error=  [9.8257947820992175, 19.852977538494812, 29.286181719811889, 39.264182885314241, 48.835079455949547, 58.858003643711626, 68.75078881886111, 78.322282592449042, 88.277710211]
 
 
-
+sda2_error=np.array(sda2_error)
 sda_error=np.array(sda_error)
 knn_error=np.array(knn_error)
 mean_error=np.array(mean_error)
-mean_error=mean_error.reshape(20,9)
-sda_error=sda_error.reshape(20,9)
-knn_error=knn_error.reshape(20,9)
+mean_error=mean_error.reshape(30,9)
+sda_error=sda_error.reshape(30,9)
+knn_error=knn_error.reshape(30,9)
+sda2_error=sda2_error.reshape(30,9)
 missing_percent=np.linspace(0.1,0.9,9)
+
 mean_con=np.max(mean_error,axis=0)-np.min(mean_error,axis=0)
 knn_con=np.max(knn_error,axis=0)-np.min(knn_error,axis=0)
 sda_con=np.max(sda_error,axis=0)-np.min(sda_error,axis=0)
-
+ 
+mean_con=np.std(mean_error)
+knn_con=np.std(knn_error)
+sda_con=np.std(sda_error)
+sda2_con=np.std(sda2_error)
 
 
 plt.figure()

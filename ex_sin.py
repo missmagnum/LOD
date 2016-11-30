@@ -26,7 +26,7 @@ def syn_ph(nsamp,nfeat,doplot=False):
     for i in range(nsamp):
         ph = np.random.uniform(0,2*np.pi)
         #ph = np.random.uniform(-3,3)
-        X[i,:] = np.sin(t+ph) + np.random.normal(0,.7,nfeat) 
+        X[i,:] = np.sin(t+ph) + np.random.normal(0,.9,nfeat) 
         if doplot:           
             plot(t,X[i,:],'r.')
     if doplot:
@@ -63,7 +63,7 @@ mean_error=[]
 knn_error=[]
 sdaw=[]
 missing_percent=np.linspace(0.1,0.9,9)
-#missing_percent=[0.1,0.5,0.6]
+missing_percent=[0.1,0.5,0.6]
 
 
 
@@ -80,7 +80,7 @@ percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
 train, test_set = dataset[:percent] ,dataset[percent:]
     
 
-cross_vali = 30
+cross_vali = 1
 
 for kfold in range(cross_vali):
 
@@ -109,14 +109,14 @@ for kfold in range(cross_vali):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs =300,
+                          pretraining_epochs =200,
                           pretrain_lr = 0.0001,
                           training_epochs = 300,
                           finetune_lr = 0.0001,
-                          batch_size = 100,
+                          batch_size = 50,
                           hidden_size = [250,100,20,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
                           corruption_da = [0.2,0.1, 0.1,0.1,.1,.2,.1],
-                          drop = [0. ,0., 0.,0.0,0.,0.],
+                          drop = [0. ,0.3, 0.,0.0,0.,0.],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
@@ -161,7 +161,7 @@ for kfold in range(cross_vali):
         print('mean_error= ',mean_error[-1])  
 
     
-print('sda2_error= ',sda_error)
+print('sda2_error= ',sda2_error)
 print('sda_error= ',sda_error)
 print('knn_error= ',knn_error)
 print('mean_error= ',mean_error)  
