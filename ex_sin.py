@@ -26,7 +26,7 @@ def syn_ph(nsamp,nfeat,doplot=False):
     for i in range(nsamp):
         ph = np.random.uniform(0,2*np.pi)
         #ph = np.random.uniform(-3,3)
-        X[i,:] = np.sin(t+ph) + np.random.normal(0,.9,nfeat) 
+        X[i,:] = np.sin(t+ph) + np.random.normal(0,.3,nfeat) 
         if doplot:           
             plot(t,X[i,:],'r.')
     if doplot:
@@ -63,7 +63,7 @@ mean_error=[]
 knn_error=[]
 sdaw=[]
 missing_percent=np.linspace(0.1,0.9,9)
-missing_percent=[0.1,0.5,0.6]
+#missing_percent=[0.1,0.5,0.6]
 
 
 
@@ -80,7 +80,7 @@ percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
 train, test_set = dataset[:percent] ,dataset[percent:]
     
 
-cross_vali = 1
+cross_vali = 50
 
 for kfold in range(cross_vali):
 
@@ -114,7 +114,7 @@ for kfold in range(cross_vali):
                           training_epochs = 300,
                           finetune_lr = 0.0001,
                           batch_size = 50,
-                          hidden_size = [250,100,20,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
+                          hidden_size = [250,100,2],#,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
                           corruption_da = [0.2,0.1, 0.1,0.1,.1,.2,.1],
                           drop = [0. ,0.3, 0.,0.0,0.,0.],
                           dA_initiall = True ,
@@ -140,9 +140,9 @@ for kfold in range(cross_vali):
                           training_epochs = 300,
                           finetune_lr = 0.0001,
                           batch_size = 100,
-                          hidden_size = [250,100,20,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
+                          hidden_size = [250,100,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
                           corruption_da = [0.2,0.1, 0.1,0.1,.1,.2,.1],
-                          drop = [0. ,0., 0.,0.0,0.,0.],
+                          drop = [0. ,0.3, 0.,0.0,0.,0.],
                           dA_initiall = False ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
@@ -179,13 +179,35 @@ result.close()
 
 """ 
 
-plt.plot(missing_percent,mean_error,'--bo',label='mean_row')
-plt.plot(missing_percent,knn_error,'--go',label='knn' )
-plt.plot(missing_percent,sda_error,'--ro',label='sda')
-plt.xlabel('corruption percentage')
-plt.ylabel('Mean absolute error')
-plt.title('dataset: breastCancer')
+sda2_error=np.array(sda2_error)
+sda_error=np.array(sda_error)
+knn_error=np.array(knn_error)
+mean_error=np.array(mean_error)
+mean_error=mean_error.reshape(50,9)
+sda_error=sda_error.reshape(50,9)
+knn_error=knn_error.reshape(50,9)
+sda2_error=sda2_error.reshape(50,9)
+missing_percent=np.linspace(0.1,0.9,9)
+
+
+mean_con=np.std(mean_error)
+knn_con=np.std(knn_error)
+sda_con=np.std(sda_error)
+sda2_con=np.std(sda2_error)
+
+
+plt.figure()
+plt.errorbar(missing_percent,np.mean(mean_error,axis=0),yerr=mean_con,fmt='--o',label='mean_row')
+plt.errorbar(missing_percent,np.mean(knn_error,axis=0),yerr=knn_con,fmt='--o',label='knn' )
+plt.errorbar(missing_percent,np.mean(sda_error,axis=0),yerr=sda_con,fmt='--o',label='sda')
+plt.errorbar(missing_percent,np.mean(sda2_error,axis=0),yerr=sda2_con,fmt='--o',label='sda_NOinitial')
+
+plt.xlabel('Corruption Fraction')
+plt.ylabel('Mean Squared Error')
+plt.title('dataset: Synthetic')
 plt.legend(loc=4,prop={'size':9})
 plt.show()
+
+
 """
 
