@@ -197,6 +197,7 @@ class Sda(object):
 
         lamb1 = 1e-8
         lamb2 = 1e-5
+
         #L2 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l2)
         #L1 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l1)
         

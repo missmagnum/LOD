@@ -1,4 +1,7 @@
-import numpy
+from __future__ import division, absolute_import
+from __future__ import print_function, unicode_literals
+
+import numpy as np
 import lasagne
 
 import theano
@@ -18,40 +21,20 @@ class dA(object):
         self.n_hidden = n_hidden
         self.method=method
         self.activ = activation
-        
-        if not theano_rng:
-            theano_rng = RandomStreams(numpy_rng.randint(2 ** 30))
-        if not W:
-            initial_W = numpy.asarray(
-                numpy_rng.uniform(
-                    low=-4 * numpy.sqrt(6. / (n_hidden + n_visible)),
-                    high=4 * numpy.sqrt(6. / (n_hidden + n_visible)),
-                    size=(n_visible, n_hidden)
-                ),
-                dtype=theano.config.floatX
-            )
-            W = theano.shared(value=initial_W, name='W', borrow=True)
 
+        self.srng = RandomStreams()
+               
+        if not W:            
+            W = theano.shared(self.floatX(np.random.randn(*shape) * 0.1), name='W', borrow=True)
+          
         if not bvis:
-            bvis = theano.shared(
-                value=numpy.zeros(
-                    n_visible,
-                    dtype=theano.config.floatX
-                ),
-                name='b_prime',
-                borrow=True
-            )
-            
+            bvis = theano.shared(self.floatX( np.zeros((n_visible,))), name='b_prime', borrow=True)
+      
         if not bhid:
-            bhid = theano.shared(
-                value=numpy.zeros(
-                    n_hidden,
-                    dtype=theano.config.floatX
-                ),
-                name='b',
-                borrow=True
-            )
-            
+            bhid = theano.shared(self.floatX( np.zeros((n_hidden,))), name='b', borrow=True)
+    
+
+
         self.W = W
         self.b = bhid
         self.b_prime = bvis
@@ -67,11 +50,13 @@ class dA(object):
         self.main_params=[self.W,self.b]
         
 
-    def get_corrupted_input(self, input, corruption_level):
-        
-        return self.theano_rng.binomial(size=input.shape, n=1,
-                                        p=1 - corruption_level,
-                                        dtype=theano.config.floatX) * input
+    def get_corrupted_input(self, X, p=0.):
+
+        retain_prob = 1 - p
+        X *= self.srng.binomial(X.shape, p=retain_prob, dtype=theano.config.floatX)
+        X /= retain_prob
+        return X
+
 
     def get_hidden_values(self, input):
         if self.activ is None:
@@ -93,7 +78,7 @@ class dA(object):
         
         ################## add l2 regularization #################
         lamb1 = 0.001 #1e-5
-        lamb2 = 1e-4
+        lamb2 = 1e-5
         #L2 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l2)
         #L1 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l1) * lambda1
 
@@ -118,5 +103,6 @@ class dA(object):
         return self.get_hidden_values(self.x)
 
 
-
+    def floatX(self,X):
+        return np.asarray(X, dtype=theano.config.floatX)
 

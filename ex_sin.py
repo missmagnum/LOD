@@ -17,7 +17,7 @@ def syn_ph(nsamp,nfeat,doplot=False):
     uniform= np.sin(t+uni)
     plt.plot(t,np.sin(t),'r',t+uni,uniform,'b',t+uni,uniform+np.random.normal(0,.5,100),'bo')
     """
-    
+    frequ=[1,2,3,4]
     X = np.zeros((nsamp,nfeat))
     t = np.linspace(0,2*np.pi,nfeat)
     if doplot:
@@ -26,7 +26,8 @@ def syn_ph(nsamp,nfeat,doplot=False):
     for i in range(nsamp):
         ph = np.random.uniform(0,2*np.pi)
         #ph = np.random.uniform(-3,3)
-        X[i,:] = np.sin(t+ph) + np.random.normal(0,.3,nfeat) 
+        np.random.shuffle(frequ)
+        X[i,:] = np.sin(frequ[0]*t+ph) + np.random.normal(0,.9,nfeat) #.3 
         if doplot:           
             plot(t,X[i,:],'r.')
     if doplot:
@@ -34,7 +35,7 @@ def syn_ph(nsamp,nfeat,doplot=False):
  
     return X
 
-dat=syn_ph(1000,200)
+dat=syn_ph(1000,200) #1000,200
 print(dat.shape)
 data_name = str('sine')
 
@@ -114,9 +115,9 @@ for kfold in range(cross_vali):
                           training_epochs = 300,
                           finetune_lr = 0.0001,
                           batch_size = 50,
-                          hidden_size = [250,100,2],#,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
-                          corruption_da = [0.2,0.1, 0.1,0.1,.1,.2,.1],
-                          drop = [0. ,0.3, 0.,0.0,0.,0.],
+                          hidden_size = [250,100,50,8],#,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
+                          corruption_da = [0.2,0.1, 0.1,0.1,0.1,0.1,0.1],
+                          drop = [0.1 ,0., 0.,0.0,0.,0.],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
@@ -135,14 +136,14 @@ for kfold in range(cross_vali):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs =300,
+                          pretraining_epochs =200,
                           pretrain_lr = 0.0001,
                           training_epochs = 300,
                           finetune_lr = 0.0001,
-                          batch_size = 100,
-                          hidden_size = [250,100,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
+                          batch_size = 50,
+                          hidden_size = [250,100,50,8],#,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
                           corruption_da = [0.2,0.1, 0.1,0.1,.1,.2,.1],
-                          drop = [0. ,0.3, 0.,0.0,0.,0.],
+                          drop = [0.1 ,0., 0.,0.0,0.,0.],
                           dA_initiall = False ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
@@ -190,23 +191,24 @@ sda2_error=sda2_error.reshape(50,9)
 missing_percent=np.linspace(0.1,0.9,9)
 
 
-mean_con=np.std(mean_error)
-knn_con=np.std(knn_error)
-sda_con=np.std(sda_error)
-sda2_con=np.std(sda2_error)
+mean_con=np.std(mean_error)/2
+knn_con=np.std(knn_error)/2
+sda_con=np.std(sda_error)/2
+sda2_con=np.std(sda2_error)/2
 
 
 plt.figure()
-plt.errorbar(missing_percent,np.mean(mean_error,axis=0),yerr=mean_con,fmt='--o',label='mean_row')
-plt.errorbar(missing_percent,np.mean(knn_error,axis=0),yerr=knn_con,fmt='--o',label='knn' )
-plt.errorbar(missing_percent,np.mean(sda_error,axis=0),yerr=sda_con,fmt='--o',label='sda')
-plt.errorbar(missing_percent,np.mean(sda2_error,axis=0),yerr=sda2_con,fmt='--o',label='sda_NOinitial')
-
+plt.errorbar(missing_percent,np.mean(mean_error,axis=0),yerr=mean_con,fmt='--o',label='Mean')
+plt.errorbar(missing_percent,np.mean(knn_error,axis=0),yerr=knn_con,fmt='--o',label='KNN' )
+plt.errorbar(missing_percent,np.mean(sda_error,axis=0),yerr=sda_con,fmt='-o',label='SDA')
+plt.errorbar(missing_percent,np.mean(sda2_error,axis=0),yerr=sda2_con,fmt='y--o',label='SDA_NOinitial')
+plt.axis([0,1,-50,300])
 plt.xlabel('Corruption Fraction')
 plt.ylabel('Mean Squared Error')
-plt.title('dataset: Synthetic')
+plt.title('dataset: Synthetic sine')
 plt.legend(loc=4,prop={'size':9})
 plt.show()
+
 
 
 """

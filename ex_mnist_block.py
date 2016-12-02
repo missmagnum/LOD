@@ -10,7 +10,7 @@ from knn import knn
 import time
 import gzip, pickle
 
-
+import copy
 
 def MAE(x,xr,mas):
     return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
@@ -53,26 +53,26 @@ def mnist_block(mean_data,knn_data,train_set, valid_set, test_set, mis,k_neib):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs = 100,
+                          pretraining_epochs = 200,
                           pretrain_lr = 0.0001,
-                          training_epochs = 200,
+                          training_epochs = 300,
                           finetune_lr = 0.0001,
                           batch_size = 200,
-                          hidden_size = [2500,1000, 500,100, 10],
-                          drop = [.1 ,0.01, 0.,0., 0., 0.],
+                          hidden_size = [1000, 500,300,100, 10],  #4/3*input_siz(784)
+                          drop = [0. ,0., 0.,0., 0., 0.],
                           corruption_da = [0.1,0.2,.1,0.2,.1,.2,.1],
                           dA_initiall = True ,
                           error_known = True ,
-                          activ_fun = T.nnet.sigmoid)  #T.nnet.sigmoid)
+                          activ_fun = T.tanh)  #T.tanh
     gather.finetuning()
     tsda=time.time()-t0
        
 
     #print('time_knn',tknn,'time_sda',tsda)
 
-    sda_er = MAE(test_set, gather.gather_out(), test_mask)
-    kn_er = MAE(test_set,knn_result,test_mask)
-    mean_er = MAE(mean_data,train_set.mean(axis=0),train_mask)
+    sda_er = MSE(test_set, gather.gather_out(), test_mask)
+    kn_er = MSE(test_set,knn_result,test_mask)
+    mean_er = MSE(mean_data,train_set.mean(axis=0),train_mask)
     
     return(sda_er,kn_er,mean_er)
 
@@ -109,14 +109,15 @@ if __name__ == "__main__":
     knn_error=[]
     mean_error=[]
 
-    mean_data = train_set
-    knn_data = test_set
+    mean_data = copy.copy(train_set)
+    knn_data = copy.copy(test_set)
     
     ###k-neigbor####
     k_neib = 50
     
     missing_percent=np.linspace(0.1,0.9,9)  
-    #missing_percent=[0.4]
+    missing_percent=[0.1,0.5,0.7]
+    
     for mis in missing_percent:
         print('missing percentage: ',mis)       
         np.random.shuffle(train_set)
@@ -139,7 +140,7 @@ print('mean_error= ',mean_error)
     
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
-result=open('result/result_{}_{}.dat'.format(day,tim),'w')
+result=open('result/result_{}_{}_{}.dat'.format(data_name,day,tim),'w')
 result.write('name of the data: {} with k={} for knn\n\n'.format(data_name,k_neib))
 result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s" % (str(mean_error), str(sda_error),str(knn_error)))
 result.close()
