@@ -85,7 +85,7 @@ class dA(object):
         regu_l2 = T.sum(T.sqr(self.W)+T.sqr(self.b))
         regu_l1 = abs(T.sum(self.W)+T.sum(self.b))
         
-        cost = L   + lamb2 * regu_l2
+        cost = L  # + lamb2 * regu_l2
         
         updates = Update(method = self.method,
                          cost = cost,
