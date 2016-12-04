@@ -152,6 +152,7 @@ class Gather_sda(object):
         ### hold out cross validation
         while (epoch < self.training_epochs) and (not done_looping):
             epoch = epoch + 1
+            
             for minibatch_index in range(self.n_train_batches):
                 
                 
@@ -161,6 +162,7 @@ class Gather_sda(object):
 
                 if (iter + 1) % validation_frequency == 0:
                     validation_losses = validate_model()
+                    
                     this_validation_loss = numpy.mean(validation_losses)
                     """
                     print('epoch %i, minibatch %i/%i, validation error %f ' %

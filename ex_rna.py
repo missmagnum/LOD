@@ -38,7 +38,7 @@ mean_error=[]
 knn_error=[]
 sdaw=[]
 missing_percent=np.linspace(0.1,0.9,9)
-missing_percent=[0.1,0.5,0.8]
+missing_percent=[0.1]
 
 
 def MAE(x,xr,mas):
@@ -71,7 +71,7 @@ for kfold in range(cross_vali):
         available_mask=np.random.binomial(n=1, p = 1-mis, size = dataset.shape)
         rest_mask, test_mask = available_mask[:percent], available_mask[percent:]
        
-        train_mask =  np.random.binomial(n=1, p = 1-mis, size = train_set.shape) #rest_mask[:percent_valid]
+        train_mask =  np.random.binomial(n=1, p = 1-mis , size = train_set.shape) #rest_mask[:percent_valid]
         valid_mask = rest_mask[percent_valid:]
 
         data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
@@ -83,29 +83,29 @@ for kfold in range(cross_vali):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs = 200,
+                          pretraining_epochs = 300,
                           pretrain_lr = 0.0001,
                           training_epochs = 300,
-                          finetune_lr = 0.0001,
-                          batch_size = 10,  #10
-                          hidden_size = [5000,1000], #[3000,1000,450,168],
-                          corruption_da = [0.1, 0.1, .1, 0.1],
-                          drop = [0.1 ,0., 0.,0.,0.,0.],
+                          finetune_lr = 0.001,
+                          batch_size = 50,  #10
+                          hidden_size = [170,168,130], #[3000,1000,450,168],
+                          corruption_da = [0.2, 0.2, .2, 0.1,0.1],
+                          drop = [0.2, 0.3, 0.3,0.1,0.2,0.],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh)  #T.nnet.sigmoid)
 
         gather.finetuning()
         ###########define nof K ###############
-        k_neib = 30
+        k_neib = 20
         print('... Knn calculation with {} neighbor'.format(k_neib))
-        knn_result = knn(dataset,available_mask,k=k_neib)
+        knn_result = knn(test_set,test_mask,k=k_neib)
 
         #########run the result for test
 
-        sda_error.append(MAE(test_set, gather.gather_out(), test_mask))
-        mean_error.append(MAE(dataset,dataset.mean(axis=0),available_mask))
-        knn_error.append(MAE(dataset,knn_result,available_mask))
+        sda_error.append(MSE(test_set, gather.gather_out(), test_mask))
+        mean_error.append(MSE(dataset,dataset.mean(axis=0),available_mask))
+        knn_error.append(MSE(test_set,knn_result,test_mask))
 
         print('sda_error= ',sda_error[-1])
         print('knn_error= ',knn_error[-1])

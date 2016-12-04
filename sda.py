@@ -259,9 +259,7 @@ class Sda(object):
 
         
  
-            
-        #self.output=lasagne.layers.get_output(self.network_layers,inputs=dataset)
-
+     
         
         def valid_score():
             return [valid_score_i(i) for i in range(n_valid_batches)]

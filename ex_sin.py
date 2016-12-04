@@ -116,7 +116,7 @@ for kfold in range(cross_vali):
                           finetune_lr = 0.0001,
                           batch_size = 50,
                           hidden_size = [250,100,50,8],#,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
-                          corruption_da = [0.2,0.1, 0.1,0.1,0.1,0.1,0.1],
+                          corruption_da = [0.2,0.3, 0.2,0.1,0.1,0.1,0.1],
                           drop = [0.1 ,0., 0.,0.0,0.,0.],
                           dA_initiall = True ,
                           error_known = True ,
@@ -169,14 +169,18 @@ print('mean_error= ',mean_error)
 
 
  
-  
+if cross_vali >2:
+   
 
-day=time.strftime("%d-%m-%Y")
-tim=time.strftime("%H-%M")
-result=open('result/result_{}_{}.dat'.format(day,tim),'w')
-result.write('name of the data-without regularization: {} with k={} for knn\n\n'.format(data_name,k_neib))
-result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s\n\nsda2_error= %s\n" % (str(mean_error), str(sda_error),str(knn_error),str(sda2_error)))
-result.close()
+    day=time.strftime("%d-%m-%Y")
+    tim=time.strftime("%H-%M")
+    result=open('result/result_{}_{}_{}.dat'.format(data_name,day,tim),'w')
+    result.write('name of the data-without regularization: {} with k={} for knn\n\n'.format(data_name,k_neib))
+    result.write("mean_error= %s\n\nsda_error= %s\n\nknn_error= %s\n\nsda2_error= %s\n" % (str(mean_error),
+                                                                                           str(sda_error),
+                                                                                           str(knn_error),
+                                                                                           str(sda2_error)))
+    result.close()
 
 """ 
 
@@ -191,17 +195,32 @@ sda2_error=sda2_error.reshape(50,9)
 missing_percent=np.linspace(0.1,0.9,9)
 
 
-mean_con=np.std(mean_error)/2
-knn_con=np.std(knn_error)/2
-sda_con=np.std(sda_error)/2
-sda2_con=np.std(sda2_error)/2
+mean_con=np.std(mean_error,axis=0)
+knn_con=np.std(knn_error,axis=0)
+sda_con=np.std(sda_error,axis=0)
+sda2_con=np.std(sda2_error,axis=0)
+
+
+import scipy
+mean_con=scipy.stats.sem(mean_error,axis=0)
+knn_con=scipy.stats.sem(knn_error,axis=0)
+sda_con=scipy.stats.sem(sda_error,axis=0)
+sda2_con=scipy.stats.sem(sda2_error,axis=0)
 
 
 plt.figure()
-plt.errorbar(missing_percent,np.mean(mean_error,axis=0),yerr=mean_con,fmt='--o',label='Mean')
-plt.errorbar(missing_percent,np.mean(knn_error,axis=0),yerr=knn_con,fmt='--o',label='KNN' )
-plt.errorbar(missing_percent,np.mean(sda_error,axis=0),yerr=sda_con,fmt='-o',label='SDA')
-plt.errorbar(missing_percent,np.mean(sda2_error,axis=0),yerr=sda2_con,fmt='y--o',label='SDA_NOinitial')
+plt.errorbar(missing_percent,np.mean(mean_error,axis=0),yerr=mean_con,fmt='--o',
+             capsize=5, elinewidth=2,
+             label='Mean')
+plt.errorbar(missing_percent,np.mean(knn_error,axis=0),yerr=knn_con,fmt='--p',
+             capsize=5, elinewidth=2,
+             label='KNN' )
+plt.errorbar(missing_percent,np.mean(sda_error,axis=0),yerr=sda_con,fmt='--s',
+             capsize=5, elinewidth=2,
+             label='SDA')
+plt.errorbar(missing_percent,np.mean(sda2_error,axis=0),yerr=sda2_con,fmt='y--d',
+             capsize=5, elinewidth=2,
+             label='SDA_NOinitial')
 plt.axis([0,1,-50,300])
 plt.xlabel('Corruption Fraction')
 plt.ylabel('Mean Squared Error')

@@ -40,11 +40,12 @@ def mnist_block(mean_data,knn_data,train_set, valid_set, test_set, mis,k_neib):
     mask= train_mask, valid_mask, test_mask
 
     ###knn
+    """
     t0=time.time()
     print('... Knn calculation with {} neighbor'.format(k_neib))
     knn_result = knn(knn_data , test_mask ,k = k_neib)
     tknn=time.time()-t0
-   
+    """
 
     ###sda
     t0=time.time()    
@@ -53,13 +54,13 @@ def mnist_block(mean_data,knn_data,train_set, valid_set, test_set, mis,k_neib):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs = 200,
+                          pretraining_epochs = 100,
                           pretrain_lr = 0.0001,
-                          training_epochs = 300,
+                          training_epochs = 200,
                           finetune_lr = 0.0001,
                           batch_size = 200,
-                          hidden_size = [1000, 500,300,100, 10],  #4/3*input_siz(784)
-                          drop = [0. ,0., 0.,0., 0., 0.],
+                          hidden_size = [1500, 1000, 700, 500,100, 10],  #4/3*input_siz(784)
+                          drop = [0.2 ,0.4, 0.2,0., 0., 0.],
                           corruption_da = [0.1,0.2,.1,0.2,.1,.2,.1],
                           dA_initiall = True ,
                           error_known = True ,
@@ -71,10 +72,10 @@ def mnist_block(mean_data,knn_data,train_set, valid_set, test_set, mis,k_neib):
     #print('time_knn',tknn,'time_sda',tsda)
 
     sda_er = MSE(test_set, gather.gather_out(), test_mask)
-    kn_er = MSE(test_set,knn_result,test_mask)
-    mean_er = MSE(mean_data,train_set.mean(axis=0),train_mask)
+    #kn_er = MSE(test_set,knn_result,test_mask)
+    #mean_er = MSE(mean_data,train_set.mean(axis=0),train_mask)
     
-    return(sda_er,kn_er,mean_er)
+    return(sda_er)  #,kn_er,mean_er)
 
 
 
@@ -121,23 +122,26 @@ if __name__ == "__main__":
     for mis in missing_percent:
         print('missing percentage: ',mis)       
         np.random.shuffle(train_set)
-        sd,knn,mean = mnist_block(mean_data,knn_data,train_set, valid_set, test_set, mis , k_neib)
+        sd = mnist_block(mean_data,knn_data,train_set, valid_set, test_set, mis , k_neib)
         sda_error.append(sd)
-        knn_error.append(knn)
-        mean_error.append(mean)
+        #knn_error.append(knn)
+        #mean_error.append(mean)
         
         print('sda_error= ',sda_error[-1])
-        print('knn_error= ',knn_error[-1])
-        print('mean_error= ',mean_error[-1])  
+        #print('knn_error= ',knn_error[-1])
+        #print('mean_error= ',mean_error[-1])  
 
 
 
 print('sda_error= ',sda_error)
-print('knn_error= ',knn_error)
-print('mean_error= ',mean_error)  
+#print('knn_error= ',knn_error)
+#print('mean_error= ',mean_error)  
 
 
-    
+
+
+
+"""
 day=time.strftime("%d-%m-%Y")
 tim=time.strftime("%H-%M")
 result=open('result/result_{}_{}_{}.dat'.format(data_name,day,tim),'w')
@@ -148,7 +152,7 @@ result.close()
 
         
 
-"""
+
 moheeeeeeeeeem
 plot(missing_percent,mean,marker='d',color='b',label='mean_row')
 plot(missing_percent,knn_error,marker='p',color='g',label='knn')
@@ -180,13 +184,18 @@ show()
 
 #################################  new############
 
-missing percentage:  0.1
-... Knn calculation with 50 neighbor
-... pre-training the model
-... getting the finetuning functions
-sda_error=  6.01451
-knn_error=  4.88066
-mean_error=  10.505
+
+k_neib = 50
+mean_error=[]
+knn_error=[]
+for mis in missing_percent:
+    print('missing percentage: ',mis)       
+    train_mask=block_mask(train_set.shape[0], np.ones_like(train_set), mis)
+    test_mask =block_mask(test_set.shape[0], np.ones_like(test_set), mis)
+    np.random.shuffle(train_set)
+    mean_t.append( MSE(train_set,train_set.mean(axis=0),train_mask))
+    knn_result = knn(test_set , test_mask ,k = k_neib)
+    knn_error.append(MSE(test_set,knn_result,test_mask))
 
 
 
