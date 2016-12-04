@@ -21,7 +21,9 @@ class Sda(object):
                   method=None,
                   problem = None,
                   activ_fun = None,
-                  drop = None):         
+                  drop = None,
+                  regu_l1 = None,
+                  regu_l2 = None):         
 
         self.activ_fun = activ_fun  #T.arctan  #T.tanh 
         
@@ -32,7 +34,8 @@ class Sda(object):
         self.method=method
         self.problem = problem
         self.drop = drop
-        
+        self.regu_l1 = regu_l1
+        self.regu_l2 = regu_l2
         #assert self.n_layers >= 2
 
  
@@ -195,8 +198,8 @@ class Sda(object):
         
         ################### add regularization ###################
 
-        lamb1 = 1e-8
-        lamb2 = 1e-5
+        lamb1 = self.regu_l1
+        lamb2 = self.regu_l2
 
         #L2 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l2)
         #L1 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l1)
@@ -204,7 +207,7 @@ class Sda(object):
         regu_l2 = T.sum([T.sum(T.sqr(layer.W)) for layer in self.network_layers] )
         regu_l1 = T.sum([ np.abs(T.sum(layer.W)) for layer in self.network_layers] ) 
 
-        cost_regu=cost   + lamb2 * regu_l2 # + lamb1 * regu_l1
+        cost_regu=cost # + lamb2 * regu_l2#  + lamb1 * regu_l1
 
         return cost_regu ,cost
 

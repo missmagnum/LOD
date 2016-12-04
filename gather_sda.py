@@ -25,7 +25,9 @@ class Gather_sda(object):
                  drop = [0.2, .5, .5],
                  dA_initiall = True,
                  error_known = True,
-                 activ_fun = None):
+                 activ_fun = None,
+                 regu_l1 = 0,
+                 regu_l2 = 0):
         self.problem = problem
         self.method = method
         self.pretraining_epochs = pretraining_epochs
@@ -39,7 +41,8 @@ class Gather_sda(object):
         self.error_known = error_known
         self.activ_fun = activ_fun
         self.drop = drop
-       
+        self.regu_l1 = regu_l1
+        self.regu_l2 = regu_l2
         def load_data(X):
             try:
                 matrix = X.as_matrix()
@@ -77,7 +80,9 @@ class Gather_sda(object):
             method=self.method,
             problem = self.problem,
             activ_fun = self.activ_fun,
-            drop = self.drop)
+            drop = self.drop,
+            regu_l1 =self.regu_l1,
+            regu_l2 = self.regu_l2)
                  
    
         pretraining_fns = self.sda.pretraining_functions(train_set_x = self.train_set,
@@ -115,7 +120,10 @@ class Gather_sda(object):
             method=self.method,
             problem = self.problem,
             activ_fun = self.activ_fun,
-            drop = self.drop)
+            drop = self.drop,
+            regu_l1 =self.regu_l1,
+            regu_l2 = self.regu_l2)
+                 
 
   
         

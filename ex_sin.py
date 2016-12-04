@@ -103,7 +103,7 @@ for kfold in range(cross_vali):
 
         data= (train_set*train_mask, valid_set *valid_mask ,test_set *test_mask)
         mask= train_mask, valid_mask, test_mask
-    #### SDA with test set for output
+        #### SDA with test set for output
         # method =  'rmsprop'  'adam'   'nes_mom'  'adadelta'  
         gather=Gather_sda(dataset = test_set*test_mask,
                           portion_data = data,
@@ -120,8 +120,9 @@ for kfold in range(cross_vali):
                           drop = [0.1 ,0., 0.,0.0,0.,0.],
                           dA_initiall = True ,
                           error_known = True ,
-                          activ_fun = T.tanh)  #T.nnet.sigmoid)
-
+                          activ_fun = T.tanh,
+                          regu_l1 = 0,
+                          regu_l2 = 0)  #T.nnet.sigmoid)
         gather.finetuning()
 
         ###########define nof K ###############
@@ -146,8 +147,9 @@ for kfold in range(cross_vali):
                           drop = [0.1 ,0., 0.,0.0,0.,0.],
                           dA_initiall = False ,
                           error_known = True ,
-                          activ_fun = T.tanh)  #T.nnet.sigmoid)
-
+                          activ_fun = T.tanh,
+                          regu_l1 = 0,
+                           regu_l2 = 15-5)  #T.nnet.sigmoid)
         gather2.finetuning()
 
  

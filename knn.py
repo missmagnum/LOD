@@ -2,7 +2,7 @@ import numpy as np
 import time
 import copy
 
-def knn(data, mask, k = 3, lamb=.5 ,norm=2 ): #for sine lamb=0.5
+def knn(data, mask, k = 3, lamb=.7 ,norm=2 ): #for sine lamb=0.5
     data=copy.copy(data)
     t0=time.time()
     n = data.shape[0]
@@ -24,7 +24,7 @@ def knn(data, mask, k = 3, lamb=.5 ,norm=2 ): #for sine lamb=0.5
     
     sort_d=np.argsort(D,axis=1)[:,:k]
 
-    #kernel function gaussian
+    #gaussian kernel function 
     k=lambda u: 1./(2*np.pi) * np.exp(-.5*u**2)
     
     for i,mis in enumerate(miss_rows):
