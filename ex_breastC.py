@@ -48,7 +48,7 @@ mean_error=[]
 knn_error=[]
 sdaw=[]
 missing_percent=np.linspace(0.1,0.9,9)
-missing_percent=[0.1,.5,.7]
+#missing_percent=[0.1,.5,.7]
 
 def MAE(x,xr,mas):
     return np.mean(np.sum((1-mas) * np.abs(x-xr),axis=1))
@@ -62,7 +62,7 @@ percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
 train, test_set = dataset[:percent] ,dataset[percent:]
     
 
-cross_vali = 1
+cross_vali = 30
 
 for kfold in range(cross_vali):
 
