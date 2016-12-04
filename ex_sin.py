@@ -35,7 +35,7 @@ def syn_ph(nsamp,nfeat,doplot=False):
  
     return X
 
-dat=syn_ph(1000,200) #1000,200
+dat=syn_ph(2000,500) #1000,200
 print(dat.shape)
 data_name = str('sine')
 
@@ -81,7 +81,7 @@ percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
 train, test_set = dataset[:percent] ,dataset[percent:]
     
 
-cross_vali = 50
+cross_vali = 20
 
 for kfold in range(cross_vali):
 
@@ -185,15 +185,15 @@ if cross_vali >2:
     result.close()
 
 """ 
-
+cross_vali = 20
 sda2_error=np.array(sda2_error)
 sda_error=np.array(sda_error)
 knn_error=np.array(knn_error)
 mean_error=np.array(mean_error)
-mean_error=mean_error.reshape(50,9)
-sda_error=sda_error.reshape(50,9)
-knn_error=knn_error.reshape(50,9)
-sda2_error=sda2_error.reshape(50,9)
+mean_error=mean_error.reshape(cross_vali,9)
+sda_error=sda_error.reshape(cross_vali,9)
+knn_error=knn_error.reshape(cross_vali,9)
+sda2_error=sda2_error.reshape(cross_vali,9)
 missing_percent=np.linspace(0.1,0.9,9)
 
 
@@ -212,18 +212,18 @@ sda2_con=scipy.stats.sem(sda2_error,axis=0)
 
 plt.figure()
 plt.errorbar(missing_percent,np.mean(mean_error,axis=0),yerr=mean_con,fmt='--o',
-             capsize=5, elinewidth=2,
+             
              label='Mean')
 plt.errorbar(missing_percent,np.mean(knn_error,axis=0),yerr=knn_con,fmt='--p',
-             capsize=5, elinewidth=2,
+             
              label='KNN' )
 plt.errorbar(missing_percent,np.mean(sda_error,axis=0),yerr=sda_con,fmt='--s',
-             capsize=5, elinewidth=2,
+             
              label='SDA')
 plt.errorbar(missing_percent,np.mean(sda2_error,axis=0),yerr=sda2_con,fmt='y--d',
-             capsize=5, elinewidth=2,
+             
              label='SDA_NOinitial')
-plt.axis([0,1,-50,300])
+plt.axis([0,1,-50,600])
 plt.xlabel('Corruption Fraction')
 plt.ylabel('Mean Squared Error')
 plt.title('dataset: Synthetic sine')
