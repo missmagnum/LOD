@@ -15,7 +15,7 @@ from update import Update
 class dA(object):    
 
     def __init__( self, numpy_rng, theano_rng=None, input=None, n_visible=None, n_hidden=None, W=None, bhid=None,
-                  bvis=None , method=None , problem = None, activation = None):
+                  bvis=None , method=None , problem = None, activation = None, regu_l1=0, regu_l2=0):
         
         self.n_visible = n_visible
         self.n_hidden = n_hidden
@@ -23,7 +23,8 @@ class dA(object):
         self.activ = activation
 
         self.srng = RandomStreams()
-               
+        self.regu_l1 = regu_l1
+        self.regu_l2 = regu_l2
         if not W:            
             W = theano.shared(self.floatX(np.random.randn(*shape) * 0.1), name='W', borrow=True)
           
@@ -77,15 +78,15 @@ class dA(object):
         L =T.sum(T.sqr(self.x-z))
         
         ################## add l2 regularization #################
-        lamb1 = 0.001 #1e-5
-        lamb2 = 1e-5
+        lamb1 = self.regu_l1  #0.001 #1e-5
+        lamb2 = self.regu_l2   #1e-5
         #L2 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l2)
         #L1 = lasagne.regularization.apply_penalty(self.params, lasagne.regularization.l1) * lambda1
 
         regu_l2 = T.sum(T.sqr(self.W)+T.sqr(self.b))
         regu_l1 = abs(T.sum(self.W)+T.sum(self.b))
         
-        cost = L  # + lamb2 * regu_l2
+        cost = L  + lamb2 * regu_l2 + lamb1 * regu_l1
         
         updates = Update(method = self.method,
                          cost = cost,

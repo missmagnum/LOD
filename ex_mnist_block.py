@@ -54,17 +54,20 @@ def mnist_block(mean_data,knn_data,train_set, valid_set, test_set, mis,k_neib):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs = 100,
+                          pretraining_epochs = 200,
                           pretrain_lr = 0.0001,
-                          training_epochs = 200,
-                          finetune_lr = 0.0001,
+                          training_epochs = 300,
+                          finetune_lr = 0.001,
                           batch_size = 200,
-                          hidden_size = [1500, 1000, 700, 500,100, 10],  #4/3*input_siz(784)
-                          drop = [0.2 ,0.4, 0.2,0., 0., 0.],
+                          hidden_size = [500,100,50,20],#[1500, 1000, 700, 500,100, 10],  #4/3*input_siz(784)
                           corruption_da = [0.1,0.2,.1,0.2,.1,.2,.1],
+                          drop = [0. ,0., 0.,0., 0., 0.],
                           dA_initiall = True ,
                           error_known = True ,
-                          activ_fun = T.tanh)  #T.tanh
+                          activ_fun = T.tanh,
+                           regu_l1 = 0,
+                           regu_l2 = 0)  #T.nnet.sigmoid)
+
     gather.finetuning()
     tsda=time.time()-t0
        
@@ -117,7 +120,7 @@ if __name__ == "__main__":
     k_neib = 50
     
     missing_percent=np.linspace(0.1,0.9,9)  
-    missing_percent=[0.1,0.5,0.7]
+    #missing_percent=[0.1,0.7]
     
     for mis in missing_percent:
         print('missing percentage: ',mis)       
@@ -172,13 +175,24 @@ missing_percent=np.linspace(0.1,0.9,9)
 sda_error = [ 0.736476 , 1.85685, 3.00893, 4.12659 , 5.60219 , 6.30348 , 8.02204 , 9.71651 ,11.1634]
 knn_error = [1.96055 , 4.74457 , 7.46039,  10.5575 , 13.9904 , 16.8772 ,  21.7978, 26.9399,31.4934 ]
 
-plot(missing_percent,sda_error,'r',label='sda')
-plot(missing_percent,knn_error,'g',label='knn')
-xlabel('corruption percentage')
-ylabel('MSE')
-title('dataset: mnist')
-legend(loc=4,prop={'size':9})
-show()
+##################################
+########### newww###########
+###########################
+knn_error=[1.7397797, 4.275413, 6.853189, 9.7639074, 13.335321, 16.241966, 21.760809, 27.171543, 31.859787]
+mean_error=[4.7033215, 10.997454, 16.415567, 21.104965, 25.229851, 27.643652, 30.799232, 33.65448, 36.068344]
+sda2_error=[1.6806329, 4.2822728, 7.0028443, 9.9428701, 12.951344, 15.145611, 18.751986, 22.803793, 27.501806]
+sda_error= [1.1633412, 3.0349267, 5.2854376, 7.7296195, 10.480906, 12.572124, 15.705773, 19.590054, 22.809366]
+
+
+plt.plot(missing_percent,mean_error,'b--o',label='Mean')
+plt.plot(missing_percent,sda2_error,'y--d',label='SDA_NOinitial')
+plt.plot(missing_percent,sda_error,'r--s',label='SDA')
+plt.plot(missing_percent,knn_error,'g--p',label='KNN')
+plt.xlabel('corruption percentage')
+plt.ylabel('MSE')
+plt.title('dataset: mnist')
+plt.legend(loc=4,prop={'size':9})
+plt.show()
 
 
 

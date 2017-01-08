@@ -35,11 +35,22 @@ def syn_ph(nsamp,nfeat,doplot=False):
  
     return X
 
+
 dat=syn_ph(2000,500) #1000,200
 print(dat.shape)
 data_name = str('sine')
 
 dataset=dat
+
+"""
+#########################MDS##################################
+from sklearn import manifold
+mds = manifold.MDS(8) ## with the number of frequency
+data = mds.fit_transform(dat)
+plt.scatter(data[:,0],data[:,1])
+plt.show()
+##############################################################
+"""
 
 
 #################NORMALIZATION#############################
@@ -81,7 +92,7 @@ percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
 train, test_set = dataset[:percent] ,dataset[percent:]
     
 
-cross_vali = 20
+cross_vali = 1
 
 for kfold in range(cross_vali):
 
@@ -110,14 +121,14 @@ for kfold in range(cross_vali):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs =200,
-                          pretrain_lr = 0.0001,
-                          training_epochs = 300,
-                          finetune_lr = 0.0001,
+                          pretraining_epochs =100,
+                          pretrain_lr = 0.001,
+                          training_epochs = 50,
+                          finetune_lr = 0.001,
                           batch_size = 50,
-                          hidden_size = [250,100,50,8],#,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
+                          hidden_size = [50,20,10],#,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
                           corruption_da = [0.2,0.3, 0.2,0.1,0.1,0.1,0.1],
-                          drop = [0.1 ,0., 0.,0.0,0.,0.],
+                          drop = [0. ,0., 0.,0.0,0.,0.],
                           dA_initiall = True ,
                           error_known = True ,
                           activ_fun = T.tanh,
@@ -137,19 +148,19 @@ for kfold in range(cross_vali):
                           problem = 'regression',
                           available_mask = mask,
                           method = 'adam',
-                          pretraining_epochs =200,
-                          pretrain_lr = 0.0001,
-                          training_epochs = 300,
-                          finetune_lr = 0.0001,
+                          pretraining_epochs =100,
+                          pretrain_lr = 0.001,
+                          training_epochs = 50,
+                          finetune_lr = 0.001,
                           batch_size = 50,
-                          hidden_size = [250,100,50,8],#,10,2],  # 1st lay_unit: 4/3*input_size[400,100,20,3
+                          hidden_size =  [50,20,10],#[250,100,50,8] 1st lay_unit: 4/3*input_size[400,100,20,3
                           corruption_da = [0.2,0.1, 0.1,0.1,.1,.2,.1],
-                          drop = [0.1 ,0., 0.,0.0,0.,0.],
+                          drop = [0. ,0., 0.,0.0,0.,0.],
                           dA_initiall = False ,
                           error_known = True ,
                           activ_fun = T.tanh,
                           regu_l1 = 0,
-                           regu_l2 = 15-5)  #T.nnet.sigmoid)
+                           regu_l2 = 0)  #T.nnet.sigmoid)
         gather2.finetuning()
 
  
@@ -185,7 +196,7 @@ if cross_vali >2:
     result.close()
 
 """ 
-cross_vali = 20
+
 sda2_error=np.array(sda2_error)
 sda_error=np.array(sda_error)
 knn_error=np.array(knn_error)
@@ -203,11 +214,11 @@ sda_con=np.std(sda_error,axis=0)
 sda2_con=np.std(sda2_error,axis=0)
 
 
-import scipy
-mean_con=scipy.stats.sem(mean_error,axis=0)
-knn_con=scipy.stats.sem(knn_error,axis=0)
-sda_con=scipy.stats.sem(sda_error,axis=0)
-sda2_con=scipy.stats.sem(sda2_error,axis=0)
+#import scipy
+#mean_con=scipy.stats.sem(mean_error,axis=0)
+#knn_con=scipy.stats.sem(knn_error,axis=0)
+#sda_con=scipy.stats.sem(sda_error,axis=0)
+#sda2_con=scipy.stats.sem(sda2_error,axis=0)
 
 
 plt.figure()
@@ -233,4 +244,21 @@ plt.show()
 
 
 """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

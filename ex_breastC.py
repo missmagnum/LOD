@@ -62,7 +62,7 @@ percent = int(dataset.shape[0] * 0.8)   ### %80 of dataset for training
 train, test_set = dataset[:percent] ,dataset[percent:]
     
 
-cross_vali = 30
+cross_vali = 20
 
 for kfold in range(cross_vali):
 
@@ -193,10 +193,10 @@ plt.errorbar(missing_percent,np.mean(knn_error,axis=0),yerr=knn_con,fmt='--p',
 plt.errorbar(missing_percent,np.mean(sda_error,axis=0),yerr=sda_con,fmt='--s',
              
              label='SDA')
-plt.errorbar(missing_percent,np.mean(sda2_error,axis=0),yerr=sda2_con,fmt='y--d',
+plt.errorbar(missing_percent,np.mean(sda2_error,axis=0),yerr=sda2_con,fmt='m--d',
              
              label='SDA_NOinitial')
-plt.axis([0,1,-50,600])
+plt.axis([0,1,0,130])
 plt.xlabel('Corruption Fraction')
 plt.ylabel('Mean Squared Error')
 plt.title('dataset: Protein_breastcancer ')

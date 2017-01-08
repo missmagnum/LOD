@@ -93,7 +93,9 @@ for kfold in range(cross_vali):
                           drop = [0.2, 0.3, 0.3,0.1,0.2,0.],
                           dA_initiall = True ,
                           error_known = True ,
-                          activ_fun = T.tanh)  #T.nnet.sigmoid)
+                          activ_fun = T.tanh,
+                           regu_l1 = 0,
+                           regu_l2 = 0)  #T.nnet.sigmoid)
 
         gather.finetuning()
         ###########define nof K ###############
